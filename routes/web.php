@@ -29,6 +29,11 @@ Route::get('/Project-Details', function () {
 Route::get('/project-issue', [ProjectController::class, 'issue'])->name('Project-Issue');
 
 
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+
 Route::get('/Keuangan', function () {
     return view('keuangan');
 })->name('Keuangan');
