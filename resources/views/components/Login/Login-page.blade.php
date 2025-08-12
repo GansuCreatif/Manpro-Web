@@ -14,9 +14,8 @@
         <!-- Login Form -->
         <form class="p-8">
             <div class="space-y-6">
-                <!-- Email Field -->
+                <!-- NIPP Field -->
                 <div>
-                    <label for="nipp" class="block text-sm font-medium text-gray-700 mb-1">NIPP</label>
                     <div class="relative">
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <svg class="h-6 w-6 text-gray-500" fill="currentColor" viewBox="0 0 24 24"
@@ -35,7 +34,6 @@
 
                 <!-- Password Field -->
                 <div>
-                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
                     <div class="relative">
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
@@ -44,9 +42,9 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                         </div>
-                        <input id="password" name="password" type="password" autocomplete="current-password" required
+                        <input id="password" name="password" type="password"
                             class="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2.5 px-4 border"
-                            placeholder="••••••••">
+                            placeholder="Password">
                     </div>
                 </div>
                 <!-- Submit Button -->
