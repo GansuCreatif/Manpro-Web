@@ -5,16 +5,20 @@ use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\ApiBridgeController;
 use App\Http\Controllers\ProjectController; 
 
+
+use App\Http\Controllers\AuthController;
+
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.custom');
+
+Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('auth')->name('dashboard');
+
 Route::get('/data-project', [ApiBridgeController::class, 'getProjects']);
-
-
 Route::get('/', function () {
     return view('dashboard');
 })->name('Dashboard');
 
 Route::get('/project-list', [ProjectController::class, 'list'])->name('Project-List');
-
-
 
 Route::get('/Project-Details', function () {
     // Panggil API .NET

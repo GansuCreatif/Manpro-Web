@@ -12,7 +12,7 @@
         </div>
 
         <!-- Login Form -->
-        <form class="p-8">
+        <form class="p-8" method="POST" action="{{ route('login.custom') }}">
             <div class="space-y-6">
                 <!-- NIPP Field -->
                 <div>
