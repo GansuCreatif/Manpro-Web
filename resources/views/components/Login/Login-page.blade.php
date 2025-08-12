@@ -26,11 +26,9 @@
                                 <path d="M4 20c0-4 4-6 8-6s8 2 8 6v1H4v-1z" />
                             </svg>
                         </div>
-                        <input id="nipp" name="nipp" type="text" inputmode="numeric" pattern="[0-9]*"
+                        <input id="nipp" name="nipp" type="text" pattern="[0-9]*"
                             class="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2.5 px-4 border"
-                            placeholder="NIPP" oninput="this.value = this.value.replace(/[^0-9]/g, '');" maxlength="20"
-                            required>
-
+                            placeholder="NIPP" maxlength="20" required>
                     </div>
                 </div>
 
