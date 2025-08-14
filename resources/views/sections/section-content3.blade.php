@@ -334,47 +334,38 @@
             </div>
         </div>
     </div>
-    <div class="grid grid-cols-2 gap-2 px-5 py-5">
-        <!-- UMD -->
-        <div class="bg-blue-50 rounded-2xl">
-            <div class="">
-                <h5 class="inline-block  border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">
-                    UMD
-                </h5>
-                <div class="h-1 w-full bg-blue-500 rounded-sm"></div>
-            </div>
-            <div class="overflow-x-auto mt-2 bg-white">
-                <table class="w-full text-sm text-left rtl:text-right text-black-500 bg-blue">
-                    <tbody>
-                        <tr>
-                            <td class="py-2 px-4 text font-bold">Saldo</td>
-                            <td>: Rp.200.000.000 / Rp. 10.000.000.000 (2%)</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 font-bold">Bank</td>
-                            <td>: Mandiri</td>
-
-                        </tr>
-                        <tr>
-                            <td class="px-4 font-bold">Atas Nama</td>
-                            <td>: Unit PPR</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 font-bold">VA / Nomor Rekening</td>
-                            <td>: 1234-5678-9012-1234</td>
-                        </tr>
-                        <tr>
-                            <!-- Tombol di dalam tabel -->
-                            <td colspan="4" class="text-right mb-10">
-                                <x-modal.select-modal id="select-modal" title="Pilih Tipe" :options="[
-                                    ['id' => 'job-1', 'title' => 'Cost', 'subtitle' => 'Cost'],
-                                    ['id' => 'job-2', 'title' => 'Time', 'subtitle' => 'Time'],
-                                ]">
-                                    <button
-                                        class="text-white inline-flex w-full justify-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                                        Next step
-                                    </button>
-                                </x-modal.select-modal>
+    <!-- UMD -->
+    <div class="bg-blue-50 rounded-2xl mb-5">
+        <div class="">
+            <h5 class="inline-block  border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">
+                UMD
+            </h5>
+            <div class="h-1 w-full bg-blue-500 rounded-sm"></div>
+        </div>
+        <div class="overflow-x-auto mt-2 bg-white">
+            <table class="text-sm text-left rtl:text-right text-black-500 bg-blue">
+                <tbody>
+                    <tr>
+                        <td class="py-2 px-4 text font-bold">Saldo</td>
+                        <td>: Rp.200.000.000 / Rp. 10.000.000.000 (2%)</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 font-bold">Bank</td>
+                        <td>: Mandiri</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 font-bold">Atas Nama</td>
+                        <td>: Unit PPR</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 font-bold">VA / Nomor Rekening</td>
+                        <td>: 1234-5678-9012-1234</td>
+                    </tr>
+                    <tr>
+                        <!-- Tombol di dalam tabel -->
+                        <td colspan="4">
+                            <div class="flex justify-end gap-2 mb-2">
+                                <!-- Tombol Add New -->
                                 <button type="button" data-modal-target="select-modal"
                                     data-modal-toggle="select-modal"
                                     class="inline-flex items-center px-2 py-1 bg-orange-500 hover:bg-orange-600 text-white text-xs font-medium rounded-md shadow focus:outline-none focus:ring-1 focus:ring-orange-400">
@@ -384,10 +375,21 @@
                                     </svg>
                                     Add New
                                 </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+
+                                <!-- Komponen Modal -->
+                                <x-modal.select-modal id="select-modal" title="Pilih Tipe" :options="[
+                                    ['id' => 'job-1', 'title' => 'Cost', 'subtitle' => 'Cost'],
+                                    ['id' => 'job-2', 'title' => 'Time', 'subtitle' => 'Time'],
+                                ]">
+                                    <button
+                                        class="text-white inline-flex w-full justify-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                        Next step
+                                    </button>
+                                </x-modal.select-modal>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
                 <div class="w-full overflow-x-auto lg:overflow-x-visible mt-2">
                     <table class="min-w-full table-auto text-sm text-left bg-blue">
                         <thead class="bg-orange-500 text-orange-900 font-bold">
@@ -512,215 +514,216 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
+                <tbody>
+            </table>
         </div>
-        <!-- WBS Level -->
-        <div class="bg-blue-50">
-            <div>
-                <h5 class=" border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">
-                    WBS LEVEL
-                </h5>
-                <div class="h-1 w-full bg-blue-500 rounded-sm"></div>
-            </div>
-            <div>
-                <div class="w-full overflow-x-auto lg:overflow-x-visible mt-2 pt-2 bg-white">
-                    <table class="overflow-x-auto w-full table-auto text-left text-sm font-sans">
-                        <thead class="text-center">
-                            <tr class="bg-orange-500 text-orange-900 font-bold">
-                                <th class="">Element</th>
-                                <th class="px-2 py-2">Priority</th>
-                                <th class="px-2 py-2">Status</th>
-                                <th class="px-2 py-2">Start</th>
-                                <th class="">End</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-800">
-                            <!-- Level 1 -->
-                            <tr>
-                                <td class="pl-1 whitespace-nowrap">1. Pengembangan Empl TMB Divre III Pg</td>
-                                <td class="text-center">-</td>
-                                <td class="text-center">-</td>
-                                <td class="whitespace-nowrap px-4">1 Oktober 2025</td>
-                                <td class="text-center">-</td>
-                            </tr>
+    </div>
+    <!-- WBS Level -->
+    <div class="bg-blue-50">
+        <div>
+            <h5 class=" border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">
+                WBS LEVEL
+            </h5>
+            <div class="h-1 w-full bg-blue-500 rounded-sm"></div>
+        </div>
+        <div>
+            <div class="w-full overflow-x-auto lg:overflow-x-visible mt-2 pt-2 bg-white">
+                <table class="overflow-x-auto w-full table-auto text-left text-sm font-sans">
+                    <thead class="text-center">
+                        <tr class="bg-orange-500 text-orange-900 font-bold">
+                            <th class="">Element</th>
+                            <th class="px-2 py-2">Priority</th>
+                            <th class="px-2 py-2">Status</th>
+                            <th class="px-2 py-2">Start</th>
+                            <th class="">End</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-800">
+                        <!-- Level 1 -->
+                        <tr>
+                            <td class="pl-1 whitespace-nowrap">1. PENGEMBANGAN EMPLASEMEN TANJUNGENIMBARU</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                            <td class="whitespace-nowrap px-4">1 Oktober 2025</td>
+                            <td class="text-center">-</td>
+                        </tr>
 
-                            <!-- Level 2 -->
-                            <tr>
-                                <td class="pl-4">1.1. PENGEMBANGAN EMPLASEMEN TANJUNGENIMBARU</td>
-                                <td class="text-center">-</td>
-                                <td class="text-center">-</td>
-                                <td class="whitespace-nowrap px-4">1 Jan 2025</td>
-                                <td class="text-center">-</td>
-                            </tr>
+                        <!-- Level 2 -->
+                        <tr>
+                            <td class="pl-4">1.1. Pekerjaan Persiapan</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                            <td class="whitespace-nowrap px-4">1 Jan 2025</td>
+                            <td class="text-center">-</td>
+                        </tr>
 
-                            <!-- Level 3 -->
-                            <tr>
-                                <td class="pl-8">1.1.1. Pondasi</td>
-                                <td class="text-center">-</td>
-                                <td class="text-center">-</td>
-                                <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
-                                <td class="text-center">-</td>
-                            </tr>
-                            <!-- Level 4 -->
-                            <tr>
-                                <td class="pl-16">1.1.1.1. Tanah</td>
-                                <td class="text-center font-semibold text-green-900">approve</td>
-                                <td class="text-center font-semibold text-green-600">approve</td>
-                                <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
-                                <td class="text-center whitespace-nowrap">1 Jan 2025</td>
-                            </tr>
-                            <tr>
-                                <td class="pl-16">1.1.1.2. Batu Kali</td>
-                                <td class="text-center font-semibold text-green-700">-</td>
-                                <td class="text-center font-semibold text-green-600">-</td>
-                                <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
-                                <td class="text-center">1 Jan 2025</td>
-                            </tr>
-                            <tr>
-                                <td class="pl-16">1.1.1.3. Slop</td>
-                                <td class="text-center font-semibold text-green-700">-</td>
-                                <td class="text-center font-semibold text-green-600">-</td>
-                                <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
-                                <td class="text-center">1 Jan 2025</td>
-                            </tr>
+                        <!-- Level 3 -->
+                        <tr>
+                            <td class="pl-8">1.1.1.</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                            <td class="px-4 whitespace-nowrap">-</td>
+                            <td class="text-center">-</td>
+                        </tr>
+                        <!-- Level 4 -->
+                        <tr>
+                            <td class="pl-16">1.1.1.1.</td>
+                            <td class="text-center font-semibold text-green-900">-</td>
+                            <td class="text-center font-semibold text-green-600">-</td>
+                            <td class="px-4 whitespace-nowrap">-</td>
+                            <td class="text-center whitespace-nowrap">-</td>
+                        </tr>
+                        <tr>
+                            <td class="pl-16">1.1.1.2.</td>
+                            <td class="text-center font-semibold text-green-700">-</td>
+                            <td class="text-center font-semibold text-green-600">-</td>
+                            <td class="px-4 whitespace-nowrap">-</td>
+                            <td class="text-center">-</td>
+                        </tr>
+                        <tr>
+                            <td class="pl-16">1.1.1.3.</td>
+                            <td class="text-center font-semibold text-green-700">-</td>
+                            <td class="text-center font-semibold text-green-600">-</td>
+                            <td class="px-4 whitespace-nowrap">-</td>
+                            <td class="text-center">-</td>
+                        </tr>
 
-                            <!-- Next 1.1.2 Pondasi -->
-                            <tr>
-                                <td class="pl-8">1.1.2. Pondasi</td>
-                                <td class="text-center">-</td>
-                                <td class="text-center">-</td>
-                                <td class="px-4 whitespace-nowrap">-</td>
-                                <td class="text-center">-</td>
-                            </tr>
+                        <!-- Next 1.1.2 Pondasi -->
+                        <tr>
+                            <td class="pl-8">1.1.2.</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                            <td class="px-4 whitespace-nowrap">-</td>
+                            <td class="text-center">-</td>
+                        </tr>
 
-                            <tr>
-                                <td class="pl-16">1.1.2.1 Tanah</td>
-                                <td class="text-center font-semibold text-green-700">-</td>
-                                <td class="text-center font-semibold text-blue-700">-</td>
-                                <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
-                                <td class="text-center">1 Jan 2025</td>
-                            </tr>
-                            <tr>
-                                <td class="pl-16">1.1.2.1 Batu Kali</td>
-                                <td class="text-center font-semibold text-green-900">-</td>
-                                <td class="text-center font-semibold text-blue-500">-</td>
-                                <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
-                                <td class="text-center">1 Jan 2025</td>
-                            </tr>
-                            <tr>
-                                <td class="pl-16">1.1.2.3 Slop</td>
-                                <td class="text-center font-semibold text-green-500">-</td>
-                                <td class="text-center font-semibold text-blue-500">-</td>
-                                <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
-                                <td class="text-center">1 Jan 2025</td>
-                            </tr>
+                        <tr>
+                            <td class="pl-16">1.1.2.1</td>
+                            <td class="text-center font-semibold text-green-700">-</td>
+                            <td class="text-center font-semibold text-blue-700">-</td>
+                            <td class="px-4 whitespace-nowrap">-</td>
+                            <td class="text-center">-</td>
+                        </tr>
+                        <tr>
+                            <td class="pl-16">1.1.2.1</td>
+                            <td class="text-center font-semibold text-green-900">-</td>
+                            <td class="text-center font-semibold text-blue-500">-</td>
+                            <td class="px-4 whitespace-nowrap">-</td>
+                            <td class="text-center">-</td>
+                        </tr>
+                        <tr>
+                            <td class="pl-16">1.1.2.3</td>
+                            <td class="text-center font-semibold text-green-500">-</td>
+                            <td class="text-center font-semibold text-blue-500">-</td>
+                            <td class="px-4 whitespace-nowrap">-</td>
+                            <td class="text-center">-</td>
+                        </tr>
 
-                            <!-- Level 3 -->
-                            <tr>
-                                <td class="pl-8">1.1.3. Pondasi</td>
-                                <td class="text-center">-</td>
-                                <td class="text-center">-</td>
-                                <td class="px-4 whitespace-nowrap">-</td>
-                                <td class="text-center">-</td>
-                            </tr>
+                        <!-- Level 3 -->
+                        <tr>
+                            <td class="pl-8">1.1.3.</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                            <td class="px-4 whitespace-nowrap">-</td>
+                            <td class="text-center">-</td>
+                        </tr>
 
-                            <tr>
-                                <td class="pl-16">1.1.3.1 Tanah</td>
-                                <td class="text-center font-semibold text-green-700">-</td>
-                                <td class="text-center font-semibold text-blue-600">-</td>
-                                <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
-                                <td class="text-center">1 Jan 2025</td>
-                            </tr>
-                            <tr>
-                                <td class="pl-16">1.1.3.2 Batu Kali</td>
-                                <td class="text-center font-semibold text-green-700">-</td>
-                                <td class="text-center font-semibold text-blue-600">-</td>
-                                <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
-                                <td class="text-center">1 Jan 2025</td>
-                            </tr>
-                            <tr>
-                                <td class="pl-16">1.3.2.3 Slop</td>
-                                <td class="text-center font-semibold text-green-500">-</td>
-                                <td class="text-center font-semibold text-red-600">-</td>
-                                <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
-                                <td class="text-center">1 Jan 2025</td>
-                            </tr>
+                        <tr>
+                            <td class="pl-16">1.1.3.1</td>
+                            <td class="text-center font-semibold text-green-700">-</td>
+                            <td class="text-center font-semibold text-blue-600">-</td>
+                            <td class="px-4 whitespace-nowrap">-</td>
+                            <td class="text-center">-</td>
+                        </tr>
+                        <tr>
+                            <td class="pl-16">1.1.3.2</td>
+                            <td class="text-center font-semibold text-green-700">-</td>
+                            <td class="text-center font-semibold text-blue-600">-</td>
+                            <td class="px-4 whitespace-nowrap">-</td>
+                            <td class="text-center">-</td>
+                        </tr>
+                        <tr>
+                            <td class="pl-16">1.3.2.3</td>
+                            <td class="text-center font-semibold text-green-500">-</td>
+                            <td class="text-center font-semibold text-red-600">-</td>
+                            <td class="px-4 whitespace-nowrap">-</td>
+                            <td class="text-center">-</td>
+                        </tr>
 
-                            <!-- Level 2 -->
-                            <tr>
-                                <td class="pl-4">1.2. Pekerjaan Struktur</td>
-                                <td class="text-center">-</td>
-                                <td class="text-center">-</td>
-                                <td class="px-4 whitespace-nowrap">-</td>
-                                <td class="text-center">-</td>
-                            </tr>
+                        <!-- Level 2 -->
+                        <tr>
+                            <td class="pl-4">1.2. Pekerjaan TRACK</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                            <td class="px-4 whitespace-nowrap">-</td>
+                            <td class="text-center">-</td>
+                        </tr>
 
-                            <tr>
-                                <td class="pl-8">1.2.1. Pondasi</td>
-                                <td class="text-center">-</td>
-                                <td class="text-center">-</td>
-                                <td class="px-4 whitespace-nowrap">-</td>
-                                <td class="text-center">-</td>
-                            </tr>
+                        <tr>
+                            <td class="pl-8">1.2.1.</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                            <td class="px-4 whitespace-nowrap">-</td>
+                            <td class="text-center">-</td>
+                        </tr>
 
-                            <tr>
-                                <td class="pl-16">1.2.1.1. Tanah</td>
-                                <td class="text-center font-semibold text-green-900">-</td>
-                                <td class="text-center font-semibold text-red-600">-</td>
-                                <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
-                                <td class="text-center">1 Jan 2025</td>
-                            </tr>
-                            <!-- level 1 bab 2 -->
-                            <tr>
-                                <td class="pl-1 whitespace-nowrap">2. Pengembangan Gedung SCKD</td>
-                                <td class="text-center">-</td>
-                                <td class="text-center">-</td>
-                                <td class="px-4 whitespace-nowrap">1 Oktober 2025</td>
-                                <td class="text-center">-</td>
-                            </tr>
-                            <!-- Level 2 -->
-                            <tr>
-                                <td class="pl-4">2.1. Pekerjaan Struktur</td>
-                                <td class="text-center">-</td>
-                                <td class="text-center">-</td>
-                                <td class="px-4 whitespace-nowrap">-</td>
-                                <td class="text-center">-</td>
-                            </tr>
+                        <tr>
+                            <td class="pl-16">1.2.1.1.</td>
+                            <td class="text-center font-semibold text-green-900">-</td>
+                            <td class="text-center font-semibold text-red-600">-</td>
+                            <td class="px-4 whitespace-nowrap">-</td>
+                            <td class="text-center">-</td>
+                        </tr>
+                        <!-- level 1 bab 2 -->
+                        <tr>
+                            <td class="pl-1 whitespace-nowrap">2. Pengembangan Gedung SCKD</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                            <td class="px-4 whitespace-nowrap">1 Oktober 2025</td>
+                            <td class="text-center">-</td>
+                        </tr>
+                        <!-- Level 2 -->
+                        <tr>
+                            <td class="pl-4">2.1. Pekerjaan Struktur</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                            <td class="px-4 whitespace-nowrap">-</td>
+                            <td class="text-center">-</td>
+                        </tr>
 
-                            <!-- Level 3 -->
-                            <tr>
-                                <td class="pl-8">2.1.1. Pondasi</td>
-                                <td class="text-center">-</td>
-                                <td class="text-center">-</td>
-                                <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
-                                <td class="text-center">-</td>
-                            </tr>
-                            <!-- Level 4 -->
-                            <tr>
-                                <td class="pl-16">2.1.1.1. Tanah</td>
-                                <td class="text-center font-semibold text-green-900">-</td>
-                                <td class="text-center font-semibold text-green-600">-</td>
-                                <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
-                                <td class="text-center">1 Jan 2025</td>
-                            </tr>
-                            <tr>
-                                <td class="pl-16">2.1.1.2. Batu Kali</td>
-                                <td class="text-center font-semibold text-green-700">-</td>
-                                <td class="text-center font-semibold text-green-600">-</td>
-                                <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
-                                <td class="text-center">1 Jan 2025</td>
-                            </tr>
-                            <tr>
-                                <td class="pl-16">2.1.1.3. Slop</td>
-                                <td class="text-center font-semibold text-green-700">-</td>
-                                <td class="text-center font-semibold text-green-600">-</td>
-                                <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
-                                <td class="text-center">1 Jan 2025</td>
-                            </tr>
+                        <!-- Level 3 -->
+                        <tr>
+                            <td class="pl-8">2.1.1. Pondasi</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                            <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
+                            <td class="text-center">-</td>
+                        </tr>
+                        <!-- Level 4 -->
+                        <tr>
+                            <td class="pl-16">2.1.1.1. Tanah</td>
+                            <td class="text-center font-semibold text-green-900">-</td>
+                            <td class="text-center font-semibold text-green-600">-</td>
+                            <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
+                            <td class="text-center">1 Jan 2025</td>
+                        </tr>
+                        <tr>
+                            <td class="pl-16">2.1.1.2. Batu Kali</td>
+                            <td class="text-center font-semibold text-green-700">-</td>
+                            <td class="text-center font-semibold text-green-600">-</td>
+                            <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
+                            <td class="text-center">1 Jan 2025</td>
+                        </tr>
+                        <tr>
+                            <td class="pl-16">2.1.1.3. Slop</td>
+                            <td class="text-center font-semibold text-green-700">-</td>
+                            <td class="text-center font-semibold text-green-600">-</td>
+                            <td class="px-4 whitespace-nowrap">1 Jan 2025</td>
+                            <td class="text-center">1 Jan 2025</td>
+                        </tr>
 
-                        </tbody>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
