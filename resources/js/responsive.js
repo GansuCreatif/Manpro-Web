@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (btn && sidebar && wrapper && navbar) {
         btn.addEventListener("click", () => {
-            const sidebarHidden = sidebar.classList.toggle("-translate-y-full");
+            const sidebarHidden = sidebar.classList.toggle("-translate-x-full");
 
             if (sidebarHidden) {
                 // Sidebar tertutup → full width

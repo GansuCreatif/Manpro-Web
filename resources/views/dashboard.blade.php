@@ -8,7 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-gray-50">
+<body class="bg-gray-50 overflow-x-hidden">
 
     <!-- Navbar -->
     @include('sections.section-navbar')
@@ -17,15 +17,14 @@
     @include('sections.section-sidebar')
 
     <!-- Main layout -->
-    <div class="flex pt-16 min-h-screen">
+    <div class="flex pt-16 min-h-screen bg-blue-50">
         <div id="main-wrapper" class="flex-1 flex flex-col transition-all duration-300 ml-64">
 
             <main id="main-content" class="flex-1 p-6">
                 @include('sections.section-dashboard')
+                <!-- Footer -->
+                @include('sections.section-footer')
             </main>
-
-            <!-- Footer -->
-            @include('sections.section-footer')
         </div>
     </div>
 </body>

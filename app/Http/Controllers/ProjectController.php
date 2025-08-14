@@ -26,4 +26,13 @@ class ProjectController extends Controller
         $projects = $this->getAllProjects();
         return view('project-issue', compact('projects'));
     }
+   public function detail($code = 'PRJ003')
+{
+    $projects = $this->getAllProjects();
+    $project = collect($projects)->firstWhere('code_project', $code);
+
+    return view('project-detail', compact('project'));
+}
+
+    
 }

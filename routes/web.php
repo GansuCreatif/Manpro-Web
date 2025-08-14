@@ -20,16 +20,7 @@ Route::get('/', function () {
 
 Route::get('/project-list', [ProjectController::class, 'list'])->name('Project-List');
 
-Route::get('/Project-Details', function () {
-    // Panggil API .NET
-    $response = Http::get('http://localhost:5014/api/v1/transaction/project/all');
-
-    // Ambil data dari API
-    $data = $response->successful() ? $response->json()['data'] : [];
-
-    // Kirim ke view
-    return view('detail', ['projects' => $data]);
-})->name('Project-Details');
+Route::get('/project-detail/{code?}', [ProjectController::class, 'detail'])->name('Project-Details');
 Route::get('/project-issue', [ProjectController::class, 'issue'])->name('Project-Issue');
 
 

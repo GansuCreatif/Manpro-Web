@@ -17,14 +17,14 @@
     @include('sections.section-sidebar')
 
     <!-- Main layout -->
-    <div class="flex pt-16 min-h-screen">
+    <div class="flex pt-16 min-h-screen bg-blue-50">
         <div id="main-wrapper" class="flex-1 flex flex-col transition-all duration-300 ml-64">
+
             <main id="main-content" class="flex-1 p-6">
-                <h1 class="text-3xl font-bold mb-4 text-blue-400">Project List</h1>
-                <x-project-list.project-table :projects="$projects" />
+                @include('sections.section-content2')
+                <!-- Footer -->
+                @include('sections.section-footer')
             </main>
-            <!-- Footer -->
-            @include('sections.section-footer')
         </div>
     </div>
 </body>

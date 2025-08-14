@@ -95,7 +95,7 @@
                             </td>
                             <td class="px-2 py-3">{{ $project['status'] }}</td>
                             <td class="px-2 py-3 flex justify-center gap-2">
-                                <a href="{{ route('Project-Details') }}"
+                                <a href="{{ route('Project-Details', ['code' => 'PRJ003']) }}"
                                     class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
                                     Details
                                 </a>
