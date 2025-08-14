@@ -408,10 +408,10 @@
                                         UMD 1
                                     </a>
                                 </td>
-                                <td class="py-1 px-2 text-center">Rp.20.000.000</td>
-                                <td class="py-1 px-2 text-center">Rp.20.000.000</td>
+                                <td class="text-center">Rp.20.000.000</td>
+                                <td class="text-center">Rp.20.000.000</td>
                                 <td class="text-center">5 Jan 2025</td>
-                                <td class="py-1 px-2 font-bold text-green-400">Close</td>
+                                <td class="font-bold text-green-400 text-center">CLOSED</td>
                             </tr>
                             <tr>
                                 <td class="py-1 px-2">2</td>
@@ -420,10 +420,10 @@
                                         UMD 2
                                     </a>
                                 </td>
-                                <td class="py-1 px-2 text-center">Rp.15.000.000</td>
-                                <td class="py-1 px-2 text-center">Rp.15.000.000</td>
+                                <td class="text-center">Rp.15.000.000</td>
+                                <td class="text-center">Rp.15.000.000</td>
                                 <td class="text-center">5 Mar 2025</td>
-                                <td class="py-1 px-2 font-bold text-red-600">SP-1</td>
+                                <td class="font-bold text-red-600 text-center">SP-1</td>
                             </tr>
                             <tr>
                                 <td class="py-1 px-2">3</td>
@@ -432,10 +432,10 @@
                                         UMD 3
                                     </a>
                                 </td>
-                                <td class="py-1 px-2 text-center">Rp.25.000.000</td>
-                                <td class="py-1 px-2 text-center">Rp.25.000.000</td>
+                                <td class="text-center">Rp.25.000.000</td>
+                                <td class="text-center">Rp.25.000.000</td>
                                 <td class="text-center">5 May 2025</td>
-                                <td class="py-1 px-2 font-bold text-blue-600">Approve</td>
+                                <td class="font-bold text-blue-600 text-center">APPROVE</td>
                             </tr>
                             <tr>
                                 <td class="py-1 px-2">4</td>
@@ -444,10 +444,10 @@
                                         UMD 4
                                     </a>
                                 </td>
-                                <td class="py-1 px-2 text-center">Rp.30.000.000</td>
-                                <td class="py-1 px-2 text-center">Rp.30.000.000</td>
+                                <td class="text-center">Rp.30.000.000</td>
+                                <td class="text-center">Rp.30.000.000</td>
                                 <td class="text-center">15 Jun 2025</td>
-                                <td class="py-1 px-2 font-bold text-blue-900">Verify</td>
+                                <td class="font-bold text-blue-900 text-center">VERIFY</td>
                             </tr>
                             <tr>
                                 <td class="py-1 px-2">5</td>
@@ -456,10 +456,10 @@
                                         UMD 5
                                     </a>
                                 </td>
-                                <td class="py-1 px-2 text-center">Rp.40.000.000</td>
-                                <td class="py-1 px-2 text-center">Rp.40.000.000</td>
+                                <td class="text-center">Rp.40.000.000</td>
+                                <td class="text-center">Rp.40.000.000</td>
                                 <td class="text-center">30 Jun 2025</td>
-                                <td class="py-1 px-2 font-bold text-blue-900">OPEN</td>
+                                <td class="font-bold text-blue-900 text-center">OPEN</td>
                             </tr>
                             <tr>
                                 <td class="py-1 px-2">6</td>
@@ -468,10 +468,10 @@
                                         UMD 6
                                     </a>
                                 </td>
-                                <td class="py-1 px-2 text-center">Rp.20.000.000</td>
-                                <td class="py-1 px-2 text-center">Rp.20.000.000</td>
+                                <td class="text-center">Rp.20.000.000</td>
+                                <td class="text-center">Rp.20.000.000</td>
                                 <td class="text-center">5 Jan 2025</td>
-                                <td class="py-1 px-2 font-bold text-green-400">CLOSED</td>
+                                <td class="font-bold text-green-400 text-center">CLOSED</td>
                             </tr>
                             <tr>
                                 <td class="py-1 px-2">7</td>
@@ -480,10 +480,10 @@
                                         UMD 7
                                     </a>
                                 </td>
-                                <td class="py-1 px-2 text-center">Rp.15.000.000</td>
-                                <td class="py-1 px-2 text-center">Rp.15.000.000</td>
+                                <td class="text-center">Rp.15.000.000</td>
+                                <td class="text-center">Rp.15.000.000</td>
                                 <td class="text-center">5 Mar 2025</td>
-                                <td class="py-1 px-2 font-bold text-red-600">SP-1</td>
+                                <td class="font-bold text-red-600 text-center">SP-1</td>
                             </tr>
                             <tr>
                                 <td class="py-1 px-2">8</td>
@@ -492,10 +492,10 @@
                                         UMD 8
                                     </a>
                                 </td>
-                                <td class="py-1 px-2 text-center">Rp.25.000.000</td>
-                                <td class="py-1 px-2 text-center">Rp.25.000.000</td>
+                                <td class="text-center">Rp.25.000.000</td>
+                                <td class="text-center">Rp.25.000.000</td>
                                 <td class="text-center">25 May 2025</td>
-                                <td class="py-1 px-2 font-bold text-blue-600">Approve</td>
+                                <td class="font-bold text-blue-600 text-center">APPROVE</td>
                             </tr>
                             <tr>
                                 <td class="py-1 px-2">9</td>
@@ -504,10 +504,10 @@
                                         UMD 9
                                     </a>
                                 </td>
-                                <td class="py-1 px-2 text-center">Rp.30.000.000</td>
-                                <td class="py-1 px-2 text-center">Rp.30.000.000</td>
+                                <td class="text-center">Rp.30.000.000</td>
+                                <td class="text-center">Rp.30.000.000</td>
                                 <td class="text-center">15 Jun 2025</td>
-                                <td class="py-1 px-2 font-bold text-blue-900">Verify</td>
+                                <td class="font-bold text-blue-900 text-center">Verify</td>
                             </tr>
                         </tbody>
                     </table>
