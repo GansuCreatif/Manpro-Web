@@ -21,7 +21,7 @@
         <div id="main-wrapper" class="flex-1 flex flex-col transition-all duration-300 ml-64">
 
             <main id="main-content" class="flex-1 p-6">
-                <h1 class="text-blue-900 mb-5 text-5xl">Project Details</h1>
+                <h1 class="text-blue-900 mb-5 text-3xl">Project Details</h1>
                 @include('sections.section-content3')
             </main>
         </div>
