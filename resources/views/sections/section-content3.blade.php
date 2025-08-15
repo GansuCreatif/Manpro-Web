@@ -1,32 +1,36 @@
 <div class="bg-blue-50">
-    <div class="grid grid-cols-2 gap-2 mb-5 px-5 py-5">
-        <!-- General -->
-        <div class="bg-blue-50">
-            <h5 class=" border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">
-                General
-            </h5>
-            <div class="h-1 w-full bg-blue-500 rounded-sm"></div>
-            <div class="overflow-x-auto mt-2 bg-white">
-                <table class="w-full text-sm text-left rtl:text-right text-black-500 bg-blue">
+    <!-- General & Period -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
+        <!-- Card 1: General -->
+        <div class="bg-white shadow-md rounded-lg w-full h-100 flex flex-col">
+            <div class="bg-white p-4 rounded-t-2xl">
+                <h5 class="border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">General</h5>
+                <div class="h-1 w-full bg-blue-500 rounded-sm"></div>
+            </div>
+            <div class="overflow-y-auto px-4 pb-4 flex-1">
+                <table class="w-full text-sm text-left text-black-500">
                     <tbody>
                         @include('components.project-detail.table-general', ['project' => $project])
                     </tbody>
                 </table>
             </div>
         </div>
-        <!-- Period -->
-        <div class="bg-blue-50 rounded-2xl">
-            <div class="">
-                <h5 class="inline-block  border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">
-                    Period
+
+        <!-- Card 2: Period -->
+        <div class="bg-white shadow-md rounded-lg w-full h-100 flex flex-col">
+            <div class="bg-white p-4 rounded-t-2xl">
+                <h5 class="inline-block border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">Period
                 </h5>
                 <div class="h-1 w-full bg-blue-500 rounded-sm"></div>
             </div>
-            <div class="overflow-x-auto mt-2 bg-white">
-                <table class="w-full text-sm text-left rtl:text-right text-black-500 bg-blue">
+
+            <!-- Scrollable Content -->
+            <div class="overflow-y-auto px-4 pb-4 flex-1">
+                <!-- Tabel Period -->
+                <table class="w-full text-sm text-left text-black-500">
                     <tbody>
                         <tr>
-                            <td class="px-4 text font-bold">Fiscal Year</td>
+                            <td class="px-4 font-bold">Fiscal Year</td>
                             <td>: 2025</td>
                             <td class="px-4 font-bold">Date Contract</td>
                             <td>: 1 Jul 2025</td>
@@ -39,42 +43,42 @@
                         </tr>
                         <tr>
                             <td class="px-4 font-bold">Finish Date</td>
-                            <td class="">: 15 Jun 2025</td>
+                            <td>: 15 Jun 2025</td>
                             <td class="px-4 font-bold">Actual Start Date</td>
-                            <td class="">: 15 Jun 2025</td>
+                            <td>: 15 Jun 2025</td>
                         </tr>
                         <tr>
                             <td class="px-4 font-bold">Total Days</td>
-                            <td class="">: 250 Days</td>
+                            <td>: 250 Days</td>
                             <td class="px-4 font-bold">Reason</td>
-                            <td class="">: Contract</td>
-                        </tr>
-                        <tr>
-                            <td class="pt-4 pb-1 px-4">Adendum</td>
-                            <!-- Tombol di dalam tabel -->
-                            <td colspan="4" class="text-right">
-                                <x-modal.select-modal id="select-modal" title="Pilih Tipe" :options="[
-                                    ['id' => 'job-1', 'title' => 'Cost', 'subtitle' => 'Cost'],
-                                    ['id' => 'job-2', 'title' => 'Time', 'subtitle' => 'Time'],
-                                ]">
-                                    <button
-                                        class="text-white inline-flex w-full justify-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                                        Next step
-                                    </button>
-                                </x-modal.select-modal>
-                                <button type="button" data-modal-target="select-modal" data-modal-toggle="select-modal"
-                                    class="inline-flex items-center px-2 py-1 bg-orange-500 hover:bg-orange-600 text-white text-xs font-medium rounded-md shadow focus:outline-none focus:ring-1 focus:ring-orange-400">
-                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-                                    </svg>
-                                    Add New
-                                </button>
-                            </td>
+                            <td>: Contract</td>
                         </tr>
                     </tbody>
                 </table>
-                <div class="w-full overflow-x-auto lg:overflow-x-visible mb-6">
+
+                <!-- Header Adendum + Tombol -->
+                <div class="flex justify-between items-center mt-2">
+                    <span class="text-sm font-semibold text-black-900">Adendum</span>
+
+                    <!-- Tombol Add New -->
+                    <button type="button" data-modal-target="select-modal" data-modal-toggle="select-modal"
+                        class="inline-flex items-center px-3 py-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium rounded-md shadow">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                        </svg>
+                        Add New
+                    </button>
+
+                    <!-- Panggil modal + form -->
+                    <x-modal.select-modal id="select-modal" costUrl="{{ route('Form-Cost') }}"
+                        timeUrl="{{ route('Form-Time') }}" />
+
+
+                </div>
+
+                <!-- Tabel Adendum -->
+                <div class="w-full overflow-x-auto mt-2">
                     <table class="min-w-full table-auto text-sm text-left bg-blue">
                         <thead class="bg-orange-500 text-orange-900 font-bold">
                             <tr class="text-center">
@@ -95,8 +99,6 @@
                                 <td class="text-center">Approve</td>
                                 <td class="text-center">Penambahan Pekerjaan..</td>
                             </tr>
-                        </tbody>
-                        <tbody>
                             <tr>
                                 <td class="text-center">2</td>
                                 <td class="text-center">Time</td>
@@ -111,70 +113,83 @@
             </div>
         </div>
     </div>
-    <div class="grid grid-cols-2 gap-2 px-5 py-5">
-        <!-- Finance -->
-        <div class="bg-blue-50">
-            <h5 class=" border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">
-                Finance
-            </h5>
-            <div class="h-1 w-full bg-blue-500 rounded-sm"></div>
-            <div class="overflow-x-auto bg-white mt-2">
-                <table class="min-w-full text-sm text-left rtl:text-right text-black-500 bg-blue">
-                    <tbody>
-                        <tr>
-                            <td class="px-2">Paymen Type</td>
-                            <td class="">: Termin</td>
-                        </tr>
-                        <tr>
-                            <td class="px-2">PPN</td>
-                            <td class="">: 11%</td>
-                        </tr>
-                        <tr>
-                            <td class="px-2">Bank</td>
-                            <td class="">: Mandiri</td>
-                        </tr>
-                        <tr>
-                            <td class="px-2">Atas Nama</td>
-                            <td class="">: -</td>
-                        </tr>
-                        <tr>
-                            <td class="px-2">Virtual Account</td>
-                            <td class="">: 1234-5678-9012-1234</td>
-                        </tr>
-                        <tr>
-                            <!-- Tombol di dalam tabel -->
-                            <td colspan="4" class="text-right mb-10">
-                                <x-modal.select-modal id="select-modal" title="Pilih Tipe" :options="[
-                                    ['id' => 'job-1', 'title' => 'Cost', 'subtitle' => 'Cost'],
-                                    ['id' => 'job-2', 'title' => 'Time', 'subtitle' => 'Time'],
-                                ]">
-                                    <button
-                                        class="text-white inline-flex w-full justify-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                                        Next step
+    <!-- Finance & Structure Organization -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
+        <!-- Card 1: Finance -->
+        <div class="bg-white shadow-md rounded-lg w-full h-100 flex flex-col">
+            <!-- Header -->
+            <div class="bg-white-50 p-4 rounded-t-2xl">
+                <h5 class="inline-block border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">Finance
+                </h5>
+                <div class="h-1 w-full bg-blue-500 rounded-sm"></div>
+            </div>
+
+            <!-- Scrollable Content -->
+            <div class="overflow-y-auto px-4 pb-4 flex-1">
+                <!-- Informasi Finance -->
+                <div class="overflow-x-auto bg-white">
+                    <table class="min-w-full text-sm text-left text-black-500 bg-blue">
+                        <tbody>
+                            <tr>
+                                <td class="px-2">Payment Type</td>
+                                <td>: Termin</td>
+                            </tr>
+                            <tr>
+                                <td class="px-2">PPN</td>
+                                <td>: 11%</td>
+                            </tr>
+                            <tr>
+                                <td class="px-2">Bank</td>
+                                <td>: Mandiri</td>
+                            </tr>
+                            <tr>
+                                <td class="px-2">Atas Nama</td>
+                                <td>: -</td>
+                            </tr>
+                            <tr>
+                                <td class="px-2">Virtual Account</td>
+                                <td>: 1234-5678-9012-1234</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="text-right">
+                                    <!-- Tombol Add New -->
+                                    <button type="button" data-modal-target="select-modal"
+                                        data-modal-toggle="select-modal"
+                                        class="inline-flex items-center px-2 py-1 bg-orange-500 hover:bg-orange-600 text-white text-xs font-medium rounded-md shadow focus:outline-none focus:ring-1 focus:ring-orange-400">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                                        </svg>
+                                        Add New
                                     </button>
-                                </x-modal.select-modal>
-                                <button type="button" data-modal-target="select-modal" data-modal-toggle="select-modal"
-                                    class="inline-flex items-center px-2 py-1 bg-orange-500 hover:bg-orange-600 text-white text-xs font-medium rounded-md shadow focus:outline-none focus:ring-1 focus:ring-orange-400">
-                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-                                    </svg>
-                                    Add New
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+
+                                    <!-- Modal Select -->
+                                    <x-modal.select-modal id="select-modal" title="Pilih Tipe" :options="[
+                                        ['id' => 'job-1', 'title' => 'Cost', 'subtitle' => 'Cost'],
+                                        ['id' => 'job-2', 'title' => 'Time', 'subtitle' => 'Time'],
+                                    ]">
+                                        <button
+                                            class="text-white inline-flex w-full justify-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                            Next step
+                                        </button>
+                                    </x-modal.select-modal>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tabel Termin -->
                 <div class="w-full overflow-x-auto lg:overflow-x-visible mt-2">
                     <table class="min-w-full table-auto text-sm text-left">
                         <thead class="bg-orange-500 text-orange-900 font-bold">
                             <tr class="text-center">
-                                <th class="">No</th>
-                                <th class="">Period</th>
-                                <th class="">Persentage</th>
-                                <th class="">Total</th>
-                                <th class=" whitespace-nowrap">Date Plan</th>
-                                <th class=" whitespace-nowrap">Date Actual</th>
+                                <th>No</th>
+                                <th>Period</th>
+                                <th>Percentage</th>
+                                <th>Total</th>
+                                <th class="whitespace-nowrap">Date Plan</th>
+                                <th class="whitespace-nowrap">Date Actual</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -198,7 +213,7 @@
                                 <td class="py-1 text-center">3</td>
                                 <td class="py-1 text-center">Term 2</td>
                                 <td class="py-1 text-center">25%</td>
-                                <td class="py-1 ">Rp.733.591.770</td>
+                                <td class="py-1">Rp.733.591.770</td>
                                 <td class="py-1 text-center">5 May 2025</td>
                                 <td class="py-1 text-center">5 May 2025</td>
                             </tr>
@@ -206,76 +221,73 @@
                                 <td class="py-1 text-center">4</td>
                                 <td class="py-1 text-center">Term 3</td>
                                 <td class="py-1 text-center">30%</td>
-                                <td class="py-1 ">Rp.978.122.360</td>
+                                <td class="py-1">Rp.978.122.360</td>
                                 <td class="py-1 text-center">15 Jun 2025</td>
                                 <td class="py-1 text-center">5 May 2025</td>
                             </tr>
                             <tr>
-                                <td class="py-1 px-1 text-center">5</td>
-                                <td class="py-1 px-1 text-center">Term 4</td>
-                                <td class="py-1 px-1 text-center">15%</td>
+                                <td class="py-1 text-center">5</td>
+                                <td class="py-1 text-center">Term 4</td>
+                                <td class="py-1 text-center">15%</td>
                                 <td class="py-1">Rp.100.000.000</td>
-                                <td class="py-1 px-1 text-center">30 Jun 2025</td>
-                                <td class="py-1 px-1 text-center">30 Jun 2025</td>
+                                <td class="py-1 text-center">30 Jun 2025</td>
+                                <td class="py-1 text-center">30 Jun 2025</td>
                             </tr>
                             <tr>
-                                <td class="py-1 px-1 text-center">6</td>
-                                <td class="py-1 px-1 text-center">Term 5</td>
-                                <td class="py-1 px-1 text-center">25%</td>
+                                <td class="py-1 text-center">6</td>
+                                <td class="py-1 text-center">Term 5</td>
+                                <td class="py-1 text-center">25%</td>
                                 <td class="py-1">Rp.733.591.770</td>
-                                <td class="py-1 px-1 text-center">5 May 2025</td>
-                                <td class="py-1 px-1 text-center">5 May 2025</td>
+                                <td class="py-1 text-center">5 May 2025</td>
+                                <td class="py-1 text-center">5 May 2025</td>
                             </tr>
                             <tr>
-                                <td class="py-1 px-1 text-center">7</td>
-                                <td class="py-1 px-1 text-center">Term 6</td>
-                                <td class="py-1 px-1 text-center">30%</td>
+                                <td class="py-1 text-center">7</td>
+                                <td class="py-1 text-center">Term 6</td>
+                                <td class="py-1 text-center">30%</td>
                                 <td class="py-1">Rp.978.122.360</td>
-                                <td class="py-1 px-1 text-center">30 Jun 2025</td>
-                                <td class="py-1 px-1 text-center">30 Jun 2025</td>
+                                <td class="py-1 text-center">30 Jun 2025</td>
+                                <td class="py-1 text-center">30 Jun 2025</td>
                             </tr>
                             <tr>
-                                <td class="py-1 px-1 text-center">8</td>
-                                <td class="py-1 px-1 text-center">Term 7</td>
-                                <td class="py-1 px-1 text-center">15%</td>
-                                <td class="py-1">Rp.1000.000.000</td>
-                                <td class="py-1 px-1 text-center">30 Jun 2025</td>
-                                <td class="py-1 px-1 text-center">30 Jun 2025</td>
+                                <td class="py-1 text-center">8</td>
+                                <td class="py-1 text-center">Term 7</td>
+                                <td class="py-1 text-center">15%</td>
+                                <td class="py-1">Rp.1.000.000.000</td>
+                                <td class="py-1 text-center">30 Jun 2025</td>
+                                <td class="py-1 text-center">30 Jun 2025</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        <!-- Structure Organization -->
-        <div class="bg-blue-50 rounded-5xl">
-            <h5 class=" border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">
-                Structure Organization
-            </h5>
-            <div class="h-1 w-full bg-blue-500 rounded-sm"></div>
-            <div class="overflow-y-auto bg-white mt-2">
-                <table class="w-full text-sm text-left rtl:text-right text-black-500 bg-blue">
+        <!-- Card 2: Structure Organization -->
+        <div class="bg-white shadow-md rounded-lg w-full h-100 flex flex-col">
+            <!-- Header -->
+            <div class="bg-white p-4 rounded-t-2xl">
+                <h5 class="inline-block border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">
+                    Structure Organization
+                </h5>
+                <div class="h-1 w-full bg-blue-500 rounded-sm"></div>
+            </div>
+
+            <!-- Scrollable Content -->
+            <div class="overflow-y-auto px-4 pb-4 flex-1 bg-white">
+                <!-- Informasi Utama -->
+                <table class="w-full text-sm text-left text-black-500 bg-blue">
                     <tbody>
                         <tr>
                             <td class="py-2 px-4">Project Manager</td>
                             <td class="py-2 px-4">: Damandaru Handoyo</td>
                         </tr>
                         <tr>
-                            <td class="py-2 px-4">User</td>
-                            <td class="py-2 px-4">: Investasi</td>
+                            <td class="py-2 px-4">Project Owner</td>
+                            <td class="py-2 px-4">: -</td>
                         </tr>
                         <tr>
-                            <!-- Tombol di dalam tabel -->
-                            <td colspan="4" class="text-right mb-10">
-                                <x-modal.select-modal id="select-modal" title="Pilih Tipe" :options="[
-                                    ['id' => 'job-1', 'title' => 'Cost', 'subtitle' => 'Cost'],
-                                    ['id' => 'job-2', 'title' => 'Time', 'subtitle' => 'Time'],
-                                ]">
-                                    <button
-                                        class="text-white inline-flex w-full justify-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                                        Next step
-                                    </button>
-                                </x-modal.select-modal>
+                            <td colspan="4" class="text-right">
+                                <!-- Tombol Add New -->
                                 <button type="button" data-modal-target="select-modal"
                                     data-modal-toggle="select-modal"
                                     class="inline-flex items-center px-2 py-1 bg-orange-500 hover:bg-orange-600 text-white text-xs font-medium rounded-md shadow focus:outline-none focus:ring-1 focus:ring-orange-400">
@@ -285,10 +297,23 @@
                                     </svg>
                                     Add New
                                 </button>
+
+                                <!-- Modal Select -->
+                                <x-modal.select-modal id="select-modal" title="Pilih Tipe" :options="[
+                                    ['id' => 'job-1', 'title' => 'Cost', 'subtitle' => 'Cost'],
+                                    ['id' => 'job-2', 'title' => 'Time', 'subtitle' => 'Time'],
+                                ]">
+                                    <button
+                                        class="text-white inline-flex w-full justify-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                        Next step
+                                    </button>
+                                </x-modal.select-modal>
                             </td>
                         </tr>
                     </tbody>
                 </table>
+
+                <!-- Tabel Struktur -->
                 <table class="w-full text-sm text-left bg-blue mt-2">
                     <thead class="bg-orange-500 text-orange-900 font-bold">
                         <tr class="text-center">
@@ -327,7 +352,7 @@
                             <td class="py-1 px-1">5</td>
                             <td class="py-1 px-1">Consultant</td>
                             <td class="py-1 px-1">Budi</td>
-                            <td class="py-1 px-1">Mempersiapkan kelancara material proyek</td>
+                            <td class="py-1 px-1">Mempersiapkan kelancaran material proyek</td>
                         </tr>
                     </tbody>
                 </table>
@@ -335,7 +360,7 @@
         </div>
     </div>
     <!-- UMD -->
-    <div class="bg-blue-50 rounded-2xl mb-5">
+    <div class="rounded-2xl mt-2">
         <div class="">
             <h5 class="inline-block  border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">
                 UMD
@@ -368,24 +393,13 @@
                                 <!-- Tombol Add New -->
                                 <button type="button" data-modal-target="select-modal"
                                     data-modal-toggle="select-modal"
-                                    class="inline-flex items-center px-2 py-1 bg-orange-500 hover:bg-orange-600 text-white text-xs font-medium rounded-md shadow focus:outline-none focus:ring-1 focus:ring-orange-400">
+                                    class="inline-flex items-center px-2 py-1 bg-orange-500 hover:bg-orange-600 text-white text-xs font-medium rounded-md shadow">
                                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
                                     </svg>
                                     Add New
                                 </button>
-
-                                <!-- Komponen Modal -->
-                                <x-modal.select-modal id="select-modal" title="Pilih Tipe" :options="[
-                                    ['id' => 'job-1', 'title' => 'Cost', 'subtitle' => 'Cost'],
-                                    ['id' => 'job-2', 'title' => 'Time', 'subtitle' => 'Time'],
-                                ]">
-                                    <button
-                                        class="text-white inline-flex w-full justify-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                                        Next step
-                                    </button>
-                                </x-modal.select-modal>
                             </div>
                         </td>
                     </tr>
@@ -519,7 +533,7 @@
         </div>
     </div>
     <!-- WBS Level -->
-    <div class="bg-blue-50">
+    <div class="bg-blue-50 mt-2">
         <div>
             <h5 class=" border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">
                 WBS LEVEL

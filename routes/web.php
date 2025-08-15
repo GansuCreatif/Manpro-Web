@@ -28,6 +28,14 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
+Route::get('/Form-Cost', function () {
+    return view('form-cost');
+})->name('Form-Cost');
+
+Route::get('/Form-Time', function () {
+    return view('form-time');
+})->name('Form-Time');
+
 
 Route::get('/Keuangan', function () {
     return view('keuangan');
