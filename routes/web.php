@@ -8,6 +8,9 @@ use App\Http\Controllers\ProjectController;
 
 use App\Http\Controllers\AuthController;
 
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+
+
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.custom');
 

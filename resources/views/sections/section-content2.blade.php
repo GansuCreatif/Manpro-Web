@@ -107,16 +107,13 @@
                             $isOdd = $number % 2 === 1;
                         @endphp
                         <tr
-                            class="text-center
-                                    {{ $isOdd ? 'bg-white hover:bg-white' : 'bg-blue-50 hover:bg-blue-50' }}
-                        ">
-                            <td class="px-2 py-3">{{ $index + 1 }}</td>
+                            class="text-center {{ $isOdd ? 'bg-white hover:bg-white' : 'bg-blue-50 hover:bg-blue-50' }}">
+                            <td class="px-2 py-3">{{ $projects->firstItem() + $index }}</td>
                             <td class="px-2 py-3 whitespace-nowrap">{{ $project['code_project'] }}</td>
                             <td class="px-2 py-3">{{ $project['desc_project'] }}</td>
                             <td class="px-2 py-3">{{ $project['location'] ?? 'Palembang' }}</td>
                             <td class="px-2 py-3">{{ $project['unit_projects']['unit_desc'] }}</td>
-                            <td class="px-2 py-3">{{ $project['project_manager']['name'] ?? '-' }}
-                            </td>
+                            <td class="px-2 py-3">{{ $project['project_manager']['name'] ?? '-' }}</td>
                             <td class="px-2 py-3 whitespace-nowrap">
                                 Rp {{ number_format($project['contract_value'] ?? 0, 0, ',', '.') }}
                             </td>
@@ -129,7 +126,7 @@
                             </td>
                             <td class="px-2 py-3">{{ $project['status'] }}</td>
                             <td class="px-2 py-3 flex justify-center gap-2">
-                                <a href="{{ route('Project-Details', ['code' => 'PRJ003']) }}"
+                                <a href="{{ route('Project-Details', ['code' => $project['code_project']]) }}"
                                     class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
                                     Details
                                 </a>
@@ -144,5 +141,28 @@
                     @endforelse
                 </tbody>
             </table>
+        </div>
+
+        <!-- Pagination + Show entries -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-3 mt-4">
+            <!-- Pagination kiri -->
+            <div class="order-2 md:order-1">
+                {{ $projects->appends(['perPage' => request('perPage')])->links('pagination::tailwind') }}
+            </div>
+
+            <!-- Show entries kanan -->
+            <!-- Show entries kanan -->
+            <div class="order-1 md:order-2 flex items-center gap-2 text-sm text-gray-700">
+                <form method="GET" action="" class="flex items-center gap-2">
+                    <label for="perPage" class="whitespace-nowrap">Show entries</label>
+                    <select id="perPage" name="perPage" onchange="this.form.submit()"
+                        class="border rounded px-2 py-1 text-sm w-15">
+                        <option value="10" {{ request('perPage') == 10 ? 'selected' : '' }}>10</option>
+                        <option value="25" {{ request('perPage') == 25 ? 'selected' : '' }}>25</option>
+                        <option value="50" {{ request('perPage') == 50 ? 'selected' : '' }}>50</option>
+                        <option value="100" {{ request('perPage') == 100 ? 'selected' : '' }}>100</option>
+                    </select>
+                </form>
+            </div>
         </div>
     </div>

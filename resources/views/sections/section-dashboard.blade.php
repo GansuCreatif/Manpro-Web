@@ -7,18 +7,12 @@
             <div class="relative w-full max-w-5xl mx-auto aspect-[240/89] bg-white">
                 <!-- Gambar penuh -->
                 <img src="{{ asset('img/peta-indonesia.png') }}" alt="Peta Indonesia"
-                    class="absolute inset-0 w-full h-full object-cover">
-
-                <!-- Marker Pulau Sumatera -->
+                    class="absolute inset-0 w-full h-full object-contain">
 
                 <!-- Marker Jakarta -->
                 <div class="absolute top-[38%] left-[23%] z-10 flex flex-col items-center">
-                    <p class="text-amber-400 text-xs font-bold">
-                        DAOP 1
-                    </p>
-                    <p class="text-amber-400 text-xs font-bold">
-                        Jakarta
-                    </p>
+                    <p class="text-amber-400 text-xs font-bold">DAOP 1</p>
+                    <p class="text-amber-400 text-xs font-bold">Jakarta</p>
                     <div class="bg-gray-300 shadow-lg">
                         <div class="bg-white px-2 py-2 rounded shadow-lg border text-center whitespace-nowrap">
                             <span class="text-sm font-semibold text-gray-800">95</span>
