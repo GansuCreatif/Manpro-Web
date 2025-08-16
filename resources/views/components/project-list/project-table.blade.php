@@ -3,7 +3,7 @@
 <div class="rounded-xl">
     <div class="w-auto overflow-x-auto">
         <table class="min-w-full text-xs text-left text-gray-500 ">
-            <thead class="text-xs text-gray-700 uppercase bg-blue-300 text-center">
+            <thead class="text-xs text-blue-900 uppercase bg-blue-300 text-center">
                 <tr class="border-b-5">
                     <th>No</th>
                     <th>Code</th>

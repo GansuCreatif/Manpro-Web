@@ -19,7 +19,7 @@
     $statusClass = $statusColors[$projectStatus] ?? 'text-green-600';
 @endphp
 
-<tr class="{{ $index % 2 == 0 ? 'bg-white' : 'bg-yellow-50 ?>' }}">
+<tr class="{{ $index % 2 == 0 ? 'bg-white' : 'bg-white ?>' }}">
     <td class="px-2 py-3">{{ $index + 1 }}</td>
     <td class="px-2 py-3 whitespace-nowrap">{{ e($project['code_project']) }}</td>
     <td class="px-2 py-3">{{ e($project['desc_project']) }}</td>

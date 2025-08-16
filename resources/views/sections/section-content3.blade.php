@@ -361,7 +361,7 @@
     </div>
     <!-- UMD -->
     <div class="rounded-2xl mt-2">
-        <div class="">
+        <div>
             <h5 class="inline-block  border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">
                 UMD
             </h5>
@@ -533,7 +533,7 @@
         </div>
     </div>
     <!-- WBS Level -->
-    <div class="bg-blue-50 mt-2">
+    <div class="rounded-2xl mt-2">
         <div>
             <h5 class=" border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">
                 WBS LEVEL

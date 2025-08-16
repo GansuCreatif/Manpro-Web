@@ -5,14 +5,13 @@
     <!-- Logo + brand -->
     <div class="mt-0 mb-4">
         <div class="text-center">
-            <h5 class="text-lg font-bold">Manpro</h5>
-            <span class="text-xs font-normal block">by KAI properti</span>
+            <img src="{{ asset('img/proman-sidebar-2.png') }}" alt="image-proman">
         </div>
     </div>
 
     <!-- Dashboard link -->
     <a href="{{ route('Dashboard') }}"
-        class="flex items-center p-2 mb-4 text-white font-semibold rounded-lg hover:bg-gray-800">
+        class="flex items-center p-2 mb-4 text-white font-semibold rounded-lg hover:bg-blue-500 bg-blue-500">
         <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
             stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10 6.025A7.5 7.5 0 1 0 17.975 14H10V6.025Z" />
@@ -25,9 +24,9 @@
 
     <!-- Icon only menu -->
     <ul class="space-y-2">
-        <li class="mb-10 mt-10">
+        <li class="mt-10">
             <a href="{{ route('Project-List') }}"
-                class="flex items-center p-2 mb-4 text-gray-200 rounded-lg hover:bg-gray-800">
+                class="flex items-center p-2 mb-4 text-white rounded-lg hover:bg-blue-950 bg-gray-700">
                 <!-- Icon Home -->
                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                     width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -39,7 +38,7 @@
         </li>
         <li class="mb-5">
             <a href="{{ route('Project-List') }}"
-                class="flex items-center p-2 text-gray-200 rounded-lg hover:bg-gray-800">
+                class="flex items-center p-2 text-white rounded-lg  hover:bg-blue-950 bg-blue-500">
                 <!-- Icon Folder -->
                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                     width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -49,9 +48,9 @@
                 <p class="ml-3">Project Report</p>
             </a>
         </li>
-        <li class="mt-10">
+        <li class="mt-5">
             <a href="{{ Route('Project-Issue') }}"
-                class="flex items-center p-2 text-gray-200 rounded-lg hover:bg-gray-800">
+                class="flex items-center p-2 text-white rounded-lg hover:bg-blue-950 bg-blue-500">
                 <!-- Icon Warning -->
                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                     width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -64,8 +63,9 @@
                 <p class="ml-3">Project Issue</p>
             </a>
         </li>
-        <li class="mt-10">
-            <a href="{{ Route('Keuangan') }}" class="flex items-center p-2 text-gray-200 rounded-lg hover:bg-gray-800">
+        <li class="mt-5">
+            <a href="{{ Route('Keuangan') }}"
+                class="flex items-center p-2 text-white rounded-lg hover:bg-blue-950 bg-blue-500">
                 <!-- Bar chart -->
                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                     width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"
