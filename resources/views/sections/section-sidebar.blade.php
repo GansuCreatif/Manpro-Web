@@ -2,12 +2,19 @@
     class="fixed top-0 left-0 z-55 w-64 h-screen p-4 overflow-y-auto transition-transform bg-blue-700 text-white"
     tabindex="-1" aria-labelledby="drawer-sidebar-label">
 
-    <!-- Logo + brand -->
-    <div class="mt-0 mb-4">
-        <div class="text-center">
-            <img src="{{ asset('img/proman-sidebar-2.png') }}" alt="image-proman">
-        </div>
+    <!-- Logo + Brand (Gen Z Style - White Clean) -->
+    <div class="flex flex-col items-center mb-6">
+        <!-- Brand Name -->
+        <h1 class="text-3xl font-extrabold tracking-tight text-white">
+            Pro<span class="italic font-light">Manage</span>
+        </h1>
+
+        <!-- Sub Brand -->
+        <p class="text-[0.7rem] tracking-wide text-gray-200 mt-1">
+            by <span class="font-bold text-white">KAI</span> Properti
+        </p>
     </div>
+
 
     <!-- Dashboard link -->
     <a href="{{ route('Dashboard') }}"
@@ -38,7 +45,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
             </button>
-            <ul id="project-list-submenu" class="hidden space-y-2 pl-8 mt-2">
+            <ul id="project-list-submenu" class="hidden space-y-1 pl-8 mt-2">
                 <li><a href="{{ route('Project-List', ['id' => 1]) }}"
                         class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">
                         Project List</a></li>
@@ -64,7 +71,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
             </button>
-            <ul id="project-report-submenu" class="hidden space-y-2 pl-8 mt-2">
+            <ul id="project-report-submenu" class="hidden space-y-1 pl-8 mt-2">
                 <li><a href="#" class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">Daily
                         Report</a></li>
                 <li><a href="#" class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">Monthly
@@ -88,7 +95,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
             </button>
-            <ul id="project-finance-submenu" class="hidden space-y-2 pl-8 mt-2">
+            <ul id="project-finance-submenu" class="hidden space-y-1 pl-8 mt-2">
                 <li><a href="#" class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">Cash In</a>
                 </li>
                 <li><a href="#" class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">Cash Out</a>
