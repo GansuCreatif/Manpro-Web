@@ -81,52 +81,55 @@
 
     <div class="p-1">
         <!-- Wrapper: auto scroll di layar kecil -->
-        <div class="w-auto overflow-x-auto lg:overflow-x-visible">
-            <table class="min-w-full table-200 text-xs text-left text-black">
+        <div class="w-full overflow-x-auto">
+            <table class="min-w-full table-auto text-xs text-left text-black">
                 <thead class="text-xs text-blue-900 uppercase bg-blue-50 text-center">
                     <tr class="border-b-[3px] border-blue-700">
-                        <th class="px-2 py-3">No</th>
-                        <th class="px-2 py-3">Code</th>
-                        <th class="px-2 py-3">Description</th>
-                        <th class="px-2 py-3">Location</th>
-                        <th class="px-2 py-3">Unit</th>
-                        <th class="px-2 py-3">Project Manager</th>
-                        <th class="px-2 py-3">Project Value</th>
-                        <th class="px-2 py-3">User</th>
-                        <th class="px-2 py-3">Start Date</th>
-                        <th class="px-2 py-3">Finish Date</th>
-                        <th class="px-2 py-3">Status</th>
-                        <th class="px-2 py-3 text-center">Action</th>
+                        <th class="py-1 cursor-pointer whitespace-nowrap" onclick="sortTable(0)">No 🔽</th>
+                        <th class="py-1 cursor-pointer whitespace-nowrap" onclick="sortTable(1)">Code 🔽</th>
+                        <th class="py-1 cursor-pointer whitespace-nowrap" onclick="sortTable(2)">Description 🔽
+                        </th>
+                        <th class="py-1 cursor-pointer whitespace-nowrap" onclick="sortTable(3)">Location 🔽</th>
+                        <th class="py-1 cursor-pointer whitespace-nowrap" onclick="sortTable(4)">Unit 🔽</th>
+                        <th class="py-1 cursor-pointer whitespace-nowrap" onclick="sortTable(5)">Project
+                            Manager🔽</th>
+                        <th class="py-1 cursor-pointer whitespace-nowrap" onclick="sortTable(6)">Project Value 🔽
+                        </th>
+                        <th class="py-1 cursor-pointer whitespace-nowrap" onclick="sortTable(7)">Project Owner 🔽
+                        </th>
+                        <th class="py-1 cursor-pointer whitespace-nowrap" onclick="sortTable(8)">Start Date 🔽
+                        </th>
+                        <th class="py-1 cursor-pointer whitespace-nowrap" onclick="sortTable(9)">Finish Date 🔽
+                        </th>
+                        <th class="py-1 cursor-pointer whitespace-nowrap" onclick="sortTable(10)">Status 🔽</th>
+                        <th class="py-1 text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody id="projectTable">
                     @forelse ($projects as $index => $project)
-                        @php
-                            preg_match('/\d+/', $project['code_project'], $matches);
-                            $number = isset($matches[0]) ? intval($matches[0]) : 0;
-                            $isOdd = $number % 2 === 1;
-                        @endphp
                         <tr
-                            class="text-center {{ $isOdd ? 'bg-white hover:bg-white' : 'bg-blue-50 hover:bg-blue-50' }}">
-                            <td class="px-2 py-3">{{ $projects->firstItem() + $index }}</td>
-                            <td class="px-2 py-3 whitespace-nowrap">{{ $project['code_project'] }}</td>
-                            <td class="px-2 py-3">{{ $project['desc_project'] }}</td>
-                            <td class="px-2 py-3">{{ $project['location'] ?? 'Palembang' }}</td>
-                            <td class="px-2 py-3">{{ $project['unit_projects']['unit_desc'] }}</td>
-                            <td class="px-2 py-3">{{ $project['project_manager']['name'] ?? '-' }}</td>
-                            <td class="px-2 py-3 whitespace-nowrap">
+                            class="text-center {{ isProjectCodeOdd($project['project_def']) ? 'bg-white hover:bg-white' : 'bg-blue-50 hover:bg-blue-50' }}">
+                            <td class="px-2">{{ $projects->firstItem() + $index }}</td>
+                            <td class="px-2 whitespace-nowrap">{{ $project['project_def'] }}</td>
+                            <td class="px-2">{{ $project['project_desc'] }}</td>
+                            <td class="px-2">{{ $project['project_location'] }}</td>
+                            <td class="px-2">{{ $project['project_profile']['unit_desc'] }}</td>
+                            <td class="px-2">{{ $project['project_responsible']['name'] }}</td>
+                            <td class="px-2 whitespace-nowrap">
                                 Rp {{ number_format($project['contract_value'] ?? 0, 0, ',', '.') }}
                             </td>
-                            <td class="px-2 py-3">PCC</td>
                             <td class="px-2 py-3">
-                                {{ \Carbon\Carbon::parse($project['start_date'])->translatedFormat('j F Y') }}
+                                {{ $project['project_profile']['unit_project'] }}
                             </td>
-                            <td class="px-2 py-3">
-                                {{ \Carbon\Carbon::parse($project['start_date'])->translatedFormat('j F Y') }}
+                            <td class="px-2 py-3 whitespace-nowrap">
+                                {{ \Carbon\Carbon::parse($project['start_date'])->translatedFormat('d F Y') }}
+                            </td>
+                            <td class="px-2 py-3 whitespace-nowrap">
+                                {{ \Carbon\Carbon::parse($project['end_date'])->translatedFormat('d F Y') }}
                             </td>
                             <td class="px-2 py-3">{{ $project['status'] }}</td>
                             <td class="px-2 py-3 flex justify-center gap-2">
-                                <a href="{{ route('Project-Details', ['code' => $project['code_project']]) }}"
+                                <a href="{{ route('Project-List-Detail', ['code' => $project['project_def']]) }}"
                                     class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
                                     Details
                                 </a>
@@ -134,11 +137,10 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="12" class="px-2 py-3 text-center text-gray-500">
-                                Tidak ada data.
-                            </td>
+                            <td colspan="12" class="text-center py-3">Tidak ada data proyek</td>
                         </tr>
                     @endforelse
+
                 </tbody>
             </table>
         </div>
@@ -166,3 +168,36 @@
             </div>
         </div>
     </div>
+    <script>
+        let sortDirection = {}; // Simpan arah sort per kolom
+
+        function sortTable(columnIndex) {
+            const table = document.querySelector("table");
+            const rows = Array.from(table.rows).slice(1); // Skip header
+            const isAsc = sortDirection[columnIndex] = !sortDirection[columnIndex];
+
+            rows.sort((a, b) => {
+                const cellA = a.cells[columnIndex].innerText.trim();
+                const cellB = b.cells[columnIndex].innerText.trim();
+
+                // Coba parse sebagai angka, jika gagal pakai string
+                const valA = isNaN(cellA) ? cellA.toLowerCase() : parseFloat(cellA);
+                const valB = isNaN(cellB) ? cellB.toLowerCase() : parseFloat(cellB);
+
+                return isAsc ? (valA > valB ? 1 : -1) : (valA < valB ? 1 : -1);
+            });
+
+            rows.forEach(row => table.tBodies[0].appendChild(row));
+        }
+    </script>
+    <script>
+        document.getElementById("extraSmallSearch").addEventListener("input", function() {
+            const searchValue = this.value.toLowerCase();
+            const rows = document.querySelectorAll("#projectTable tr");
+
+            rows.forEach(row => {
+                const rowText = row.textContent.toLowerCase();
+                row.style.display = rowText.includes(searchValue) ? "" : "none";
+            });
+        });
+    </script>

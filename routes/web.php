@@ -24,6 +24,7 @@ Route::get('/', function () {
 Route::get('/project-list', [ProjectController::class, 'list'])->name('Project-List');
 
 Route::get('/project-detail/{code?}', [ProjectController::class, 'detail'])->name('Project-Details');
+Route::get('/project-list-detail/{code?}', [ProjectController::class, 'detailList'])->name('Project-List-Detail');
 Route::get('/project-issue', [ProjectController::class, 'issue'])->name('Project-Issue');
 
 
@@ -35,6 +36,10 @@ Route::get('/Form-Cost', function () {
     return view('form-cost');
 })->name('Form-Cost');
 
+Route::get('/Form-Async', function () {
+    return view('fomr-async');
+})->name('Form-Async');
+
 Route::get('/Form-Time', function () {
     return view('form-time');
 })->name('Form-Time');
@@ -44,9 +49,18 @@ Route::get('/Keuangan', function () {
     return view('keuangan');
 })->name('Keuangan');
 
-Route::get('/Welcome', function () {
-    return view('welcome');
-})->name('Welcome');
+Route::get('/project-data-sync', [ProjectController::class, 'syncList'])
+    ->name('project.data.sync');
+
+Route::get('/project-report', [ProjectController::class, 'projectReport'])
+    ->name('project.report'); 
+
+Route::get('/project-finance-cashin-detail', [ProjectController::class, 'detail3'])->name('Project-Finance-Cashin-Detail');
+
+Route::get('/project-finance-cashin', [ProjectController::class, 'cashIn'])
+    ->name('project.finance.cashin');
+
+Route::get('/project-list-detail', [ProjectController::class, 'detail2'])->name('Project-List-Detail');
 
 Route::get('/search-projects', function (\Illuminate\Http\Request $request) {
     $keyword = strtolower($request->query('q', ''));

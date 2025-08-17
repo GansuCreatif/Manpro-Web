@@ -3,19 +3,19 @@
         <tbody>
             <tr>
                 <td class="py-2 px-4">Project Code</td>
-                <td class="py-2 px-4">: {{ $project['code_project'] ?? '-' }}</td>
+                <td class="py-2 px-4">: {{ $project['project_def'] ?? '-' }}</td>
             </tr>
             <tr>
                 <td class="py-2 px-4">Description</td>
-                <td class="py-2 px-4">: {{ $project['desc_project'] ?? '-' }}</td>
+                <td class="py-2 px-4">: {{ $project['project_desc'] ?? '-' }}</td>
             </tr>
             <tr>
                 <td class="py-2 px-4">Unit</td>
-                <td class="py-2 px-4">: {{ data_get($project, 'unit_projects.unit_desc', '-') }}</td>
+                <td class="py-2 px-4">: {{ $project['project_profile']['unit_desc'] ?? '-' }}</td>
             </tr>
             <tr>
                 <td class="py-2 px-4">Location</td>
-                <td class="py-2 px-4">: {{ $project['location'] ?? '-' }}</td>
+                <td class="py-2 px-4">: {{ $project['project_location'] }}</td>
             </tr>
             <tr>
                 <td class="py-2 px-4">No. SPMK</td>

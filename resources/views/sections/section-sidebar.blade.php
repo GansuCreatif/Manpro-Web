@@ -49,7 +49,8 @@
                 <li><a href="{{ route('Project-List', ['id' => 1]) }}"
                         class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">
                         Project List</a></li>
-                <li><a href="#" class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">
+                <li><a href="{{ route('project.data.sync') }}"
+                        class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">
                         Projets Sync</a></li>
                 <li><a href="#" class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">
                         Projects History</a></li>
@@ -72,7 +73,8 @@
                 </svg>
             </button>
             <ul id="project-report-submenu" class="hidden space-y-1 pl-8 mt-2">
-                <li><a href="#" class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">Daily
+                <li><a href="{{ route('project.report') }}"
+                        class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">Project
                         Report</a></li>
                 <li><a href="#" class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">Monthly
                         Report</a></li>
@@ -96,7 +98,8 @@
                 </svg>
             </button>
             <ul id="project-finance-submenu" class="hidden space-y-1 pl-8 mt-2">
-                <li><a href="#" class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">Cash In</a>
+                <li><a href="{{ route('project.finance.cashin') }}"
+                        class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">Cash In</a>
                 </li>
                 <li><a href="#" class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">Cash Out</a>
                 </li>

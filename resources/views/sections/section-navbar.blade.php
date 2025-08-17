@@ -19,18 +19,16 @@
 
         <!-- Kanan -->
         <div class="flex items-center space-x-4">
-            <span class="text-gray-500">{{ navbarDate() }}</span>
+            <span class="text-gray-500 text-xs">{{ navbarDate() }}</span>
             <!-- Outline bell -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24"
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-600" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V4a2 2 0 10-4 0v1.341C8.67 6.165 8 7.444 8 9v5.159c0 .538-.214 1.055-.595 1.436L6 17h9z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.73 21a2 2 0 01-3.46 0" />
             </svg>
-            <span class="text-sm text-gray-600">Hi, Ahmad</span>
             <img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=Ahmad&background=0D8ABC&color=fff"
                 alt="Avatar">
-
         </div>
     </div>
 </nav>

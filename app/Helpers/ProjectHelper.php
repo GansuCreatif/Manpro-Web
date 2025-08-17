@@ -1,13 +1,18 @@
 <?php
 
+
 if (!function_exists('isProjectCodeOdd')) {
     function isProjectCodeOdd(string $codeProject): bool
     {
-        preg_match('/\d+/', $codeProject, $matches);
-        $number = isset($matches[0]) ? intval($matches[0]) : 0;
-        return $number % 2 === 1;
+        // Ambil semua angka dalam kode proyek
+        preg_match_all('/\d+/', $codeProject, $matches);
+
+        // Ambil angka terakhir (misalnya "001" dari "PRJ-2024-001")
+        $lastNumber = isset($matches[0]) ? intval(end($matches[0])) : 0;
+
+        return $lastNumber % 2 === 1;
     }
-}
+
 
 if (!function_exists('projectStatus')) {
     function projectStatus(string $status): array
@@ -20,4 +25,5 @@ if (!function_exists('projectStatus')) {
         ];
         return $map[$status] ?? ['label' => 'Unknown', 'text' => 'text-gray-600'];
     }
+}
 }
