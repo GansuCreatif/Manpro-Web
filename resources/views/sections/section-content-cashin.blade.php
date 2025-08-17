@@ -193,3 +193,25 @@
             });
         });
     </script>
+
+    <div class="flex flex-col md:flex-row items-center justify-between gap-3 mt-4">
+        <!-- Pagination kiri -->
+        <div class="order-2 md:order-1">
+            {{ $projects->appends(['perPage' => request('perPage')])->links('pagination::tailwind') }}
+        </div>
+
+        <!-- Show entries kanan -->
+        <!-- Show entries kanan -->
+        <div class="order-1 md:order-2 flex items-center gap-2 text-sm text-gray-700">
+            <form method="GET" action="" class="flex items-center gap-2" id="perPageForm">
+                <label for="perPage" class="whitespace-nowrap">Show entries</label>
+                <select id="perPage" name="perPage" class="border rounded px-2 py-1 text-sm w-15">
+                    <option value="5" {{ request('perPage') == 5 ? 'selected' : '' }}>5</option>
+                    <option value="10" {{ request('perPage') == 10 ? 'selected' : '' }}>10</option>
+                    <option value="25" {{ request('perPage') == 25 ? 'selected' : '' }}>25</option>
+                    <option value="50" {{ request('perPage') == 50 ? 'selected' : '' }}>50</option>
+                    <option value="100" {{ request('perPage') == 100 ? 'selected' : '' }}>100</option>
+                </select>
+            </form>
+        </div>
+    </div>

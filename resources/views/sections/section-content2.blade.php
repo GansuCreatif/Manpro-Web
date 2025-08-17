@@ -155,10 +155,10 @@
             <!-- Show entries kanan -->
             <!-- Show entries kanan -->
             <div class="order-1 md:order-2 flex items-center gap-2 text-sm text-gray-700">
-                <form method="GET" action="" class="flex items-center gap-2">
+                <form method="GET" action="" class="flex items-center gap-2" id="perPageForm">
                     <label for="perPage" class="whitespace-nowrap">Show entries</label>
-                    <select id="perPage" name="perPage" onchange="this.form.submit()"
-                        class="border rounded px-2 py-1 text-sm w-15">
+                    <select id="perPage" name="perPage" class="border rounded px-2 py-1 text-sm w-15">
+                        <option value="5" {{ request('perPage') == 5 ? 'selected' : '' }}>5</option>
                         <option value="10" {{ request('perPage') == 10 ? 'selected' : '' }}>10</option>
                         <option value="25" {{ request('perPage') == 25 ? 'selected' : '' }}>25</option>
                         <option value="50" {{ request('perPage') == 50 ? 'selected' : '' }}>50</option>
@@ -199,5 +199,17 @@
                 const rowText = row.textContent.toLowerCase();
                 row.style.display = rowText.includes(searchValue) ? "" : "none";
             });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const perPageSelect = document.getElementById('perPage');
+            const perPageForm = document.getElementById('perPageForm');
+
+            if (perPageSelect && perPageForm) {
+                perPageSelect.addEventListener('change', function() {
+                    perPageForm.submit();
+                });
+            }
         });
     </script>
