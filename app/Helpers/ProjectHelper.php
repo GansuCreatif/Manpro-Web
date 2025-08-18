@@ -15,15 +15,40 @@ if (!function_exists('isProjectCodeOdd')) {
 
 
 if (!function_exists('projectStatus')) {
-    function projectStatus(string $status): array
-    {
+    function projectStatus(string $status): array {
         $map = [
-            'Fast' => ['label' => 'Fast', 'text' => 'text-blue-600'],
-            'Normal' => ['label' => 'On Time', 'text' => 'text-green-600'],
-            'TooLate' => ['label' => 'Too Late', 'text' => 'text-yellow-600'],
-            'Critical' => ['label' => 'Critical', 'text' => 'text-red-600'],
+            'Fast' => [
+                'label' => 'Fast', 
+                'text' => 'text-sky-400',        // Biru muda
+                'bg' => 'bg-sky-100',            // Background biru muda
+                'border' => 'border-sky-300'     // Border biru muda
+            ],
+            'Normal' => [
+                'label' => 'On Time', 
+                'text' => 'text-green-600',      // Hijau
+                'bg' => 'bg-green-100',          // Background hijau
+                'border' => 'border-green-300'   // Border hijau
+            ],
+            'TooLate' => [
+                'label' => 'Too Late', 
+                'text' => 'text-orange-500',     // Orange
+                'bg' => 'bg-orange-100',         // Background orange
+                'border' => 'border-orange-300'  // Border orange
+            ],
+            'Critical' => [
+                'label' => 'Critical', 
+                'text' => 'text-red-600',        // Merah
+                'bg' => 'bg-red-100',            // Background merah
+                'border' => 'border-red-300'     // Border merah
+            ],
         ];
-        return $map[$status] ?? ['label' => 'Unknown', 'text' => 'text-gray-600'];
+        
+        return $map[$status] ?? [
+            'label' => 'Unknown', 
+            'text' => 'text-gray-600',
+            'bg' => 'bg-gray-100',
+            'border' => 'border-gray-300'
+        ];
     }
 }
 }

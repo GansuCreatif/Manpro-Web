@@ -26,7 +26,8 @@ Route::get('/project-list', [ProjectController::class, 'list'])->name('Project-L
 Route::get('/project-detail/{code?}', [ProjectController::class, 'detail'])->name('Project-Details');
 Route::get('/project-list-detail/{code?}', [ProjectController::class, 'detailList'])->name('Project-List-Detail');
 Route::get('/project-issue', [ProjectController::class, 'issue'])->name('Project-Issue');
-
+Route::get('/project-list-histori', [ProjectController::class, 'histori'])->name('Project-Histori');
+Route::get('/adendum/{code?}', [ProjectController::class, 'detailAdendum'])->name('Adendum');
 
 Route::get('/login', function () {
     return view('login');
@@ -36,15 +37,27 @@ Route::get('/Form-Cost', function () {
     return view('form-cost');
 })->name('Form-Cost');
 
-Route::get('/Form-Async', function () {
-    return view('fomr-async');
-})->name('Form-Async');
-
 Route::get('/Form-Time', function () {
     return view('form-time');
 })->name('Form-Time');
 
-
+/* Khusus Sync SAP */
+Route::get('/Form-Async', function () {
+    return view('fomr-async');
+})->name('Form-Async');
+Route::get('/Form-Async-Period', function () {
+    return view('fomr-async-periode');
+})->name('Form-Async-Period');
+Route::get('/Form-Async-Organization', function () {
+    return view('fomr-async-organization');
+})->name('Form-Async-Organization');
+Route::get('/Form-Async-Finance', function () {
+    return view('fomr-async-finance');
+})->name('Form-Async-Finance');
+Route::get('/Form-Async-Report', function () {
+    return view('fomr-async-report');
+})->name('Form-Async-Report');
+/* Khusus Sync SAP */
 Route::get('/Keuangan', function () {
     return view('keuangan');
 })->name('Keuangan');

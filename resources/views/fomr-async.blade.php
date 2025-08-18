@@ -8,7 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-gray-50">
+<body class="bg-white">
 
     <!-- Navbar -->
     @include('sections.section-navbar')
@@ -17,10 +17,11 @@
     @include('sections.section-sidebar')
 
     <!-- Main layout -->
-    <div class="flex pt-16 min-h-screen bg-blue-50">
+    <div class="flex pt-16 min-h-screen">
         <div id="main-wrapper" class="flex-1 flex flex-col transition-all duration-300 ml-64">
 
             <main id="main-content" class="flex-1 p-6">
+                <h1 class="text-blue-900 mb-5 pt-2 text-3xl">Project Sync SAP</h1>
                 <!-- Form Cost -->
                 @include('components.forms.form-async')
                 <!-- Footer -->

@@ -46,13 +46,16 @@
                 </svg>
             </button>
             <ul id="project-list-submenu" class="hidden space-y-1 pl-8 mt-2">
-                <li><a href="{{ route('Project-List', ['id' => 1]) }}"
+                <li>
+                    <a href="{{ route('Project-List', ['id' => 1]) }}"
                         class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">
-                        Project List</a></li>
+                        Project Active</a>
+                </li>
                 <li><a href="{{ route('project.data.sync') }}"
                         class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">
-                        Projets Sync</a></li>
-                <li><a href="#" class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">
+                        Project Sync</a></li>
+                <li><a href="{{ route('Project-Histori') }}"
+                        class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">
                         Projects History</a></li>
             </ul>
         </li>

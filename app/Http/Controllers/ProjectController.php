@@ -18,7 +18,7 @@ class ProjectController extends Controller
             : [];
     }
 
-    private function paginate($items, $perPage = 10, $page = null, $options = [])
+    private function paginate($items, $perPage = 5, $page = null, $options = [])
     {
         $page = $page ?: (LengthAwarePaginator::resolveCurrentPage() ?: 1);
         $items = $items instanceof Collection ? $items : Collection::make($items);
@@ -38,7 +38,7 @@ class ProjectController extends Controller
         $projects = $this->getAllProjects();
 
         // ambil nilai perPage dari request (default 10)
-        $perPage = $request->get('perPage', 10);
+        $perPage = $request->get('perPage', 5);
 
         // paginasi manual
         $projects = $this->paginate($projects, $perPage, $request->get('page', 1), [
@@ -53,7 +53,7 @@ class ProjectController extends Controller
 {
     $projects = $this->getAllProjects();
 
-    $perPage = $request->get('perPage', 10);
+    $perPage = $request->get('perPage', 5);
 
     $projects = $this->paginate($projects, $perPage, $request->get('page', 1), [
         'path' => $request->url(),
@@ -67,7 +67,7 @@ class ProjectController extends Controller
 {
     $projects = $this->getAllProjects();
 
-    $perPage = $request->get('perPage', 10);
+    $perPage = $request->get('perPage', 5);
 
     $projects = $this->paginate($projects, $perPage, $request->get('page', 1), [
         'path' => $request->url(),
@@ -114,6 +114,18 @@ class ProjectController extends Controller
         return view('project-detail', compact('project'));
     }
 
+    public function histori(Request $request)
+    {
+        $projects = $this->getAllProjects();
+        $perPage = $request->get('perPage', 10);
+
+        $projects = $this->paginate($projects, $perPage, $request->get('page', 1), [
+            'path' => $request->url(),
+            'query' => $request->query(),
+        ]);
+
+        return view('project-list-histori', compact('projects'));
+    }
     public function detailList($code = 'PRJ-2024-001')
     {
         $projects = $this->getAllProjects();
@@ -122,6 +134,13 @@ class ProjectController extends Controller
         return view('project-list-detail', compact('project'));
     }
 
+    public function detailAdendum($code = 'PRJ-2024-001')
+    {
+        $projects = $this->getAllProjects();
+        $project = collect($projects)->firstWhere('project_def', $code);
+
+        return view('adendum', compact('project'));
+    }
 
     public function detail2()
     {

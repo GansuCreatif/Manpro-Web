@@ -29,30 +29,7 @@
                 <!-- Tabel Period -->
                 <table class="w-full text-sm text-left text-black-500">
                     <tbody>
-                        <tr>
-                            <td class="px-4 font-bold">Fiscal Year</td>
-                            <td>: 2025</td>
-                            <td class="px-4 font-bold">Date Contract</td>
-                            <td>: 1 Jul 2025</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 font-bold">Start Date</td>
-                            <td>: 2 Jan 2025</td>
-                            <td class="px-4 font-bold">Date SPMK</td>
-                            <td>: 15 Jun 2025</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 font-bold">Finish Date</td>
-                            <td>: 15 Jun 2025</td>
-                            <td class="px-4 font-bold">Actual Start Date</td>
-                            <td>: 15 Jun 2025</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 font-bold">Total Days</td>
-                            <td>: 250 Days</td>
-                            <td class="px-4 font-bold">Reason</td>
-                            <td>: Contract</td>
-                        </tr>
+                        @include('components.project-detail.table-periode')
                     </tbody>
                 </table>
 
@@ -80,14 +57,14 @@
                 <!-- Tabel Adendum -->
                 <div class="w-full overflow-x-auto mt-2">
                     <table class="min-w-full table-auto text-sm text-left bg-blue">
-                        <thead class="bg-orange-500 text-orange-900 font-bold">
+                        <thead class="bg-orange-500 text-blue-950 font-bold">
                             <tr class="text-center">
-                                <th class="py-1 px-2">No</th>
-                                <th class="py-1 px-2">Type</th>
-                                <th class="py-1 px-2 whitespace-nowrap">Before</th>
-                                <th class="py-1 px-2 whitespace-nowrap">After</th>
-                                <th class="py-1 px-2">Status</th>
-                                <th class="py-1 px-2">Description</th>
+                                <th class="py-2 px-4">No</th>
+                                <th class="py-2 px-4">Type</th>
+                                <th class="py-2 px-4 whitespace-nowrap">Before</th>
+                                <th class="py-2 px-4 whitespace-nowrap">After</th>
+                                <th class="py-2 px-4">Status</th>
+                                <th class="py-2 px-4">Description</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -96,7 +73,7 @@
                                 <td class="text-center">Cost</td>
                                 <td class="px-1">Rp.2.455.305.900</td>
                                 <td class="px-1">Rp.2.600.000.000</td>
-                                <td class="text-center">Approve</td>
+                                <td class="text-center text-green-500">Approve</td>
                                 <td class="text-center">Penambahan Pekerjaan..</td>
                             </tr>
                             <tr>
@@ -104,7 +81,7 @@
                                 <td class="text-center">Time</td>
                                 <td class="text-center">15 Juni 2025</td>
                                 <td class="text-center">30 Juni 2025</td>
-                                <td class="text-center">Approve</td>
+                                <td class="text-center text-green-500">Approve</td>
                                 <td class="text-center">Penambahan Pekerjaan..</td>
                             </tr>
                         </tbody>
@@ -182,14 +159,14 @@
                 <!-- Tabel Termin -->
                 <div class="w-full overflow-x-auto lg:overflow-x-visible mt-2">
                     <table class="min-w-full table-auto text-sm text-left">
-                        <thead class="bg-orange-500 text-orange-900 font-bold">
+                        <thead class="bg-orange-500 text-blue-950 font-bold">
                             <tr class="text-center">
-                                <th>No</th>
-                                <th>Period</th>
-                                <th>Percentage</th>
-                                <th>Total</th>
-                                <th class="whitespace-nowrap">Date Plan</th>
-                                <th class="whitespace-nowrap">Date Actual</th>
+                                <th class="px-4 py-2 ">No</th>
+                                <th class="px-4 py-2 ">Period</th>
+                                <th class="px-4 py-2 ">Percentage</th>
+                                <th class="px-4 py-2 ">Total</th>
+                                <th class="px-4 py-2 whitespace-nowrap">Date Plan</th>
+                                <th class="px-4 py-2 whitespace-nowrap">Date Actual</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -315,7 +292,7 @@
 
                 <!-- Tabel Struktur -->
                 <table class="w-full text-sm text-left bg-blue mt-2">
-                    <thead class="bg-orange-500 text-orange-900 font-bold">
+                    <thead class="bg-orange-500 text-blue-950 font-bold">
                         <tr class="text-center">
                             <th class="py-2 px-4">No</th>
                             <th class="py-2 px-4">Type</th>

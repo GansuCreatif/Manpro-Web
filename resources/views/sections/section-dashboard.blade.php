@@ -42,5 +42,4 @@
             </div>
         </div>
     </div>
-    @include('sections.section-footer')
 </div>
