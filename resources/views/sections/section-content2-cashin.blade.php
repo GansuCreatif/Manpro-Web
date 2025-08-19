@@ -168,11 +168,7 @@
                                 </span>
                             </td>
                             <td class="px-5 py-5 flex justify-center gap-2">
-                                <a href="{{ route('Form-Async', ['code' => $project['project_def']]) }}"
-                                    class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                                    Edit
-                                </a>
-                                <a href="{{ route('Project-Details', ['code' => $project['project_def']]) }}"
+                                <a href="{{ route('project-cashin-detail-awal') }}"
                                     class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
                                     Details
                                 </a>

@@ -23,6 +23,7 @@
             <main id="main-content" class="flex-1 p-6">
                 <h1 class="text-blue-900 mb-5 pt-2 text-3xl">Details Cash In</h1>
                 @include('sections.section-content-detail-cashin')
+                @include('sections.section-footer')
             </main>
         </div>
     </div>

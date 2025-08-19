@@ -270,5 +270,4 @@
             </tr>
         </tbody>
     </table>
-    @include('sections.section-footer')
 </div>

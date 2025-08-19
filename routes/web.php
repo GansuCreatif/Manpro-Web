@@ -28,7 +28,7 @@ Route::get('/project-list-detail/{code}', [ProjectController::class, 'detail2'])
     ->name('Project-List-Detail');
 Route::get('/project-issue', [ProjectController::class, 'issue'])->name('Project-Issue');
 Route::get('/project-list-histori', [ProjectController::class, 'histori'])->name('Project-Histori');
-Route::get('/adendum/{code?}', [ProjectController::class, 'detailAdendum'])->name('Adendum');
+Route::get('/adendum', [ProjectController::class, 'detailAdendum'])->name('Adendum');
 
 Route::get('/login', function () {
     return view('login');
@@ -59,9 +59,11 @@ Route::get('/Form-Async-Report', function () {
     return view('fomr-async-report');
 })->name('Form-Async-Report');
 /* Khusus Sync SAP */
-Route::get('/Keuangan', function () {
-    return view('keuangan');
-})->name('Keuangan');
+Route::get('/project-cashin-detail-awal', [ProjectController::class, 'cashIn1'])
+    ->name('project-cashin-detail-awal');
+
+Route::get('/project-cashout-detail-awal', [ProjectController::class, 'cashOut1'])
+    ->name('project-cashout-detail-awal');
 
 Route::get('/project-data-sync', [ProjectController::class, 'syncList'])
     ->name('project.data.sync');
@@ -70,9 +72,10 @@ Route::get('/project-report', [ProjectController::class, 'projectReport'])
     ->name('project.report'); 
 
 Route::get('/project-finance-cashin-detail', [ProjectController::class, 'detail3'])->name('Project-Finance-Cashin-Detail');
-
 Route::get('/project-finance-cashin', [ProjectController::class, 'cashIn'])
     ->name('project.finance.cashin');
+Route::get('/project-finance-cashout', [ProjectController::class, 'cashOut'])
+    ->name('project-finance-cashout');
 
 Route::get('/project-list-detail', [ProjectController::class, 'detail2'])->name('Project-List-Detail');
 

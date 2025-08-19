@@ -20,35 +20,43 @@ class ProjectController extends Controller
     }
 
     private function paginate($items, $perPage = 5, $page = null, $options = [])
-    {
-        $page = $page ?: (LengthAwarePaginator::resolveCurrentPage() ?: 1);
-        $items = $items instanceof Collection ? $items : Collection::make($items);
-        $currentPageItems = $items->slice(($page - 1) * $perPage, $perPage)->values();
+{
+    $page = $page ?: (LengthAwarePaginator::resolveCurrentPage() ?: 1);
+    $items = $items instanceof Collection ? $items : Collection::make($items);
+    $currentPageItems = $items->slice(($page - 1) * $perPage, $perPage)->values();
 
-        return new LengthAwarePaginator(
-            $currentPageItems,
-            $items->count(),
-            $perPage,
-            $page,
-            $options
-        );
-    }
+    return new LengthAwarePaginator(
+        $currentPageItems,
+        $items->count(),
+        $perPage,
+        $page,
+        [
+            'path' => request()->url(),
+            'query' => request()->query(),
+        ]
+    );
+}
+
 
     public function list(Request $request)
-    {
-        $projects = $this->getAllProjects();
+{
+    $projects = $this->getAllProjects(); // pastikan return-nya Project::all()
 
-        // ambil nilai perPage dari request (default 10)
-        $perPage = $request->get('perPage', 5);
+    $perPage = $request->get('perPage', 5);
 
-        // paginasi manual
-        $projects = $this->paginate($projects, $perPage, $request->get('page', 1), [
+    $projects = $this->paginate(
+        $projects,
+        $perPage,
+        $request->get('page', 1),
+        [
             'path' => $request->url(),
             'query' => $request->query(),
-        ]);
+        ]
+    );
 
-        return view('project-list', compact('projects'));
-    }
+    return view('project-list', compact('projects'));
+}
+
 
     public function activeList(Request $request)
     {
@@ -84,7 +92,7 @@ class ProjectController extends Controller
 {
     $projects = $this->getAllProjects();
 
-    $perPage = $request->get('perPage', 5);
+    $perPage = $request->get('perPage', 1);
 
     $projects = $this->paginate($projects, $perPage, $request->get('page', 1), [
         'path' => $request->url(),
@@ -92,6 +100,48 @@ class ProjectController extends Controller
     ]);
 
     return view('project-finance-cashin', compact('projects'));
+}
+
+    public function cashIn1(Request $request)
+{
+    $projects = $this->getAllProjects();
+
+    $perPage = $request->get('perPage', 5);
+
+    $projects = $this->paginate($projects, $perPage, $request->get('page', 1), [
+        'path' => $request->url(),
+        'query' => $request->query(),
+    ]);
+
+    return view('project-cashin-detail-awal', compact('projects'));
+}
+
+    public function cashOut(Request $request)
+{
+    $projects = $this->getAllProjects();
+
+    $perPage = $request->get('perPage', 1);
+
+    $projects = $this->paginate($projects, $perPage, $request->get('page', 1), [
+        'path' => $request->url(),
+        'query' => $request->query(),
+    ]);
+
+    return view('project-finance-cashout', compact('projects'));
+}
+
+    public function cashOut1(Request $request)
+{
+    $projects = $this->getAllProjects();
+
+    $perPage = $request->get('perPage', 5);
+
+    $projects = $this->paginate($projects, $perPage, $request->get('page', 1), [
+        'path' => $request->url(),
+        'query' => $request->query(),
+    ]);
+
+    return view('project-cashout-detail-awal', compact('projects'));
 }
 
     public function projectReport(Request $request)
@@ -143,10 +193,10 @@ class ProjectController extends Controller
 
         return view('project-list-histori', compact('projects'));
     }
-    public function detailAdendum($code = 'PRJ-2024-001')
+    public function detailAdendum()
     {
         $projects = $this->getAllProjects();
-        $project = collect($projects)->firstWhere('project_def', $code);
+        $project = collect($projects)->firstWhere('project_def');
 
         return view('adendum', compact('project'));
     }

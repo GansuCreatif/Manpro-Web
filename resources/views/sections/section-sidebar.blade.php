@@ -103,7 +103,8 @@
                 <li><a href="{{ route('project.finance.cashin') }}"
                         class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">Cash In</a>
                 </li>
-                <li><a href="#" class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">Cash Out</a>
+                <li><a href="{{ route('project-finance-cashout') }}"
+                        class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">Cash Out</a>
                 </li>
             </ul>
         </li>

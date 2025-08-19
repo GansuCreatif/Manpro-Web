@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ManPro</title>
+    <title>ProManage</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-gray-50">
+<body class="bg-gray-50 overflow-x-hidden">
 
     <!-- Navbar -->
     @include('sections.section-navbar')
@@ -21,8 +21,8 @@
         <div id="main-wrapper" class="flex-1 flex flex-col transition-all duration-300 ml-64">
 
             <main id="main-content" class="flex-1 p-6">
-                <h1 class="text-blue-900 mb-5 pt-2 text-3xl">Project Cash In</h1>
-                @include('sections.section-content2-cashin')
+                <h1 class="text-blue-900 mb-5 pt-2 text-3xl">Detail Cash Out</h1>
+                @include('sections.section-content-detail-cashout')
                 <!-- Footer -->
                 @include('sections.section-footer')
             </main>
