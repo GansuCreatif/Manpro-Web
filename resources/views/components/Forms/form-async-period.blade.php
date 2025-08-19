@@ -48,7 +48,7 @@
             <!-- Fiscal Year -->
             <div class="grid grid-cols-4 items-center">
                 <label class="col-span-1 text-sm font-semibold text-gray-700">Fiscal Year</label>
-                <input type="text" value="2025" readonly
+                <input type="text" name="fiscal_year" value="2025" readonly
                     class="col-span-3 border rounded-lg p-2 bg-gray-100 w-full" />
             </div>
 
@@ -56,14 +56,14 @@
             <div class="grid grid-cols-4 items-center">
                 <label class="col-span-1 text-sm font-semibold text-gray-700">Date SPMK <span
                         class="text-red-500">*</span></label>
-                <input type="tezt" value="27 December 2024"
+                <input type="text" id="date_spmk" name="date_spmk" placeholder="dd/mm/yyyy"
                     class="col-span-3 border rounded-lg p-2 focus:ring-2 focus:ring-blue-500 w-full" />
             </div>
 
             <!-- Start Date -->
             <div class="grid grid-cols-4 items-center">
                 <label class="col-span-1 text-sm font-semibold text-gray-700">Start Date</label>
-                <input type="text" value="02 January 2025" readonly
+                <input type="text" name="start_date" value="02 January 2025" readonly
                     class="bg-gray-100 col-span-3 border rounded-lg p-2 focus:ring-2 focus:ring-blue-500 w-full" />
             </div>
 
@@ -71,28 +71,28 @@
             <div class="grid grid-cols-4 items-center">
                 <label class="col-span-1 text-sm font-semibold text-gray-700">Date Contract <span
                         class="text-red-500">*</span></label>
-                <input type="text" value="02 January 2025" readonly
+                <input type="text" id="date_contract" name="date_contract" placeholder="dd/mm/yyyy"
                     class="col-span-3 border rounded-lg p-2 focus:ring-2 focus:ring-blue-500 w-full" />
             </div>
 
             <!-- End Date -->
             <div class="grid grid-cols-4 items-center">
                 <label class="col-span-1 text-sm font-semibold text-gray-700">End Date</label>
-                <input type="text" value="15 January 2025" readonly
-                    class="bg-gray-100  col-span-3 border rounded-lg p-2 focus:ring-2 focus:ring-blue-500 w-full" />
+                <input type="text" name="end_date" value="15 January 2025" readonly
+                    class="bg-gray-100 col-span-3 border rounded-lg p-2 focus:ring-2 focus:ring-blue-500 w-full" />
             </div>
 
             <!-- Date Actual -->
             <div class="grid grid-cols-4 items-center">
                 <label class="col-span-1 text-sm font-semibold text-gray-700">Date Actual</label>
-                <input type="text" value="27 Desember 2024"
+                <input type="text" name="date_actual" placeholder="dd/mm/yyyy"
                     class="col-span-3 border rounded-lg p-2 focus:ring-2 focus:ring-blue-500 w-full" />
             </div>
 
             <!-- Total Days -->
             <div class="grid grid-cols-4 items-center">
                 <label class="col-span-1 text-sm font-semibold text-gray-700">Total Days</label>
-                <input type="text" value="125 Days" readonly
+                <input type="text" name="total_days" value="125 Days" readonly
                     class="col-span-3 border rounded-lg p-2 bg-gray-100 w-full" />
             </div>
 
@@ -100,14 +100,15 @@
             <div class="grid grid-cols-4 items-center">
                 <label class="col-span-1 text-sm font-semibold text-gray-700">Start By <span
                         class="text-red-500">*</span></label>
-                <select class="col-span-3 border rounded-lg p-2 focus:ring-2 focus:ring-blue-500 w-full">
-                    <option selected>SPMK</option>
-                    <option>Contract</option>
-                    <option>Other</option>
+                <select id="start_by" name="start_by"
+                    class="col-span-3 border rounded-lg p-2 focus:ring-2 focus:ring-blue-500 w-full">
+                    <option value="">-- pilih salah satu --</option>
+                    <option value="SPMK">SPMK</option>
+                    <option value="Contract">Contract</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
         </div>
-
 
         <!-- Tombol Next -->
         <div class="flex justify-end mt-6">
@@ -121,11 +122,30 @@
 
 <script>
     document.getElementById("nextBtn").addEventListener("click", function() {
-        // ambil data form
-        const formData = new FormData(document.getElementById("general-form"));
+        const form = document.getElementById("general-form");
+        const requiredFields = ["date_spmk", "date_contract", "start_by"];
+        let isValid = true;
+
+        requiredFields.forEach(id => {
+            const field = document.getElementById(id);
+            if (!field.value.trim()) {
+                isValid = false;
+                field.classList.add("border-red-500");
+            } else {
+                field.classList.remove("border-red-500");
+            }
+        });
+
+        if (!isValid) {
+            alert("Harap isi semua field yang wajib diisi (*) sebelum melanjutkan!");
+            return;
+        }
+
+        // Simpan data form
+        const formData = new FormData(form);
         console.log("General Data:", Object.fromEntries(formData));
 
-        // contoh redirect ke step berikutnya (Periode)
+        // Redirect
         window.location.href = "/Form-Async-Organization";
     });
 </script>

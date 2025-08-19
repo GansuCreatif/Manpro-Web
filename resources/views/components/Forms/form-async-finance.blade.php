@@ -86,7 +86,7 @@
                 <label class="w-40 text-sm font-semibold text-gray-700">
                     Date Plan <span class="text-red-500">*</span>
                 </label>
-                <input type="date" class="flex-1 border rounded-lg p-2" />
+                <input id="datePlan" type="date" class="flex-1 border rounded-lg p-2" />
             </div>
 
             <!-- Downpayment -->
@@ -94,7 +94,7 @@
                 <label class="w-40 text-sm font-semibold text-gray-700">
                     Downpayment<span class="text-red-500">*</span>
                 </label>
-                <input type="text" class="flex-1 border rounded-lg p-2" placeholder="100.000.000" />
+                <input id="downpayment" type="text" class="flex-1 border rounded-lg p-2" placeholder="100.000.000" />
             </div>
 
             <!-- Work Progress -->
@@ -102,7 +102,7 @@
                 <label class="w-40 text-sm font-semibold text-gray-700">
                     Work Progress (%) <span class="text-red-500">*</span>
                 </label>
-                <input type="number" class="flex-1 border rounded-lg p-2" placeholder="0 - 100" />
+                <input id="workProgress" type="number" class="flex-1 border rounded-lg p-2" placeholder="0 - 100" />
             </div>
 
             <!-- PPN -->
@@ -110,7 +110,7 @@
                 <label class="w-40 text-sm font-semibold text-gray-700">
                     PPN (%) <span class="text-red-500">*</span>
                 </label>
-                <input type="number" class="flex-1 border rounded-lg p-2" placeholder="10" />
+                <input id="ppn" type="number" class="flex-1 border rounded-lg p-2" placeholder="10" />
             </div>
 
             <!-- Value -->
@@ -118,7 +118,7 @@
                 <label class="w-40 text-sm font-semibold text-gray-700">
                     Value<span class="text-red-500">*</span>
                 </label>
-                <input type="text" class="flex-1 border rounded-lg p-2" placeholder="150.000.000" />
+                <input id="valueInput" type="text" class="flex-1 border rounded-lg p-2" placeholder="150.000.000" />
             </div>
 
             <!-- Bank -->
@@ -126,14 +126,13 @@
                 <label class="w-40 text-sm font-semibold text-gray-700">
                     Bank <span class="text-red-500">*</span>
                 </label>
-                <select class="flex-1 border rounded-lg p-2 focus:ring-2 focus:ring-blue-500">
+                <select id="bankSelect" class="flex-1 border rounded-lg p-2 focus:ring-2 focus:ring-blue-500">
                     <option selected>Mandiri</option>
                     <option>Bank DKI</option>
                     <option>Bank Jateng</option>
                     <option>Bank BJB</option>
                 </select>
             </div>
-
             <!-- Kosongan aja -->
             <div class="flex items-center col-span-1">
 
@@ -296,6 +295,74 @@
         </div>
     </form>
 </div>
+
+<script>
+    const addTermBtn = document.getElementById("addTerm");
+    const termTable = document.getElementById("termTableBody");
+
+    function updateRowNumbers() {
+        [...termTable.rows].forEach((row, index) => {
+            row.cells[0].innerText = index + 1;
+        });
+    }
+
+    function attachRemove() {
+        document.querySelectorAll(".removeTerm").forEach(btn => {
+            btn.onclick = function() {
+                this.closest("tr").remove();
+                updateRowNumbers();
+            };
+        });
+    }
+    attachRemove();
+
+    addTermBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+
+        const paymentType = document.getElementById("paymentType").value.trim();
+        const termSelect = document.getElementById("termSelect").value.trim();
+        const totalTerm = document.getElementById("totalTerm").value.trim();
+        const datePlan = document.getElementById("datePlan").value.trim();
+        const downpayment = document.getElementById("downpayment").value.trim();
+        const progress = document.getElementById("workProgress").value.trim();
+        const ppn = document.getElementById("ppn").value.trim();
+        const value = document.getElementById("valueInput").value.trim();
+        const bank = document.getElementById("bankSelect").value.trim();
+        const accountName = document.getElementById("accountName").value.trim();
+        const accountNumber = document.getElementById("accountNumber").value.trim();
+
+        if (!paymentType || !termSelect || !totalTerm || !datePlan || !downpayment || !progress || !ppn || !
+            value || !bank || !accountName || !accountNumber) {
+            alert("Semua field bertanda * wajib diisi!");
+            return;
+        }
+
+        const newRow = termTable.insertRow();
+        newRow.classList.add("even:bg-gray-100");
+        newRow.innerHTML = `
+    <td class="px-4 py-2 text-center"></td>
+    <td class="px-4 py-2 text-center">${termSelect}</td>
+    <td class="px-4 py-2 text-center">${datePlan}</td>
+    <td class="px-4 py-2 text-center">${progress}%</td>
+    <td class="px-4 py-2 text-center">${value}</td>
+    <td class="px-4 py-2 text-center">
+      <button class="removeTerm bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">Remove</button>
+    </td>
+  `;
+
+        attachRemove();
+        updateRowNumbers();
+
+        // reset field
+        document.getElementById("termSelect").value = "";
+        document.getElementById("totalTerm").value = "";
+        document.getElementById("datePlan").value = "";
+        document.getElementById("downpayment").value = "";
+        document.getElementById("workProgress").value = "";
+        document.getElementById("ppn").value = "";
+        document.getElementById("valueInput").value = "";
+    });
+</script>
 
 
 

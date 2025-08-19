@@ -47,7 +47,6 @@
     <!-- Form Fields -->
     <form id="general-form">
         <div class="grid grid-cols-2 gap-x-8 gap-y-4 text-sm">
-            <!-- Left side -->
             <div class="flex items-center">
                 <label class="w-40 font-medium text-gray-700">Project Manager :</label>
                 <input type="text" value="Danandaru Harumandoyo" disabled
@@ -56,116 +55,84 @@
 
             <div class="flex items-center">
                 <label class="w-40 font-medium text-gray-700">Role <span class="text-red-500">*</span> :</label>
-                <select class="w-full border rounded-md px-3 py-2">
-                    <option>Admin</option>
-                    <option>Site Manager</option>
-                    <option>Logistik</option>
-                    <option>SHE</option>
-                    <option>Consultant</option>
+                <select id="role" class="w-full border rounded-md px-3 py-2">
+                    <option value="Admin">Admin</option>
+                    <option value="Site Manager">Site Manager</option>
+                    <option value="Logistik">Logistik</option>
+                    <option value="SHE">SHE</option>
+                    <option value="Consultant">Consultant</option>
                 </select>
             </div>
 
             <div class="flex items-center">
-                <label class="w-40 font-medium text-gray-700">NIPPM :</label>
-                <input type="text" class="w-full border rounded-md px-3 py-2" />
+                <label class="w-40 font-medium text-gray-700">NIPPM <span class="text-red-500">*</span> :</label>
+                <input type="text" id="nippm" class="w-full border rounded-md px-3 py-2" />
             </div>
 
             <div class="flex items-center">
                 <label class="w-40 font-medium text-gray-700">Job Desc <span class="text-red-500">*</span> :</label>
-                <textarea rows="2" class="w-full border rounded-md px-3 py-2">Melakukan pencatatan keuangan dan laporan mingguan proyek kepada Project Manager</textarea>
+                <textarea id="desc" rows="2" class="w-full border rounded-md px-3 py-2"></textarea>
             </div>
 
             <div class="flex items-center">
                 <label class="w-40 font-medium text-gray-700">Name <span class="text-red-500">*</span> :</label>
-                <input type="text" value="Budi" class="w-full border rounded-md px-3 py-2" />
+                <input type="text" id="name" class="w-full border rounded-md px-3 py-2" />
             </div>
 
             <div class="flex justify-end items-center">
-                <button onclick="addRow()"
+                <button type="button" id="addBtn"
                     class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Add</button>
             </div>
         </div>
+    </form>
 
-        <!-- Table -->
-        <div class="mt-6 overflow-x-auto">
-            <table class="min-w-full border text-sm text-left">
-                <thead class="bg-orange-500 text-white">
-                    <tr>
-                        <th class="px-4 py-2">No.</th>
-                        <th class="px-4 py-2">Type</th>
-                        <th class="px-4 py-2">NIPPM</th>
-                        <th class="px-4 py-2">Name</th>
-                        <th class="px-4 py-2">Description</th>
-                        <th class="px-4 py-2">Action</th>
-                    </tr>
-                </thead>
-                <tbody id="orgTable">
-                    <tr class="even:bg-gray-100">
-                        <td class="px-4 py-2">1</td>
-                        <td class="px-4 py-2">Site Manager</td>
-                        <td class="px-4 py-2">-</td>
-                        <td class="px-4 py-2">Ahmad</td>
-                        <td class="px-4 py-2">Memastikan pekerjaan berjalan sesuai planning</td>
-                        <td class="px-4 py-2">
-                            <button onclick="removeRow(this)"
-                                class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Remove</button>
-                        </td>
-                    </tr>
-                    <tr class="even:bg-gray-100">
-                        <td class="px-4 py-2">2</td>
-                        <td class="px-4 py-2">Admin</td>
-                        <td class="px-4 py-2">-</td>
-                        <td class="px-4 py-2">Budi</td>
-                        <td class="px-4 py-2">Menyiapkan dan mengelola dokumen proyek</td>
-                        <td class="px-4 py-2">
-                            <button onclick="removeRow(this)"
-                                class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Remove</button>
-                        </td>
-                    </tr>
-                    <tr class="even:bg-gray-100">
-                        <td class="px-4 py-2">3</td>
-                        <td class="px-4 py-2">Logistik</td>
-                        <td class="px-4 py-2">-</td>
-                        <td class="px-4 py-2">Erfin</td>
-                        <td class="px-4 py-2">Memberi arahan, pengawasan, dan validasi teknis</td>
-                        <td class="px-4 py-2">
-                            <button onclick="removeRow(this)"
-                                class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Remove</button>
-                        </td>
-                    </tr>
-                    <tr class="even:bg-gray-100">
-                        <td class="px-4 py-2">4</td>
-                        <td class="px-4 py-2">SHE</td>
-                        <td class="px-4 py-2">-</td>
-                        <td class="px-4 py-2">Andita</td>
-                        <td class="px-4 py-2">Menerapkan sistem K3L</td>
-                        <td class="px-4 py-2">
-                            <button onclick="removeRow(this)"
-                                class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Remove</button>
-                        </td>
-                    </tr>
-                    <tr class="even:bg-gray-100">
-                        <td class="px-4 py-2">5</td>
-                        <td class="px-4 py-2">Consultant</td>
-                        <td class="px-4 py-2">-</td>
-                        <td class="px-4 py-2">Budi</td>
-                        <td class="px-4 py-2">Mempersiapkan kelancaran material proyek</td>
-                        <td class="px-4 py-2">
-                            <button onclick="removeRow(this)"
-                                class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Remove</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <!-- Table -->
+    <div class="mt-6 overflow-x-auto">
+        <table class="min-w-full border text-sm text-left">
+            <thead class="bg-orange-500 text-white">
+                <tr>
+                    <th class="px-4 py-2">No.</th>
+                    <th class="px-4 py-2">Type</th>
+                    <th class="px-4 py-2">NIPPM</th>
+                    <th class="px-4 py-2">Name</th>
+                    <th class="px-4 py-2">Description</th>
+                    <th class="px-4 py-2">Action</th>
+                </tr>
+            </thead>
+            <tbody id="orgTable">
+                <tr class="even:bg-gray-100">
+                    <td class="px-4 py-2">1</td>
+                    <td class="px-4 py-2">Site Manager</td>
+                    <td class="px-4 py-2">-</td>
+                    <td class="px-4 py-2">Ahmad</td>
+                    <td class="px-4 py-2">Memastikan pekerjaan berjalan sesuai planning</td>
+                    <td class="px-4 py-2">
+                        <button
+                            class="removeBtn bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Remove</button>
+                    </td>
+                </tr>
+                <tr class="even:bg-gray-100">
+                    <td class="px-4 py-2">2</td>
+                    <td class="px-4 py-2">Admin</td>
+                    <td class="px-4 py-2">-</td>
+                    <td class="px-4 py-2">Budi</td>
+                    <td class="px-4 py-2">Menyiapkan dan mengelola dokumen proyek</td>
+                    <td class="px-4 py-2">
+                        <button
+                            class="removeBtn bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-        <!-- Tombol Next -->
-        <div class="flex justify-end mt-6">
-            <button type="button" id="nextBtn"
-                class="px-6 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300">
-                Next
-            </button>
-        </div>
+    <!-- Tombol Next -->
+    <div class="flex justify-end mt-6">
+        <button type="button" id="nextBtn"
+            class="px-6 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300">
+            Next
+        </button>
+    </div>
     </form>
 </div>
 
@@ -178,8 +145,8 @@
 
 
 <script>
-    const addBtn = document.getElementById("addBtn");
-    const orgTable = document.getElementById("orgTable").getElementsByTagName("tbody")[0];
+    const addBtn = document.getElementById("addBtn"); // tombol Add
+    const orgTable = document.getElementById("orgTable"); // tbody tabel
 
     function updateRowNumbers() {
         [...orgTable.rows].forEach((row, index) => {
@@ -187,7 +154,6 @@
         });
     }
 
-    // aktifkan remove untuk data default
     function attachRemove() {
         document.querySelectorAll(".removeBtn").forEach(btn => {
             btn.onclick = function() {
@@ -198,32 +164,44 @@
     }
     attachRemove();
 
-    // add new row
-    addBtn.addEventListener("click", function() {
-        const role = document.getElementById("role").value;
-        const nippm = document.getElementById("nippm").value || "-";
-        const name = document.getElementById("name").value;
-        const desc = document.getElementById("desc").value;
+    addBtn.addEventListener("click", function(e) {
+        e.preventDefault();
 
-        if (!name || !desc) {
-            alert("Name dan Job Desc wajib diisi!");
+        const role = document.getElementById("role").value.trim();
+        const nippm = document.getElementById("nippm").value.trim() || "-";
+        const name = document.getElementById("name").value.trim();
+        const desc = document.getElementById("desc").value.trim();
+
+        // validasi wajib isi
+        let emptyFields = [];
+        if (!role) emptyFields.push("Role");
+        if (!nippm) emptyFields.push("NIPPM");
+        if (!name) emptyFields.push("Name");
+        if (!desc) emptyFields.push("Job Desc");
+
+        if (emptyFields.length > 0) {
+            alert("Harap isi field: " + emptyFields.join(", "));
             return;
         }
 
+        // tambahkan row ke tabel
         const newRow = orgTable.insertRow();
+        newRow.classList.add("even:bg-gray-100");
         newRow.innerHTML = `
       <td class="px-4 py-2"></td>
       <td class="px-4 py-2">${role}</td>
       <td class="px-4 py-2">${nippm}</td>
       <td class="px-4 py-2">${name}</td>
       <td class="px-4 py-2">${desc}</td>
-      <td class="px-4 py-2"><button class="removeBtn px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700">Remove</button></td>
+      <td class="px-4 py-2">
+        <button class="removeBtn bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Remove</button>
+      </td>
     `;
 
         attachRemove();
         updateRowNumbers();
 
-        // reset field
+        // reset input setelah ditambahkan
         document.getElementById("nippm").value = "";
         document.getElementById("name").value = "";
         document.getElementById("desc").value = "";
@@ -231,16 +209,39 @@
 </script>
 
 
+
+
 <script>
     document.getElementById("nextBtn").addEventListener("click", function() {
-        // ambil data form
-        const formData = new FormData(document.getElementById("general-form"));
-        console.log("General Data:", Object.fromEntries(formData));
+        const orgTable = document.getElementById("orgTable");
+        const rowCount = orgTable.getElementsByTagName("tr").length;
 
-        // contoh redirect ke step berikutnya (Periode)
+        // cek apakah ada data di tabel
+        if (rowCount === 0) {
+            alert("Harap tambahkan data terlebih dahulu sebelum lanjut!");
+            return;
+        }
+
+        // contoh: ambil semua data tabel
+        let tableData = [];
+        [...orgTable.rows].forEach(row => {
+            tableData.push({
+                role: row.cells[1].innerText,
+                nippm: row.cells[2].innerText,
+                name: row.cells[3].innerText,
+                desc: row.cells[4].innerText,
+            });
+        });
+
+        console.log("Table Data:", tableData);
+
+        // redirect
         window.location.href = "/Form-Async-Finance";
     });
 </script>
+
+
+
 
 <script>
     let currentStep = 1;

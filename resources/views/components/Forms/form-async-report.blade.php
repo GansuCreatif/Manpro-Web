@@ -285,7 +285,7 @@
 
 <script>
     document.getElementById("nextBtn").addEventListener("click", function() {
-        window.location.href = "{{ route('Project-List', ['id' => 1]) }}";
+        window.location.href = "{{ route('Project-List-Active', ['id' => 1]) }}";
     });
 </script>
 

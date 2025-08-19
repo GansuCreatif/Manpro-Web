@@ -62,26 +62,25 @@
 
         <!-- Project Report -->
         <li>
-            <button type="button"
-                class="flex items-center w-full p-2 text-white rounded-lg bg-blue-500 hover:bg-gray-700 transition"
-                data-collapse-toggle="project-report-submenu">
+            <a href="{{ route('project.report') }}"
+                class="flex items-center w-full p-2 text-white rounded-lg bg-blue-500 hover:bg-gray-700 transition">
                 <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M10 3v4a1 1 0 0 1-1 1H5m4 8h6m-6-4h6m4-8v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z" />
                 </svg>
                 <p class="ml-3 flex-1 text-left">Project Report</p>
-                <svg class="w-4 h-4 ml-auto transition-transform" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ route('Project-Issue') }}"
+                class="flex items-center w-full p-2 text-white rounded-lg bg-blue-500 hover:bg-gray-700 transition">
+                <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 9v2m0 4h.01M10.29 3.86l-7.4 12.78A1 1 0 0 0 3.88 18h16.24a1 1 0 0 0 .85-1.36l-7.4-12.78a1 1 0 0 0-1.72 0z" />
                 </svg>
-            </button>
-            <ul id="project-report-submenu" class="hidden space-y-1 pl-8 mt-2">
-                <li><a href="{{ route('project.report') }}"
-                        class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">Project
-                        Report</a></li>
-                <li><a href="#" class="submenu block px-4 py-2 rounded bg-blue-500 hover:bg-gray-700">Monthly
-                        Report</a></li>
-            </ul>
+                <p class="ml-3 flex-1 text-left">Project Issue</p>
+            </a>
         </li>
 
         <!-- Project Finance -->

@@ -91,7 +91,7 @@
         <div class="bg-white shadow-md rounded-lg w-full h-100 flex flex-col">
             <!-- Header -->
             <div class="bg-white-50 p-4 rounded-t-2xl">
-                <h5 class="inline-block border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">Finance
+                <h5 class="inline-block border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">Cash In
                 </h5>
                 <div class="h-1 w-full bg-blue-500 rounded-sm"></div>
             </div>
@@ -106,7 +106,7 @@
                             <tr>
                                 <td colspan="4" class="text-right">
                                     <!-- Tombol Add New -->
-                                    <button type="button" data-modal-target="select-modal"
+                                    <button type="button" data-modal-target="select-modal" hidden
                                         data-modal-toggle="select-modal"
                                         class="inline-flex items-center px-2 py-1 bg-orange-500 hover:bg-orange-600 text-white text-xs font-medium rounded-md shadow focus:outline-none focus:ring-1 focus:ring-orange-400">
                                         <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2"
@@ -233,7 +233,7 @@
                         @include('components.project-detail.table-project-owner')
                         </tr>
                         <tr>
-                            <td colspan="4" class="text-right">
+                            <td colspan="4" class="text-right" hidden>
                                 <!-- Tombol Add New -->
                                 <button type="button" data-modal-target="select-modal"
                                     data-modal-toggle="select-modal"
@@ -307,10 +307,10 @@
         </div>
     </div>
     <!-- UMD -->
-    <div class="rounded-2xl mt-2">
+    <div class="rounded-2xl p-2">
         <div>
             <h5 class="inline-block  border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">
-                UMD
+                Cash Out
             </h5>
             <div class="h-1 w-full bg-blue-500 rounded-sm"></div>
         </div>
@@ -480,159 +480,166 @@
         </div>
     </div>
     <!-- WBS Level -->
-    <div class="col-span-2 mt-2 pt-2 bg-white">
-        <table class="overflow-x-auto w-full table-auto text-left text-sm font-sans">
-            <thead class="text-center py-2 px-4">
-                <tr class="bg-orange-500 text-blue-950 font-bold">
-                    <th class="">Element</th>
-                    <th class="px-2 py-2">Progress</th>
-                    <th class="px-2 py-2">Start</th>
-                    <th class="px-2 py-2">End</th>
-                    <th class="">Priority</th>
-                </tr>
-            </thead>
-            <tbody class="text-gray-800">
-                <!-- Awal Level Pembangunan Gedung SCKD -->
+    <div class="col-span-2 p-2 bg-blue-50">
+        <div>
+            <h5 class="inline-block  border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">
+                Worker
+            </h5>
+            <div class="h-1 w-full bg-blue-500 rounded-sm"></div>
+        </div>
+        <div class="overflow-x-auto mt-2 bg-white">
+            <table class="overflow-x-auto w-full table-auto text-left text-sm font-sans">
+                <thead class="text-center py-2 px-4">
+                    <tr class="bg-orange-500 text-blue-950 font-bold">
+                        <th class="">Element</th>
+                        <th class="px-2 py-2">Progress</th>
+                        <th class="px-2 py-2">Start</th>
+                        <th class="px-2 py-2">End</th>
+                        <th class="">Priority</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-800">
+                    <!-- Awal Level Pembangunan Gedung SCKD -->
 
-                <!-- Level 1 -->
-                <tr>
-                    <td class="pl-1  whitespace-nowrap">1. Pembangunan Gedung SCKD</td>
-                    <td class="py-2 px-4 text-center">-</td>
-                    <td class="py-2 px-4 text-center">-</td>
-                    <td class="py-2 px-4 whitespace-nowrap px-4">-</td>
-                    <td class="py-2 px-4 text-center">-</td>
-                </tr>
+                    <!-- Level 1 -->
+                    <tr>
+                        <td class="pl-1  whitespace-nowrap">1. Pembangunan Gedung SCKD</td>
+                        <td class="py-2 px-4 text-center">-</td>
+                        <td class="py-2 px-4 text-center">-</td>
+                        <td class="py-2 px-4 whitespace-nowrap px-4">-</td>
+                        <td class="py-2 px-4 text-center">-</td>
+                    </tr>
 
-                <!-- Level 2 -->
-                <tr>
-                    <td class="pl-4">1.1. Pekerjaan Struktur</td>
-                    <td class="text-center">-</td>
-                    <td class="text-center">-</td>
-                    <td class="whitespace-nowrap px-4">-</td>
-                    <td class="text-center">-</td>
-                </tr>
+                    <!-- Level 2 -->
+                    <tr>
+                        <td class="pl-4">1.1. Pekerjaan Struktur</td>
+                        <td class="text-center">-</td>
+                        <td class="text-center">-</td>
+                        <td class="whitespace-nowrap px-4">-</td>
+                        <td class="text-center">-</td>
+                    </tr>
 
-                <!-- Level 3 -->
-                <tr>
-                    <td class="pl-8 py-2">1.1.1. Pondasi</td>
-                    <td class="text-center">-</td>
-                    <td class="text-center">-</td>
-                    <td class="px-4 whitespace-nowrap">-</td>
-                    <td class="text-center">-</td>
-                </tr>
-                <!-- Level 4 -->
-                <tr>
-                    <td class="pl-16 py-2">1.1.1.1. Tanah</td>
-                    <td class="text-center">80%</td>
-                    <td class="text-center">9 Jan 2025</td>
-                    <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
-                    <td class="text-center whitespace-nowrap text-red-500 font-bold">High</td>
-                </tr>
-                <tr>
-                    <td class="pl-16 py-2">1.1.1.2. Batu Kali</td>
-                    <td class="text-center">20%</td>
-                    <td class="text-center">9 Jan 2025</td>
-                    <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
-                    <td class="text-center text-orange-500 font-bold">Medium</td>
-                </tr>
-                <tr>
-                    <td class="pl-16 py-2">1.1.1.3. Slop</td>
-                    <td class="text-center">100%</td>
-                    <td class="text-center">9 Jan 2025</td>
-                    <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
-                    <td class="text-center text-orange-500 font-bold">Medium</td>
-                </tr>
+                    <!-- Level 3 -->
+                    <tr>
+                        <td class="pl-8 py-2">1.1.1. Pondasi</td>
+                        <td class="text-center">-</td>
+                        <td class="text-center">-</td>
+                        <td class="px-4 whitespace-nowrap">-</td>
+                        <td class="text-center">-</td>
+                    </tr>
+                    <!-- Level 4 -->
+                    <tr>
+                        <td class="pl-16 py-2">1.1.1.1. Tanah</td>
+                        <td class="text-center">80%</td>
+                        <td class="text-center">9 Jan 2025</td>
+                        <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
+                        <td class="text-center whitespace-nowrap text-red-500 font-bold">High</td>
+                    </tr>
+                    <tr>
+                        <td class="pl-16 py-2">1.1.1.2. Batu Kali</td>
+                        <td class="text-center">20%</td>
+                        <td class="text-center">9 Jan 2025</td>
+                        <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
+                        <td class="text-center text-orange-500 font-bold">Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="pl-16 py-2">1.1.1.3. Slop</td>
+                        <td class="text-center">100%</td>
+                        <td class="text-center">9 Jan 2025</td>
+                        <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
+                        <td class="text-center text-orange-500 font-bold">Medium</td>
+                    </tr>
 
-                <!-- Next 1.1.2 Pondasi -->
-                <tr>
-                    <td class="pl-8 py-2">1.1.2. Pondasi</td>
-                    <td class="text-center">-</td>
-                    <td class="text-center">-</td>
-                    <td class="px-4 whitespace-nowrap">-</td>
-                    <td class="text-center">-</td>
-                </tr>
-                <!-- Level 3 -->
-                <tr>
-                    <td class="pl-16 py-2">1.1.2.1. Tanah</td>
-                    <td class="text-center">80%</td>
-                    <td class="text-center">9 Jan 2025</td>
-                    <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
-                    <td class="text-center whitespace-nowrap text-red-500 font-bold">High</td>
-                </tr>
-                <tr>
-                    <td class="pl-16 py-2">1.1.2.2. Batu Kali</td>
-                    <td class="text-center">20%</td>
-                    <td class="text-center">9 Jan 2025</td>
-                    <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
-                    <td class="text-center text-orange-500 font-bold">Medium</td>
-                </tr>
-                <tr>
-                    <td class="pl-16 py-2">1.1.2.3. Slop</td>
-                    <td class="text-center">100%</td>
-                    <td class="text-center">9 Jan 2025</td>
-                    <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
-                    <td class="text-center text-green-500 font-bold">Low</td>
-                </tr>
+                    <!-- Next 1.1.2 Pondasi -->
+                    <tr>
+                        <td class="pl-8 py-2">1.1.2. Pondasi</td>
+                        <td class="text-center">-</td>
+                        <td class="text-center">-</td>
+                        <td class="px-4 whitespace-nowrap">-</td>
+                        <td class="text-center">-</td>
+                    </tr>
+                    <!-- Level 3 -->
+                    <tr>
+                        <td class="pl-16 py-2">1.1.2.1. Tanah</td>
+                        <td class="text-center">80%</td>
+                        <td class="text-center">9 Jan 2025</td>
+                        <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
+                        <td class="text-center whitespace-nowrap text-red-500 font-bold">High</td>
+                    </tr>
+                    <tr>
+                        <td class="pl-16 py-2">1.1.2.2. Batu Kali</td>
+                        <td class="text-center">20%</td>
+                        <td class="text-center">9 Jan 2025</td>
+                        <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
+                        <td class="text-center text-orange-500 font-bold">Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="pl-16 py-2">1.1.2.3. Slop</td>
+                        <td class="text-center">100%</td>
+                        <td class="text-center">9 Jan 2025</td>
+                        <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
+                        <td class="text-center text-green-500 font-bold">Low</td>
+                    </tr>
 
-                <!-- Level 3 -->
-                <tr>
-                    <td class="pl-8 py-2">1.1.3. Pondasi</td>
-                    <td class="text-center">-</td>
-                    <td class="text-center">-</td>
-                    <td class="px-4 whitespace-nowrap">-</td>
-                    <td class="text-center">-</td>
-                </tr>
+                    <!-- Level 3 -->
+                    <tr>
+                        <td class="pl-8 py-2">1.1.3. Pondasi</td>
+                        <td class="text-center">-</td>
+                        <td class="text-center">-</td>
+                        <td class="px-4 whitespace-nowrap">-</td>
+                        <td class="text-center">-</td>
+                    </tr>
 
-                <tr>
-                    <td class="pl-16 py-2">1.1.3.1. Tanah</td>
-                    <td class="text-center">80%</td>
-                    <td class="text-center">9 Jan 2025</td>
-                    <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
-                    <td class="text-center whitespace-nowrap text-orange-500 font-bold">Medium</td>
-                </tr>
-                <tr>
-                    <td class="pl-16 py-2">1.1.3.2. Batu Kali</td>
-                    <td class="text-center">20%</td>
-                    <td class="text-center">9 Jan 2025</td>
-                    <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
-                    <td class="text-center whitespace-nowrap text-orange-500 font-bold">Medium</td>
-                </tr>
-                <tr>
-                    <td class="pl-16 py-2">1.3.2.3. Slop</td>
-                    <td class="text-center">100%</td>
-                    <td class="text-center">9 Jan 2025</td>
-                    <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
-                    <td class="text-center whitespace-nowrap text-green-500 font-bold">Low</td>
-                </tr>
-                <!-- Akhir dari Level 1 Pembangungan Gedung SCKD -->
+                    <tr>
+                        <td class="pl-16 py-2">1.1.3.1. Tanah</td>
+                        <td class="text-center">80%</td>
+                        <td class="text-center">9 Jan 2025</td>
+                        <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
+                        <td class="text-center whitespace-nowrap text-orange-500 font-bold">Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="pl-16 py-2">1.1.3.2. Batu Kali</td>
+                        <td class="text-center">20%</td>
+                        <td class="text-center">9 Jan 2025</td>
+                        <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
+                        <td class="text-center whitespace-nowrap text-orange-500 font-bold">Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="pl-16 py-2">1.3.2.3. Slop</td>
+                        <td class="text-center">100%</td>
+                        <td class="text-center">9 Jan 2025</td>
+                        <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
+                        <td class="text-center whitespace-nowrap text-green-500 font-bold">Low</td>
+                    </tr>
+                    <!-- Akhir dari Level 1 Pembangungan Gedung SCKD -->
 
-                <!-- Awal dari Level 2 Pembangungan Gedung SCKD -->
-                <!-- Level 2 -->
-                <tr>
-                    <td class="pl-4 py-2">1.2. Pekerjaan Struktur</td>
-                    <td class="text-center">-</td>
-                    <td class="text-center">-</td>
-                    <td class="px-4 whitespace-nowrap">-</td>
-                    <td class="text-center">-</td>
-                </tr>
+                    <!-- Awal dari Level 2 Pembangungan Gedung SCKD -->
+                    <!-- Level 2 -->
+                    <tr>
+                        <td class="pl-4 py-2">1.2. Pekerjaan Struktur</td>
+                        <td class="text-center">-</td>
+                        <td class="text-center">-</td>
+                        <td class="px-4 whitespace-nowrap">-</td>
+                        <td class="text-center">-</td>
+                    </tr>
 
-                <tr>
-                    <td class="pl-8 py-2">1.2.1. Pondasi</td>
-                    <td class="text-center">-</td>
-                    <td class="text-center">-</td>
-                    <td class="px-4 whitespace-nowrap">-</td>
-                    <td class="text-center">-</td>
-                </tr>
+                    <tr>
+                        <td class="pl-8 py-2">1.2.1. Pondasi</td>
+                        <td class="text-center">-</td>
+                        <td class="text-center">-</td>
+                        <td class="px-4 whitespace-nowrap">-</td>
+                        <td class="text-center">-</td>
+                    </tr>
 
-                <tr>
-                    <td class="pl-16 py-2">1.2.1.1. Tanah</td>
-                    <td class="text-center">10%</td>
-                    <td class="text-center">9 May 2025</td>
-                    <td class="px-4 whitespace-nowrap">15 May 2025</td>
-                    <td class="text-center whitespace-nowrap text-red-500 font-bold">High</td>
-                </tr>
-            </tbody>
-        </table>
+                    <tr>
+                        <td class="pl-16 py-2">1.2.1.1. Tanah</td>
+                        <td class="text-center">10%</td>
+                        <td class="text-center">9 May 2025</td>
+                        <td class="px-4 whitespace-nowrap">15 May 2025</td>
+                        <td class="text-center whitespace-nowrap text-red-500 font-bold">High</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    @include('sections.section-footer')
 </div>

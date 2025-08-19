@@ -12,6 +12,7 @@ class ProjectController extends Controller
     private function getAllProjects()
     {
         $response = Http::get('http://localhost:5014/api/v1/transaction/project/all');
+        
 
         return $response->successful()
             ? $response->json()['data']
@@ -49,6 +50,22 @@ class ProjectController extends Controller
         return view('project-list', compact('projects'));
     }
 
+    public function activeList(Request $request)
+    {
+        $projects = $this->getAllProjects();
+
+        // ambil nilai perPage dari request (default 10)
+        $perPage = $request->get('perPage', 5);
+
+        // paginasi manual
+        $projects = $this->paginate($projects, $perPage, $request->get('page', 1), [
+            'path' => $request->url(),
+            'query' => $request->query(),
+        ]);
+
+        return view('project-list-active', compact('projects'));
+    }
+
     public function syncList(Request $request)
 {
     $projects = $this->getAllProjects();
@@ -81,7 +98,7 @@ class ProjectController extends Controller
 {
     $projects = $this->getAllProjects();
 
-    $perPage = $request->get('perPage', 10);
+    $perPage = $request->get('perPage', 5);
 
     $projects = $this->paginate($projects, $perPage, $request->get('page', 1), [
         'path' => $request->url(),
@@ -106,7 +123,7 @@ class ProjectController extends Controller
         return view('project-issue', compact('projects'));
     }
 
-    public function detail($code = 'PRJ-2024-001')
+    public function detail($code)
     {
         $projects = $this->getAllProjects();
         $project = collect($projects)->firstWhere('project_def', $code);
@@ -126,14 +143,6 @@ class ProjectController extends Controller
 
         return view('project-list-histori', compact('projects'));
     }
-    public function detailList($code = 'PRJ-2024-001')
-    {
-        $projects = $this->getAllProjects();
-        $project = collect($projects)->firstWhere('project_def', $code);
-
-        return view('project-list-detail', compact('project'));
-    }
-
     public function detailAdendum($code = 'PRJ-2024-001')
     {
         $projects = $this->getAllProjects();
@@ -145,7 +154,7 @@ class ProjectController extends Controller
     public function detail2()
     {
         $projects = $this->getAllProjects();
-        $project = collect($projects)->firstWhere('code_project');
+        $project = collect($projects)->firstWhere('project_def');
 
         return view('project-list-detail', compact('project'));
     }
@@ -153,7 +162,7 @@ class ProjectController extends Controller
     public function detail3()
     {
         $projects = $this->getAllProjects();
-        $project = collect($projects)->firstWhere('code_project');
+        $project = collect($projects)->firstWhere('project_def');
 
         return view('project-finance-cashin-detail', compact('project'));
     }

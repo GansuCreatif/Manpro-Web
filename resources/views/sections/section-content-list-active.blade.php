@@ -16,7 +16,7 @@
 
     <div class="flex items-center gap-2">
         <!-- Button Sinkron Data -->
-        <button type="button"
+        <button type="button" hidden
             class="inline-flex items-center px-2.5 py-1.5 text-xs font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
             <!-- Sync Icon (scaled down) -->
             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -97,8 +97,6 @@
     </div>
 </div>
 
-
-
 <!-- Wrapper: auto scroll di layar kecil -->
 <div class="grid grid-cols-1 xl:grid-cols-1 gap-6">
     <!-- Scrollable Table Container -->
@@ -143,36 +141,21 @@
                         <tr
                             class="text-center {{ $index % 2 == 0 ? 'bg-white hover:bg-white' : 'bg-blue-50 hover:bg-blue-50' }}">
                             <td>{{ $projects->firstItem() + $index }}</td>
-                            <td class="px-3 py-2 whitespace-nowrap">{{ $project['project_def'] }}</td>
-                            <td class="px-3 py-2 whitespace-nowrap">{{ $project['project_desc'] }}</td>
-                            <td class="px-3 py-2">{{ $project['project_location'] }}</td>
-                            <td class="px-3 py-2">{{ $project['project_profile']['unit_desc'] ?? '-' }}</td>
-                            <td class="px-3 py-2">{{ $project['project_responsible']['name'] ?? '-' }}</td>
-                            <td class="px-3 py-2 whitespace-nowrap">
-                                Rp
-                                {{ $formatted_value = number_format((int) str_replace(',', '', $project['contract_value']), 0, ',', '.') }}
+                            <td class="whitespace-nowrap">{{ $project['project_def'] }}</td>
+                            <td class="px-5">{{ $project['project_desc'] }}</td>
+                            <td>{{ $project['project_location'] }}</td>
+                            <td>{{ $project['project_profile']['unit_desc'] ?? '-' }}</td>
+                            <td>{{ $project['project_responsible']['name'] ?? '-' }}</td>
+                            <td>
+                                Rp.
+                                {{ number_format((int) str_replace(',', '', $project['contract_value']), 0, ',', '.') }}
                             </td>
-                            <td class="px-3 py-2">
-                                {{ $project['project_owner'] }}
-                            </td>
-                            <td class="px-3 py-2 whitespace-nowrap">
-                                {{ \Carbon\Carbon::parse($project['start_date'])->translatedFormat('d F Y') }}
-                            </td>
-                            <td class="px-3 py-2 whitespace-nowrap">
-                                {{ \Carbon\Carbon::parse($project['end_date'])->translatedFormat('d F Y') }}
-                            </td>
-                            <td class="px-3 py-2 font-bold">
-                                @php $statusInfo = projectStatus($project['status']); @endphp
-                                <span class="{{ $statusInfo['text'] }}">
-                                    {{ $statusInfo['label'] }}
-                                </span>
-                            </td>
+                            <td>{{ $project['project_profile']['unit_project'] }}</td>
+                            <td>{{ \Carbon\Carbon::parse($project['start_date'])->translatedFormat('d F Y') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($project['end_date'])->translatedFormat('d F Y') }}</td>
+                            <td class="px-2 py-3 text-blue-600 font-bold">Sync SAP</td>
                             <td class="px-5 py-5 flex justify-center gap-2">
                                 <a href="{{ route('Form-Async', ['code' => $project['project_def']]) }}"
-                                    class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                                    Edit
-                                </a>
-                                <a href="{{ route('Project-Details', ['code' => $project['project_def']]) }}"
                                     class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
                                     Details
                                 </a>
@@ -183,6 +166,7 @@
                             <td colspan="12" class="text-center py-3">Tidak ada data proyek</td>
                         </tr>
                     @endforelse
+
                 </tbody>
             </table>
         </div>

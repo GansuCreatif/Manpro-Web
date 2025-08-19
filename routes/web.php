@@ -24,7 +24,8 @@ Route::get('/', function () {
 Route::get('/project-list', [ProjectController::class, 'list'])->name('Project-List');
 
 Route::get('/project-detail/{code?}', [ProjectController::class, 'detail'])->name('Project-Details');
-Route::get('/project-list-detail/{code?}', [ProjectController::class, 'detailList'])->name('Project-List-Detail');
+Route::get('/project-list-detail/{code}', [ProjectController::class, 'detail2'])
+    ->name('Project-List-Detail');
 Route::get('/project-issue', [ProjectController::class, 'issue'])->name('Project-Issue');
 Route::get('/project-list-histori', [ProjectController::class, 'histori'])->name('Project-Histori');
 Route::get('/adendum/{code?}', [ProjectController::class, 'detailAdendum'])->name('Adendum');
@@ -74,6 +75,13 @@ Route::get('/project-finance-cashin', [ProjectController::class, 'cashIn'])
     ->name('project.finance.cashin');
 
 Route::get('/project-list-detail', [ProjectController::class, 'detail2'])->name('Project-List-Detail');
+
+Route::get('/project-list-active', [ProjectController::class, 'activeList'])
+    ->name('Project-List-Active');
+
+Route::get('/Project-Issue', function () {
+    return view('project-issue');
+})->name('Project-Issue');
 
 Route::get('/search-projects', function (\Illuminate\Http\Request $request) {
     $keyword = strtolower($request->query('q', ''));

@@ -120,11 +120,27 @@
 
 <script>
     document.getElementById("nextBtn").addEventListener("click", function() {
-        // ambil data form
-        const formData = new FormData(document.getElementById("general-form"));
+        const form = document.getElementById("general-form");
+        const requiredFields = ["description", "spmk", "contract"];
+        let isValid = true;
+
+        requiredFields.forEach(fieldId => {
+            const field = document.getElementById(fieldId);
+            if (!field.value.trim()) {
+                isValid = false;
+            }
+        });
+
+        if (!isValid) {
+            alert("Harap isi semua field yang wajib diisi (*) sebelum melanjutkan!");
+            return;
+        }
+
+        // Simpan data form
+        const formData = new FormData(form);
         console.log("General Data:", Object.fromEntries(formData));
 
-        // contoh redirect ke step berikutnya (Periode)
+        // Redirect
         window.location.href = "/Form-Async-Period";
     });
 </script>

@@ -13,6 +13,7 @@ if (!function_exists('isProjectCodeOdd')) {
         return $lastNumber % 2 === 1;
     }
 
+}
 
 if (!function_exists('projectStatus')) {
     function projectStatus(string $status): array {
@@ -50,5 +51,4 @@ if (!function_exists('projectStatus')) {
             'border' => 'border-gray-300'
         ];
     }
-}
 }

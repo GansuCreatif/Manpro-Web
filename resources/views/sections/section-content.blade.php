@@ -88,82 +88,78 @@
 
 
 <!-- Wrapper: auto scroll di layar kecil -->
-<div class="w-full overflow-x-auto">
-    <table class="min-w-full text-xs text-left text-black">
-        <thead class=" text-blue-900 uppercase bg-blue-50 text-center">
-            <tr class="border-b-[3px] border-blue-700">
-                <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(0)">No
-                <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(1)">Code 🔽
-                </th>
-                <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(2)">
-                    Description 🔽
-                </th>
-                <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(3)">Location
-                    🔽</th>
-                <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(4)">Unit 🔽
-                </th>
-                <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(5)">Project
-                    Manager🔽</th>
-                <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(6)">Project
-                    Value 🔽
-                </th>
-                <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(7)">Project
-                    Owner 🔽
-                </th>
-                <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(8)">Start
-                    Date 🔽
-                </th>
-                <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(9)">Finish
-                    Date 🔽
-                </th>
-                <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(10)">Status
-                    🔽</th>
-                <th class="px-4 py-2 text-center">Action</th>
-            </tr>
-        </thead>
-        <tbody id="projectTable">
-            @forelse ($projects as $index => $project)
-                <tr
-                    class="text-center {{ isProjectCodeOdd($project['project_def']) ? 'bg-white hover:bg-white' : 'bg-blue-50 hover:bg-blue-50' }}">
-                    <td class="">{{ $projects->firstItem() + $index }}</td>
-                    <td class="whitespace-nowrap">{{ $project['project_def'] }}</td>
-                    <td class="px-5">{{ $project['project_desc'] }}</td>
-                    <td class="">{{ $project['project_location'] }}</td>
-                    <td class="">{{ $project['project_profile']['unit_desc'] ?? '-' }}
-                    </td>
-                    <td class="">{{ $project['project_responsible']['name'] ?? '-' }}</td>
-                    <td class="">
-                        Rp.
-                        {{ $formatted_value = number_format((int) str_replace(',', '', $project['contract_value']), 0, ',', '.') }}
-                    </td>
-                    <td class="">
-                        {{ $project['project_profile']['unit_project'] }}
-                    </td>
-                    <td class="">
-                        {{ \Carbon\Carbon::parse($project['start_date'])->translatedFormat('d F Y') }}
-                    </td>
-                    <td class="">
-                        {{ \Carbon\Carbon::parse($project['end_date'])->translatedFormat('d F Y') }}
-                    </td>
-                    <td class="px-2 py-3 text-blue-600 font-bold">
-                        Sync SAP
-                    </td>
-
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="{{ route('Form-Async', ['code' => $project['project_def']]) }}"
-                            class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-            @empty
-                <tr>
-                    <td colspan="12" class="text-center py-3">Tidak ada data proyek</td>
-                </tr>
-            @endforelse
-
-        </tbody>
-    </table>
+<div class="grid grid-cols-1 xl:grid-cols-1 gap-6">
+    <!-- Scrollable Table Container -->
+    <div class="">
+        <div class="overflow-x-auto overflow-y-auto max-h-96 border border-gray-200 rounded-lg">
+            <table class="min-w-full text-xs text-left text-black">
+                <thead class="text-blue-900 uppercase bg-blue-50 text-center">
+                    <tr class="border-b-[3px] border-blue-700">
+                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(0)">No
+                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(1)">Code 🔽
+                        </th>
+                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(2)">
+                            Description 🔽
+                        </th>
+                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(3)">Location
+                            🔽</th>
+                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(4)">Unit 🔽
+                        </th>
+                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(5)">Project
+                            Manager🔽</th>
+                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(6)">Project
+                            Value 🔽
+                        </th>
+                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(7)">Project
+                            Owner 🔽
+                        </th>
+                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(8)">Start
+                            Date 🔽
+                        </th>
+                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(9)">Finish
+                            Date 🔽
+                        </th>
+                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(10)">Status
+                            🔽</th>
+                        <th class="px-4 py-2 text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="projectTable">
+                    @forelse ($projects as $index => $project)
+                        <tr
+                            class="text-center {{ $index % 2 == 0 ? 'bg-white hover:bg-white' : 'bg-blue-50 hover:bg-blue-50' }}">
+                            <td>{{ $projects->firstItem() + $index }}</td>
+                            <td class="">{{ $project['project_def'] }}</td>
+                            <td class="whitespace-nowrap">{{ $project['project_desc'] }}</td>
+                            <td>{{ $project['project_location'] }}</td>
+                            <td>{{ $project['project_profile']['unit_desc'] ?? '-' }}</td>
+                            <td>{{ $project['project_responsible']['name'] ?? '-' }}</td>
+                            <td>
+                                Rp.
+                                {{ number_format((int) str_replace(',', '', $project['contract_value']), 0, ',', '.') }}
+                            </td>
+                            <td>{{ $project['project_owner'] }}</td>
+                            <td class="whitespace-nowrap">
+                                {{ \Carbon\Carbon::parse($project['start_date'])->translatedFormat('d F Y') }}</td>
+                            <td class="whitespace-nowrap">
+                                {{ \Carbon\Carbon::parse($project['end_date'])->translatedFormat('d F Y') }}</td>
+                            <td class="px-2 py-3 text-blue-600 font-bold">Sync SAP</td>
+                            <td class="px-5 py-5 flex justify-center gap-2">
+                                <a href="{{ route('Form-Async', ['code' => $project['project_def']]) }}"
+                                    class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
+                                    Details
+                                </a>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="12" class="text-center py-3">Tidak ada data proyek</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 <div class="">
     <!-- Pagination + Show entries -->
@@ -191,6 +187,7 @@
         </div>
     </div>
 </div>
+
 
 <script>
     let sortDirection = {}; // Simpan arah sort per kolom
