@@ -3,10 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\ApiBridgeController;
-use App\Http\Controllers\ProjectController; 
-use App\Http\Controllers\ValidateController;
+use App\Http\Controllers\ProjectController;
+
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ValidateController;
 
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 
@@ -69,7 +70,7 @@ Route::get('/project-data-sync', [ProjectController::class, 'syncList'])
     ->name('project.data.sync');
 
 Route::get('/project-report', [ProjectController::class, 'projectReport'])
-    ->name('project.report'); 
+    ->name('project.report');
 
 Route::get('/project-finance-cashin-detail', [ProjectController::class, 'detail3'])->name('Project-Finance-Cashin-Detail');
 Route::get('/project-finance-cashin', [ProjectController::class, 'cashIn'])
@@ -116,3 +117,4 @@ Route::get('/search-projects', function (\Illuminate\Http\Request $request) {
     return response()->json(array_values($filtered));
 });
 
+Route::get('/auth/validate', [ValidateController::class, 'validate']);
