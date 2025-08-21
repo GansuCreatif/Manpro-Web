@@ -15,7 +15,6 @@
     </div>
 
     <div class="flex items-center gap-2">
-
         <!-- Export Icon -->
         <div class="flex flex-end items-center">
             Export to :
@@ -82,7 +81,6 @@
                 </svg>
             </button>
         </div>
-
     </div>
 </div>
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\ApiBridgeController;
 use App\Http\Controllers\ProjectController; 
-
+use App\Http\Controllers\ValidateController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\AuthController;
 
@@ -89,12 +89,8 @@ Route::get('/Project-Issue', function () {
 /* Export */
 Route::get('/Project-Report-PDF', [ProjectController::class, 'exportPdf'])->name('project-report-PDF');
 Route::get('/export-csv', [ExportController::class, 'exportCsv'])->name('export.csv');
-
-
-
-
 /* Export ends */
-
+Route::get('/validate', [ValidateController::class, 'index'])->name('validate.index');
 Route::get('/search-projects', function (\Illuminate\Http\Request $request) {
     $keyword = strtolower($request->query('q', ''));
 

@@ -1,9 +1,10 @@
 import "./bootstrap";
 import "flowbite";
 import "./responsive";
-import "./chart-area";
-import "./chart-curva";
-import "./chart-bar";
-import "./coloum-chart";
-import "./chart-bar-keuntungan";
-import "./table-search";
+import { initTableSort, initSearch, initPerPage } from "./components/table";
+
+document.addEventListener("DOMContentLoaded", () => {
+    initTableSort("projectsTable");
+    initSearch("tableSearch", "projectTable");
+    initPerPage("perPage", "perPageForm");
+});
