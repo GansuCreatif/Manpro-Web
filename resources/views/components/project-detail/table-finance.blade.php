@@ -11,9 +11,7 @@
             </tr>
             <tr>
                 <td class="py-2 px-4">PPN</td>
-                <td class="py-2 px-4">: {{ $project['pph'] ?? '-' }}</td>
-                <td class="py-2 px-4 whitespace-nowrap">Virtual Account</td>
-                <td class="py-2 px-4 whitespace-nowrap">: {{ $project['account_number'] ?? '-' }}</td>
+                <td class="py-2 px-4">: {{ $project['pph'] ?? '-' }}%</td>
             </tr>
         </tbody>
     </table>

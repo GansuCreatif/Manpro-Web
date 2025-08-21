@@ -2,22 +2,30 @@
 
 namespace App\Http\Controllers;
 
+
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\Project;
+
 
 class ProjectController extends Controller
 {
     private function getAllProjects()
-    {
-        $response = Http::get('http://localhost:5014/api/v1/transaction/project/all');
-        
+{
+    $response = Http::get('http://localhost:5014/api/v1/transaction/project/all');
 
-        return $response->successful()
-            ? $response->json()['data']
-            : [];
+    if ($response->successful()) {
+        $data = $response->json()['data'] ?? [];
+
+        return collect($data); // harusnya collection of array
     }
+
+    return collect(); //Return empty collection
+}
 
     private function paginate($items, $perPage = 5, $page = null, $options = [])
 {
@@ -40,52 +48,133 @@ class ProjectController extends Controller
 
     public function list(Request $request)
 {
-    $projects = $this->getAllProjects(); // pastikan return-nya Project::all()
-
     $perPage = $request->get('perPage', 5);
-
-    $projects = $this->paginate(
-        $projects,
-        $perPage,
-        $request->get('page', 1),
-        [
-            'path' => $request->url(),
-            'query' => $request->query(),
-        ]
-    );
-
-    return view('project-list', compact('projects'));
+    $page = $request->get('page', 1);
+    $keyword = $request->get('search', ''); // jika ada search
+    
+    // Call API dengan parameter yang benar
+    $response = Http::get('http://localhost:5014/api/v1/transaction/project/all', [
+        'PageNumber' => $page,
+        'PageSize' => $perPage,
+        'Keyword' => $keyword // optional
+    ]);
+    
+    if ($response->successful()) {
+        $apiData = $response->json();
+        $projectData = collect($apiData['data']); // Ganti nama ini
+        
+        // Karena API tidak return total, kita perlu estimasi
+        // Jika data yang dikembalikan < PageSize, berarti ini halaman terakhir
+        $isLastPage = count($projectData) < $perPage;
+        
+        // Estimasi total (tidak akurat, tapi cukup untuk pagination)
+        $estimatedTotal = $isLastPage 
+            ? (($page - 1) * $perPage) + count($projectData)
+            : $page * $perPage + 1; // +1 agar ada halaman next
+        
+        // Buat pagination object dengan nama $projects
+        $projects = new \Illuminate\Pagination\LengthAwarePaginator(
+            $projectData,
+            $estimatedTotal,
+            $perPage,
+            $page,
+            [
+                'path' => $request->url(),
+                'query' => $request->query(),
+            ]
+        );
+        
+        return view('project-list', compact('projects')); // Sekarang jadi 'projects'
+    }
+    
+    return back()->with('error', 'Failed to fetch projects');
 }
 
 
     public function activeList(Request $request)
-    {
-        $projects = $this->getAllProjects();
-
-        // ambil nilai perPage dari request (default 10)
-        $perPage = $request->get('perPage', 5);
-
-        // paginasi manual
-        $projects = $this->paginate($projects, $perPage, $request->get('page', 1), [
-            'path' => $request->url(),
-            'query' => $request->query(),
-        ]);
+{
+    $perPage = $request->get('perPage', 5);
+    $page = $request->get('page', 1);
+    $keyword = $request->get('search', ''); // jika ada search
+    
+    // Call API dengan parameter yang benar
+    $response = Http::get('http://localhost:5014/api/v1/transaction/project/all', [
+        'PageNumber' => $page,
+        'PageSize' => $perPage,
+        'Keyword' => $keyword // optional
+    ]);
+    
+    if ($response->successful()) {
+        $apiData = $response->json();
+        $projectData = collect($apiData['data']); // Ganti nama ini
+        
+        // Karena API tidak return total, kita perlu estimasi
+        // Jika data yang dikembalikan < PageSize, berarti ini halaman terakhir
+        $isLastPage = count($projectData) < $perPage;
+        
+        // Estimasi total (tidak akurat, tapi cukup untuk pagination)
+        $estimatedTotal = $isLastPage 
+            ? (($page - 1) * $perPage) + count($projectData)
+            : $page * $perPage + 1; // +1 agar ada halaman next
+        
+        // Buat pagination object dengan nama $projects
+        $projects = new \Illuminate\Pagination\LengthAwarePaginator(
+            $projectData,
+            $estimatedTotal,
+            $perPage,
+            $page,
+            [
+                'path' => $request->url(),
+                'query' => $request->query(),
+            ]
+        );
 
         return view('project-list-active', compact('projects'));
     }
+    return back()->with('error', 'Failed to fetch projects');
+}
 
     public function syncList(Request $request)
 {
-    $projects = $this->getAllProjects();
-
     $perPage = $request->get('perPage', 5);
-
-    $projects = $this->paginate($projects, $perPage, $request->get('page', 1), [
-        'path' => $request->url(),
-        'query' => $request->query(),
+    $page = $request->get('page', 1);
+    $keyword = $request->get('search', ''); // jika ada search
+    
+    // Call API dengan parameter yang benar
+    $response = Http::get('http://localhost:5014/api/v1/transaction/project/all', [
+        'PageNumber' => $page,
+        'PageSize' => $perPage,
+        'Keyword' => $keyword // optional
     ]);
+    
+    if ($response->successful()) {
+        $apiData = $response->json();
+        $projectData = collect($apiData['data']); // Ganti nama ini
+        
+        // Karena API tidak return total, kita perlu estimasi
+        // Jika data yang dikembalikan < PageSize, berarti ini halaman terakhir
+        $isLastPage = count($projectData) < $perPage;
+        
+        // Estimasi total (tidak akurat, tapi cukup untuk pagination)
+        $estimatedTotal = $isLastPage 
+            ? (($page - 1) * $perPage) + count($projectData)
+            : $page * $perPage + 1; // +1 agar ada halaman next
+        
+        // Buat pagination object dengan nama $projects
+        $projects = new \Illuminate\Pagination\LengthAwarePaginator(
+            $projectData,
+            $estimatedTotal,
+            $perPage,
+            $page,
+            [
+                'path' => $request->url(),
+                'query' => $request->query(),
+            ]
+        );
 
-    return view('project-data-sync', compact('projects'));
+        return view('project-data-sync', compact('projects'));
+    }
+    return back()->with('error', 'Failed to fetch projects');
 }
 
     public function cashIn(Request $request)
@@ -173,13 +262,22 @@ class ProjectController extends Controller
         return view('project-issue', compact('projects'));
     }
 
-    public function detail($code)
-    {
-        $projects = $this->getAllProjects();
-        $project = collect($projects)->firstWhere('project_def', $code);
+public function detail($code)
+{
+    $response = Http::get("http://localhost:5014/api/v1/transaction/project/{$code}");
 
-        return view('project-detail', compact('project'));
+    if ($response->successful()) {
+        $data = $response->json()['data'] ?? [];
+
+        $project = $data;
+        $wbs = $data['project_wbs'] ?? [];
+
+        return view('project-detail', compact('project', 'wbs'));
     }
+
+    abort(404, 'Project not found');
+}
+
 
     public function histori(Request $request)
     {
@@ -216,4 +314,20 @@ class ProjectController extends Controller
 
         return view('project-finance-cashin-detail', compact('project'));
     }
+
+
+public function exportPdf()
+{
+    // Kalau project diambil dari API, panggil lagi di sini
+    $projects = $this->getAllProjects(); // contoh fungsi ambil data
+
+        $pdf = Pdf::loadView('views-pages.pdf.project-report-pdf', compact('projects'))
+          ->setPaper('a4', 'landscape');
+
+        return $pdf->stream('laporan-project.pdf');
+
 }
+
+}
+
+

@@ -31,22 +31,6 @@
                 <!-- Header Adendum + Tombol -->
                 <div class="flex justify-between items-center mt-2">
                     <span class="text-sm font-semibold text-black-900">Adendum</span>
-
-                    <!-- Tombol Add New -->
-                    <button type="button" data-modal-target="select-modal" data-modal-toggle="select-modal"
-                        class="inline-flex items-center px-3 py-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium rounded-md shadow">
-                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-                        </svg>
-                        Add New
-                    </button>
-
-                    <!-- Panggil modal + form -->
-                    <x-modal.select-modal id="select-modal" costUrl="{{ route('Form-Cost') }}"
-                        timeUrl="{{ route('Form-Time') }}" />
-
-
                 </div>
 
                 <!-- Tabel Adendum -->
@@ -103,31 +87,6 @@
                     <table class="min-w-full text-sm text-left text-black-500 bg-blue">
                         <tbody>
                             @include('components.project-detail.table-finance', ['project' => $project])
-                            <tr>
-                                <td colspan="4" class="text-right">
-                                    <!-- Tombol Add New -->
-                                    <button type="button" data-modal-target="select-modal" hidden
-                                        data-modal-toggle="select-modal"
-                                        class="inline-flex items-center px-2 py-1 bg-orange-500 hover:bg-orange-600 text-white text-xs font-medium rounded-md shadow focus:outline-none focus:ring-1 focus:ring-orange-400">
-                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2"
-                                            viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-                                        </svg>
-                                        Add New
-                                    </button>
-
-                                    <!-- Modal Select -->
-                                    <x-modal.select-modal id="select-modal" title="Pilih Tipe" :options="[
-                                        ['id' => 'job-1', 'title' => 'Cost', 'subtitle' => 'Cost'],
-                                        ['id' => 'job-2', 'title' => 'Time', 'subtitle' => 'Time'],
-                                    ]">
-                                        <button
-                                            class="text-white inline-flex w-full justify-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                                            Next step
-                                        </button>
-                                    </x-modal.select-modal>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -329,34 +288,13 @@
                         <td class="px-4 font-bold">Atas Nama</td>
                         <td>: Unit PPR</td>
                     </tr>
-                    <tr>
-                        <td class="px-4 font-bold">VA / Nomor Rekening</td>
-                        <td>: 1234-5678-9012-1234</td>
-                    </tr>
-                    <tr hidden>
-                        <!-- Tombol di dalam tabel -->
-                        <td colspan="4">
-                            <div class="flex justify-end gap-2 mb-10">
-                                <!-- Tombol Add New -->
-                                <button type="button" data-modal-target="select-modal"
-                                    data-modal-toggle="select-modal"
-                                    class="inline-flex items-center px-2 py-1 bg-orange-500 hover:bg-orange-600 text-white text-xs font-medium rounded-md shadow">
-                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-                                    </svg>
-                                    Add New
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
                 </tbody>
                 <div class="w-full overflow-x-auto lg:overflow-x-visible">
                     <table class="min-w-full table-auto text-sm text-left bg-blue mt-2">
                         <thead class="bg-orange-500 text-blue-950 font-bold">
                             <tr class="text-center">
                                 <th class="px-2 py-2">No</th>
-                                <th class="px-2 py-2">Title</th>
+                                <th class="px-2 py-2">UMD</th>
                                 <th class="px-2 py-2 whitespace-nowrap">Submission</th>
                                 <th class="px-2 py-2 whitespace-nowrap">Disbursment</th>
                                 <th class="px-2 py-2 whitespace-nowrap">Closing Duedate</th>
@@ -365,7 +303,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="py-1 px-2">1</td>
+                                <td class="py-2 px-2 text-center">1</td>
                                 <td class="text-center font-bold underline text-blue-500">
                                     <a href="#">
                                         UMD 1
@@ -377,7 +315,7 @@
                                 <td class="font-bold text-green-400 text-center">CLOSED</td>
                             </tr>
                             <tr>
-                                <td class="py-1 px-2">2</td>
+                                <td class="py-2 px-2 text-center">2</td>
                                 <td class="text-center font-bold underline text-blue-500">
                                     <a href="#">
                                         UMD 2
@@ -389,7 +327,7 @@
                                 <td class="font-bold text-red-600 text-center">SP-1</td>
                             </tr>
                             <tr>
-                                <td class="py-1 px-2">3</td>
+                                <td class="py-2 px-2 text-center">3</td>
                                 <td class="text-center font-bold underline text-blue-500">
                                     <a href="#">
                                         UMD 3
@@ -401,7 +339,7 @@
                                 <td class="font-bold text-blue-600 text-center">APPROVE</td>
                             </tr>
                             <tr>
-                                <td class="py-1 px-2">4</td>
+                                <td class="py-2 px-2 text-center">4</td>
                                 <td class="text-center font-bold underline text-blue-500">
                                     <a href="#">
                                         UMD 4
@@ -413,7 +351,7 @@
                                 <td class="font-bold text-blue-900 text-center">VERIFY</td>
                             </tr>
                             <tr>
-                                <td class="py-1 px-2">5</td>
+                                <td class="py-2 px-2 text-center">5</td>
                                 <td class="text-center font-bold underline text-blue-500">
                                     <a href="#">
                                         UMD 5
@@ -425,7 +363,7 @@
                                 <td class="font-bold text-blue-900 text-center">OPEN</td>
                             </tr>
                             <tr>
-                                <td class="py-1 px-2">6</td>
+                                <td class="py-2 px-2 text-center">6</td>
                                 <td class="text-center font-bold underline text-blue-500">
                                     <a href="#">
                                         UMD 6
@@ -437,7 +375,7 @@
                                 <td class="font-bold text-green-400 text-center">CLOSED</td>
                             </tr>
                             <tr>
-                                <td class="py-1 px-2">7</td>
+                                <td class="py-2 px-2 text-center">7</td>
                                 <td class="text-center font-bold underline text-blue-500">
                                     <a href="#">
                                         UMD 7
@@ -449,7 +387,7 @@
                                 <td class="font-bold text-red-600 text-center">SP-1</td>
                             </tr>
                             <tr>
-                                <td class="py-1 px-2">8</td>
+                                <td class="py-2 px-2 text-center">8</td>
                                 <td class="text-center font-bold underline text-blue-500">
                                     <a href="#">
                                         UMD 8
@@ -461,7 +399,7 @@
                                 <td class="font-bold text-blue-600 text-center">APPROVE</td>
                             </tr>
                             <tr>
-                                <td class="py-1 px-2">9</td>
+                                <td class="py-2 px-2 text-center">9</td>
                                 <td class="text-center font-bold underline text-blue-500">
                                     <a href="#">
                                         UMD 9
@@ -480,7 +418,7 @@
         </div>
     </div>
     <!-- WBS Level -->
-    <div class="col-span-2 p-2 bg-blue-50">
+    <div class="col-span-2 p-3 bg-blue-50">
         <div>
             <h5 class="inline-block  border-blue-500 pb-1 text-2xl font-bold tracking-tight text-blue-900">
                 Worker
@@ -488,158 +426,7 @@
             <div class="h-1 w-full bg-blue-500 rounded-sm"></div>
         </div>
         <div class="overflow-x-auto mt-2 bg-white">
-            <table class="overflow-x-auto w-full table-auto text-left text-sm font-sans">
-                <thead class="text-center py-2 px-4">
-                    <tr class="bg-orange-500 text-blue-950 font-bold">
-                        <th class="">Element</th>
-                        <th class="px-2 py-2">Progress</th>
-                        <th class="px-2 py-2">Start</th>
-                        <th class="px-2 py-2">End</th>
-                        <th class="">Priority</th>
-                    </tr>
-                </thead>
-                <tbody class="text-gray-800">
-                    <!-- Awal Level Pembangunan Gedung SCKD -->
-
-                    <!-- Level 1 -->
-                    <tr>
-                        <td class="pl-1  whitespace-nowrap">1. Pembangunan Gedung SCKD</td>
-                        <td class="py-2 px-4 text-center">-</td>
-                        <td class="py-2 px-4 text-center">-</td>
-                        <td class="py-2 px-4 whitespace-nowrap px-4">-</td>
-                        <td class="py-2 px-4 text-center">-</td>
-                    </tr>
-
-                    <!-- Level 2 -->
-                    <tr>
-                        <td class="pl-4">1.1. Pekerjaan Struktur</td>
-                        <td class="text-center">-</td>
-                        <td class="text-center">-</td>
-                        <td class="whitespace-nowrap px-4">-</td>
-                        <td class="text-center">-</td>
-                    </tr>
-
-                    <!-- Level 3 -->
-                    <tr>
-                        <td class="pl-8 py-2">1.1.1. Pondasi</td>
-                        <td class="text-center">-</td>
-                        <td class="text-center">-</td>
-                        <td class="px-4 whitespace-nowrap">-</td>
-                        <td class="text-center">-</td>
-                    </tr>
-                    <!-- Level 4 -->
-                    <tr>
-                        <td class="pl-16 py-2">1.1.1.1. Tanah</td>
-                        <td class="text-center">80%</td>
-                        <td class="text-center">9 Jan 2025</td>
-                        <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
-                        <td class="text-center whitespace-nowrap text-red-500 font-bold">High</td>
-                    </tr>
-                    <tr>
-                        <td class="pl-16 py-2">1.1.1.2. Batu Kali</td>
-                        <td class="text-center">20%</td>
-                        <td class="text-center">9 Jan 2025</td>
-                        <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
-                        <td class="text-center text-orange-500 font-bold">Medium</td>
-                    </tr>
-                    <tr>
-                        <td class="pl-16 py-2">1.1.1.3. Slop</td>
-                        <td class="text-center">100%</td>
-                        <td class="text-center">9 Jan 2025</td>
-                        <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
-                        <td class="text-center text-orange-500 font-bold">Medium</td>
-                    </tr>
-
-                    <!-- Next 1.1.2 Pondasi -->
-                    <tr>
-                        <td class="pl-8 py-2">1.1.2. Pondasi</td>
-                        <td class="text-center">-</td>
-                        <td class="text-center">-</td>
-                        <td class="px-4 whitespace-nowrap">-</td>
-                        <td class="text-center">-</td>
-                    </tr>
-                    <!-- Level 3 -->
-                    <tr>
-                        <td class="pl-16 py-2">1.1.2.1. Tanah</td>
-                        <td class="text-center">80%</td>
-                        <td class="text-center">9 Jan 2025</td>
-                        <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
-                        <td class="text-center whitespace-nowrap text-red-500 font-bold">High</td>
-                    </tr>
-                    <tr>
-                        <td class="pl-16 py-2">1.1.2.2. Batu Kali</td>
-                        <td class="text-center">20%</td>
-                        <td class="text-center">9 Jan 2025</td>
-                        <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
-                        <td class="text-center text-orange-500 font-bold">Medium</td>
-                    </tr>
-                    <tr>
-                        <td class="pl-16 py-2">1.1.2.3. Slop</td>
-                        <td class="text-center">100%</td>
-                        <td class="text-center">9 Jan 2025</td>
-                        <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
-                        <td class="text-center text-green-500 font-bold">Low</td>
-                    </tr>
-
-                    <!-- Level 3 -->
-                    <tr>
-                        <td class="pl-8 py-2">1.1.3. Pondasi</td>
-                        <td class="text-center">-</td>
-                        <td class="text-center">-</td>
-                        <td class="px-4 whitespace-nowrap">-</td>
-                        <td class="text-center">-</td>
-                    </tr>
-
-                    <tr>
-                        <td class="pl-16 py-2">1.1.3.1. Tanah</td>
-                        <td class="text-center">80%</td>
-                        <td class="text-center">9 Jan 2025</td>
-                        <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
-                        <td class="text-center whitespace-nowrap text-orange-500 font-bold">Medium</td>
-                    </tr>
-                    <tr>
-                        <td class="pl-16 py-2">1.1.3.2. Batu Kali</td>
-                        <td class="text-center">20%</td>
-                        <td class="text-center">9 Jan 2025</td>
-                        <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
-                        <td class="text-center whitespace-nowrap text-orange-500 font-bold">Medium</td>
-                    </tr>
-                    <tr>
-                        <td class="pl-16 py-2">1.3.2.3. Slop</td>
-                        <td class="text-center">100%</td>
-                        <td class="text-center">9 Jan 2025</td>
-                        <td class="px-4 whitespace-nowrap">15 Jan 2025</td>
-                        <td class="text-center whitespace-nowrap text-green-500 font-bold">Low</td>
-                    </tr>
-                    <!-- Akhir dari Level 1 Pembangungan Gedung SCKD -->
-
-                    <!-- Awal dari Level 2 Pembangungan Gedung SCKD -->
-                    <!-- Level 2 -->
-                    <tr>
-                        <td class="pl-4 py-2">1.2. Pekerjaan Struktur</td>
-                        <td class="text-center">-</td>
-                        <td class="text-center">-</td>
-                        <td class="px-4 whitespace-nowrap">-</td>
-                        <td class="text-center">-</td>
-                    </tr>
-
-                    <tr>
-                        <td class="pl-8 py-2">1.2.1. Pondasi</td>
-                        <td class="text-center">-</td>
-                        <td class="text-center">-</td>
-                        <td class="px-4 whitespace-nowrap">-</td>
-                        <td class="text-center">-</td>
-                    </tr>
-
-                    <tr>
-                        <td class="pl-16 py-2">1.2.1.1. Tanah</td>
-                        <td class="text-center">10%</td>
-                        <td class="text-center">9 May 2025</td>
-                        <td class="px-4 whitespace-nowrap">15 May 2025</td>
-                        <td class="text-center whitespace-nowrap text-red-500 font-bold">High</td>
-                    </tr>
-                </tbody>
-            </table>
+            @include('components.project-detail.table-wbs')
         </div>
     </div>
 </div>

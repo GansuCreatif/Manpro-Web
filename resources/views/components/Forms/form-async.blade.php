@@ -64,7 +64,7 @@
                 <textarea id="description" name="description" placeholder="KAI Terrace Ahmad Dahlan" rows="4"
                     class="flex-1 bg-white border border-gray-300 text-sm rounded-lg p-2.5 focus:ring-blue-500 focus:border-blue-500"></textarea>
             </div>
-
+            <p id="word-count" class="text-sm text-gray-500 mt-1 ml-36">0 / 250 Words</p>
             <!-- Location -->
             <div class="flex items-center space-x-2">
                 <label for="location" class="w-32 text-sm font-medium text-gray-900">Location :</label>
@@ -102,6 +102,22 @@
             <div class="flex items-center space-x-2">
                 <label for="contract" class="w-32 text-sm font-medium text-gray-900">
                     No. Contract <span class="text-red-500">*</span> :
+                </label>
+                <input type="text" id="contract" name="contract" placeholder="XXX/XX/XXX"
+                    class="flex-1 bg-white border border-gray-300 text-sm rounded-lg p-2.5 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <!-- No SPR -->
+            <div class="flex items-center space-x-2">
+                <label for="contract" class="w-32 text-sm font-medium text-gray-900">
+                    No. SPR <span class="text-red-500">*</span> :
+                </label>
+                <input type="text" id="contract" name="contract" placeholder="XXX/XX/XXX"
+                    class="flex-1 bg-white border border-gray-300 text-sm rounded-lg p-2.5 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <!-- No  WO -->
+            <div class="flex items-center space-x-2">
+                <label for="contract" class="w-32 text-sm font-medium text-gray-900">
+                    No. WO <span class="text-red-500">*</span> :
                 </label>
                 <input type="text" id="contract" name="contract" placeholder="XXX/XX/XXX"
                     class="flex-1 bg-white border border-gray-300 text-sm rounded-lg p-2.5 focus:ring-blue-500 focus:border-blue-500">
@@ -170,4 +186,18 @@
             }
         });
     }
+</script>
+
+<script>
+    const textarea = document.getElementById('description');
+    const wordCountDisplay = document.getElementById('word-count');
+    const maxWords = 250;
+
+    textarea.addEventListener('input', () => {
+        const words = textarea.value.trim().split(/\s+/).filter(word => word.length > 0);
+        if (words.length > maxWords) {
+            textarea.value = words.slice(0, maxWords).join(' ');
+        }
+        wordCountDisplay.textContent = `${words.length} / ${maxWords} kata`;
+    });
 </script>

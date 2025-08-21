@@ -10,6 +10,8 @@
 
 <body>
 
+
+
     <!-- Navbar -->
     @include('sections.section-navbar')
 
@@ -28,7 +30,6 @@
             </main>
         </div>
     </div>
-
 </body>
 
 </html>

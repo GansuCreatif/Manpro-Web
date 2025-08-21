@@ -15,18 +15,6 @@
     </div>
 
     <div class="flex items-center gap-2">
-        <!-- Button Sinkron Data -->
-        <button type="button"
-            class="inline-flex items-center px-2.5 py-1.5 text-xs font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
-            <!-- Sync Icon (scaled down) -->
-            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                class="mr-1">
-                <path
-                    d="M14.3935 5.37371C18.0253 6.70569 19.8979 10.7522 18.5761 14.4118C17.6363 17.0135 15.335 18.7193 12.778 19.0094M12.778 19.0094L13.8253 17.2553M12.778 19.0094L14.4889 20M9.60651 18.6263C5.97465 17.2943 4.10205 13.2478 5.42394 9.58823C6.36371 6.98651 8.66504 5.28075 11.222 4.99059M11.222 4.99059L10.1747 6.74471M11.222 4.99059L9.51114 4"
-                    stroke="#F0EFF7FF" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            Sync SAP PS
-        </button>
         <!-- Export Icon -->
         <div class="flex flex-end items-center">
             Export to :
@@ -76,8 +64,7 @@
             <button type="button" class="p-1"title="Export Excel">
                 <svg width="24" height="24" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <linearGradient id="xlsxGradient" x1="0" y1="0" x2="1"
-                            y2="1">
+                        <linearGradient id="xlsxGradient" x1="0" y1="0" x2="1" y2="1">
                             <stop offset="0%" stop-color="#2E7D32" />
                             <stop offset="100%" stop-color="#388E3C" />
                         </linearGradient>
@@ -168,6 +155,10 @@
                                 </span>
                             </td>
                             <td class="px-5 py-5 flex justify-center gap-2">
+                                <a href="#"
+                                    class="p-2 bg-green-500 hover:bg-blue-600 text-white rounded whitespace-nowrap">
+                                    Cetak Invoice
+                                </a>
                                 <a href="{{ route('project-cashin-detail-awal') }}"
                                     class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
                                     Details

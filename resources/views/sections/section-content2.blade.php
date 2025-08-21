@@ -31,7 +31,7 @@
         <div class="flex flex-end items-center">
             Export to :
             <!-- Export PDF -->
-            <button type="button" class="p-1" title="Export PDF">
+            <a href="{{ route('project-report-PDF') }}" class="p-1" title="Export PDF">
                 <svg width="24" height="24" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="pdfGradient" x1="0" y1="0" x2="1" y2="1">
@@ -49,17 +49,17 @@
                     <text x="32" y="38" font-size="16" font-family="Arial" fill="white" text-anchor="middle"
                         font-weight="bold">PDF</text>
                 </svg>
-            </button>
+            </a>
 
             <!-- Export CSV -->
-            <button type="button" class="p-1" title="Export CSV">
+            <a href="{{ route('export.csv') }}" class="p-1" title="Export CSV">
                 <svg width="24" height="24" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="csvGradient" x1="0" y1="0" x2="1" y2="1">
                             <stop offset="0%" stop-color="#43A047" />
                             <stop offset="100%" stop-color="#66BB6A" />
                         </linearGradient>
-                        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                        <filter id="shadow" x=" -20%" y="-20%" width="140%" height="140%">
                             <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000"
                                 flood-opacity="0.2" />
                         </filter>
@@ -70,7 +70,7 @@
                     <text x="32" y="38" font-size="16" font-family="Arial" fill="white" text-anchor="middle"
                         font-weight="bold">CSV</text>
                 </svg>
-            </button>
+            </a>
 
             <!-- Export Excel -->
             <button type="button" class="p-1"title="Export Excel">
@@ -96,8 +96,6 @@
         </div>
     </div>
 </div>
-
-
 
 <!-- Wrapper: auto scroll di layar kecil -->
 <div class="grid grid-cols-1 xl:grid-cols-1 gap-6">
@@ -193,7 +191,7 @@
 <div class="flex flex-col md:flex-row items-center justify-between gap-3 mt-4">
     <!-- Pagination kiri -->
     <div class="order-2 md:order-1">
-        {{ $projects->appends(['perPage' => request('perPage')])->links('pagination::tailwind') }}
+        {{ $projects->appends(['perPage' => request('perPage')])->onEachSide(2)->links('pagination::tailwind') }}
     </div>
 
     <!-- Show entries kanan -->

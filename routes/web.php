@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\ApiBridgeController;
 use App\Http\Controllers\ProjectController; 
 
-
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\AuthController;
 
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
@@ -85,6 +85,15 @@ Route::get('/project-list-active', [ProjectController::class, 'activeList'])
 Route::get('/Project-Issue', function () {
     return view('project-issue');
 })->name('Project-Issue');
+
+/* Export */
+Route::get('/Project-Report-PDF', [ProjectController::class, 'exportPdf'])->name('project-report-PDF');
+Route::get('/export-csv', [ExportController::class, 'exportCsv'])->name('export.csv');
+
+
+
+
+/* Export ends */
 
 Route::get('/search-projects', function (\Illuminate\Http\Request $request) {
     $keyword = strtolower($request->query('q', ''));

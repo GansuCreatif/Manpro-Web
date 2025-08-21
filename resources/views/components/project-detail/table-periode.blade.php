@@ -31,7 +31,7 @@
                 <td>: 250 Days</td>
             </tr>
             <tr>
-                <td class="py-2">Reason</td>
+                <td class="py-2">Source</td>
                 <td>: Contract</td>
             </tr>
         </tbody>

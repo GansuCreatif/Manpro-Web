@@ -61,11 +61,13 @@
                     <option value="Logistik">Logistik</option>
                     <option value="SHE">SHE</option>
                     <option value="Consultant">Consultant</option>
+                    <option value="Consultant">Qauntity Surveyor</option>
+                    <option value="Consultant">Surveyor</option>
                 </select>
             </div>
 
             <div class="flex items-center">
-                <label class="w-40 font-medium text-gray-700">NIPPM <span class="text-red-500">*</span> :</label>
+                <label class="w-40 font-medium text-gray-700">NIPPM :</label>
                 <input type="text" id="nippm" class="w-full border rounded-md px-3 py-2" />
             </div>
 

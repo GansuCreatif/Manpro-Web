@@ -22,6 +22,14 @@
                 <td class="py-2 px-4">: {{ $project['no_spmk'] ?? '-' }}</td>
             </tr>
             <tr>
+                <td class="py-2 px-4">No. SPR</td>
+                <td class="py-2 px-4">: -</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4">No. WO</td>
+                <td class="py-2 px-4">: -</td>
+            </tr>
+            <tr>
                 <td class="py-2 px-4">No. Contract</td>
                 <td class="py-2 px-4">: {{ $project['no_contract'] ?? '-' }}</td>
             </tr>

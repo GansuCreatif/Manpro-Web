@@ -108,8 +108,15 @@
                     <option value="Other">Other</option>
                 </select>
             </div>
-        </div>
+            <!-- Date SPR -->
+            <div class="grid grid-cols-4 items-center">
+                <label class="col-span-1 text-sm font-semibold text-gray-700">Date SPR <span
+                        class="text-red-500">*</span></label>
+                <input type="text" name="date_actual" placeholder="dd/mm/yyyy"
+                    class="col-span-3 border rounded-lg p-2 focus:ring-2 focus:ring-blue-500 w-full" />
+            </div>
 
+        </div>
         <!-- Tombol Next -->
         <div class="flex justify-end mt-6">
             <button type="button" id="nextBtn"
