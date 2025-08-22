@@ -22,7 +22,6 @@ class ValidateController extends Controller
 
             // Simpan user info ke session aplikasi lokal
             session(['user' => $userData]);
-
             return redirect('/'); // masuk ke aplikasi tanpa login ulang
         }
 

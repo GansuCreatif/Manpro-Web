@@ -84,7 +84,7 @@ class ProjectController extends Controller
             ]
         );
         
-        return view('project-list', compact('projects')); // Sekarang jadi 'projects'
+        return view('views-pages.page-project-list.project-list', compact('projects')); // Sekarang jadi 'projects'
     }
     
     return back()->with('error', 'Failed to fetch projects');
@@ -129,7 +129,7 @@ class ProjectController extends Controller
             ]
         );
 
-        return view('project-list-active', compact('projects'));
+        return view('views-pages.page-project-active.project-list-active', compact('projects'));
     }
     return back()->with('error', 'Failed to fetch projects');
 }
@@ -172,7 +172,7 @@ class ProjectController extends Controller
             ]
         );
 
-        return view('project-data-sync', compact('projects'));
+        return view('views-pages.page-project-sync.project-data-sync', compact('projects'));
     }
     return back()->with('error', 'Failed to fetch projects');
 }
@@ -188,7 +188,7 @@ class ProjectController extends Controller
         'query' => $request->query(),
     ]);
 
-    return view('project-finance-cashin', compact('projects'));
+    return view('views-pages.page-project-detail.project-cashin-detail-awal', compact('projects'));
 }
 
     public function cashIn1(Request $request)
@@ -202,7 +202,7 @@ class ProjectController extends Controller
         'query' => $request->query(),
     ]);
 
-    return view('project-cashin-detail-awal', compact('projects'));
+    return view('views-pages.page-finance.Cash-In.project-finance-cashin', compact('projects'));
 }
 
     public function cashOut(Request $request)
@@ -216,7 +216,7 @@ class ProjectController extends Controller
         'query' => $request->query(),
     ]);
 
-    return view('project-finance-cashout', compact('projects'));
+    return view('views-pages.page-finance.Cash-Out.project-finance-cashout', compact('projects'));
 }
 
     public function cashOut1(Request $request)
@@ -230,7 +230,7 @@ class ProjectController extends Controller
         'query' => $request->query(),
     ]);
 
-    return view('project-cashout-detail-awal', compact('projects'));
+    return view('views-pages.page-project-detail.project-cashout-detail-awal', compact('projects'));
 }
 
     public function projectReport(Request $request)
@@ -244,7 +244,7 @@ class ProjectController extends Controller
         'query' => $request->query(),
     ]);
 
-    return view('project-report', compact('projects'));
+    return view('views-pages.page-project-report.project-report', compact('projects'));
 }
 
     
@@ -259,7 +259,7 @@ class ProjectController extends Controller
             'query' => $request->query(),
         ]);
 
-        return view('project-issue', compact('projects'));
+        return view('views-pages.page-project-issue.project-issue', compact('projects'));
     }
 
 public function detail($code)
@@ -272,7 +272,7 @@ public function detail($code)
         $project = $data;
         $wbs = $data['project_wbs'] ?? [];
 
-        return view('project-detail', compact('project', 'wbs'));
+        return view('views-pages.page-project-detail.project-detail', compact('project', 'wbs'));
     }
 
     abort(404, 'Project not found');
@@ -289,7 +289,7 @@ public function detail($code)
             'query' => $request->query(),
         ]);
 
-        return view('project-list-histori', compact('projects'));
+        return view('views-pages.page-project-list.project-list-histori', compact('projects'));
     }
     public function detailAdendum()
     {
@@ -304,7 +304,7 @@ public function detail($code)
         $projects = $this->getAllProjects();
         $project = collect($projects)->firstWhere('project_def');
 
-        return view('project-list-detail', compact('project'));
+        return view('views-pages.page-project-active.project-list-active', compact('project'));
     }
 
     public function detail3()
@@ -312,7 +312,7 @@ public function detail($code)
         $projects = $this->getAllProjects();
         $project = collect($projects)->firstWhere('project_def');
 
-        return view('project-finance-cashin-detail', compact('project'));
+        return view('views-pages.page-finance.Cash-In.project-finance-cashin-detail', compact('project'));
     }
 
 

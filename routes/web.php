@@ -22,13 +22,17 @@ Route::get('/', function () {
     return view('dashboard');
 })->name('Dashboard');
 
-Route::get('/project-list', [ProjectController::class, 'list'])->name('Project-List');
+Route::get('/Project-List', [ProjectController::class, 'list'])->name('Project-List');
 
-Route::get('/project-detail/{code?}', [ProjectController::class, 'detail'])->name('Project-Details');
-Route::get('/project-list-detail/{code}', [ProjectController::class, 'detail2'])
+Route::get('/Project-Detail/{code?}', [ProjectController::class, 'detail'])->name('Project-Details');
+Route::get('/Project-Data-Sync', [ProjectController::class, 'syncList'])
+    ->name('Project-Data-Sync');
+Route::get('/Project-List-Histori', [ProjectController::class, 'histori'])->name('Project-Histori');
+
+Route::get('/Project-List-Detail/{code}', [ProjectController::class, 'detail2'])
     ->name('Project-List-Detail');
 Route::get('/project-issue', [ProjectController::class, 'issue'])->name('Project-Issue');
-Route::get('/project-list-histori', [ProjectController::class, 'histori'])->name('Project-Histori');
+
 Route::get('/adendum', [ProjectController::class, 'detailAdendum'])->name('Adendum');
 
 Route::get('/login', function () {
@@ -36,7 +40,7 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::get('/Form-Cost', function () {
-    return view('form-cost');
+    return view('views-pages/page-form-async/form-cost');
 })->name('Form-Cost');
 
 Route::get('/Form-Time', function () {
@@ -45,47 +49,49 @@ Route::get('/Form-Time', function () {
 
 /* Khusus Sync SAP */
 Route::get('/Form-Async', function () {
-    return view('fomr-async');
+    return view('views-pages/page-form-async/fomr-async');
 })->name('Form-Async');
 Route::get('/Form-Async-Period', function () {
-    return view('fomr-async-periode');
+    return view('views-pages/page-form-async/fomr-async-periode');
 })->name('Form-Async-Period');
 Route::get('/Form-Async-Organization', function () {
-    return view('fomr-async-organization');
+    return view('views-pages/page-form-async/fomr-async-organization');
 })->name('Form-Async-Organization');
 Route::get('/Form-Async-Finance', function () {
-    return view('fomr-async-finance');
+    return view('views-pages/page-form-async/fomr-async-finance');
 })->name('Form-Async-Finance');
 Route::get('/Form-Async-Report', function () {
-    return view('fomr-async-report');
+    return view('views-pages/page-form-async/fomr-async-report');
 })->name('Form-Async-Report');
 /* Khusus Sync SAP */
-Route::get('/project-cashin-detail-awal', [ProjectController::class, 'cashIn1'])
+Route::get('/Project-CashIn-Details', [ProjectController::class, 'cashIn1'])
     ->name('project-cashin-detail-awal');
 
 Route::get('/project-cashout-detail-awal', [ProjectController::class, 'cashOut1'])
     ->name('project-cashout-detail-awal');
 
-Route::get('/project-data-sync', [ProjectController::class, 'syncList'])
-    ->name('project.data.sync');
 
-Route::get('/project-report', [ProjectController::class, 'projectReport'])
-    ->name('project.report');
+Route::get('/Project-Report', [ProjectController::class, 'projectReport'])
+    ->name('Project-Report');
 
-Route::get('/project-finance-cashin-detail', [ProjectController::class, 'detail3'])->name('Project-Finance-Cashin-Detail');
-Route::get('/project-finance-cashin', [ProjectController::class, 'cashIn'])
+Route::get('/Project-Finance-Cashin-Detail', [ProjectController::class, 'detail3'])->name('Project-Finance-Cashin-Detail');
+Route::get('/Project-Finance-Cashin', [ProjectController::class, 'cashIn'])
     ->name('project.finance.cashin');
-Route::get('/project-finance-cashout', [ProjectController::class, 'cashOut'])
+Route::get('/Project-Finance-Cashout', [ProjectController::class, 'cashOut'])
     ->name('project-finance-cashout');
 
 Route::get('/project-list-detail', [ProjectController::class, 'detail2'])->name('Project-List-Detail');
 
-Route::get('/project-list-active', [ProjectController::class, 'activeList'])
+Route::get('/Project-List-Active', [ProjectController::class, 'activeList'])
     ->name('Project-List-Active');
 
 Route::get('/Project-Issue', function () {
-    return view('project-issue');
+    return view('views-pages.page-project-issue.project-issue');
 })->name('Project-Issue');
+
+Route::get('/Project-Report-Detail', function () {
+    return view('views-pages.page-project-report.project-report-detail');
+})->name('Project-Report-Detail');
 
 /* Export */
 Route::get('/Project-Report-PDF', [ProjectController::class, 'exportPdf'])->name('project-report-PDF');

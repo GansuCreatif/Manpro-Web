@@ -9,9 +9,6 @@
 </head>
 
 <body>
-
-
-
     <!-- Navbar -->
     @include('sections.section-navbar')
 
@@ -24,7 +21,7 @@
 
             <main id="main-content" class="flex-1 p-6">
                 <h1 class="text-blue-900 mb-5 pt-2 text-3xl">Project Active</h1>
-                @include('sections.section-content-list-active')
+                @include('sections.section-project-active.section-content-project-list-active')
                 <!-- Footer -->
                 @include('sections.section-footer')
             </main>

@@ -15,6 +15,25 @@
                         clip-rule="evenodd" />
                 </svg>
             </button>
+            <!-- Judul Halaman -->
+            @php
+                $titles = [
+                    'dashboard' => 'Dashboard',
+                    'Project-List' => 'Project List / Project Active',
+                    'Project-Data-Sync' => 'Project List / Project Sync',
+                    'Project-Histori' => 'Project List / Project History',
+                    'project.report' => 'Project Report',
+                    'Project-Issue' => 'Project Issue',
+                    'project.finance.cashin' => 'Project Finance / Cash In',
+                    'project-finance-cashout' => 'Project Finance / Cash Out',
+                    'Project-List-Active' => 'Project List / Project Active',
+                    'Project-Details' => 'Project List / Project Active / Details',
+                ];
+                $pageTitle = $titles[Route::currentRouteName()] ?? 'Dashboard';
+            @endphp
+            <h1 class="text-xs  text-gray-300">
+                {{ $pageTitle }}
+            </h1>
         </div>
 
         <!-- Kanan -->

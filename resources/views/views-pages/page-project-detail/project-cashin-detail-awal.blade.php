@@ -8,7 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
+<body class="bg-gray-50">
 
     <!-- Navbar -->
     @include('sections.section-navbar')
@@ -21,14 +21,13 @@
         <div id="main-wrapper" class="flex-1 flex flex-col transition-all duration-300 ml-64">
 
             <main id="main-content" class="flex-1 p-6">
-                <h1 class="text-blue-900 mb-5 pt-2 text-3xl">Project History</h1>
-                @include('sections.section-content-histori')
+                <h1 class="text-blue-900 mb-5 pt-2 text-3xl">Details Cash In</h1>
+                @include('sections.section-project-cashin.section-content2-cashin')
                 <!-- Footer -->
                 @include('sections.section-footer')
             </main>
         </div>
     </div>
-
 </body>
 
 </html>

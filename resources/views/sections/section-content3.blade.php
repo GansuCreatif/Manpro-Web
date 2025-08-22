@@ -48,20 +48,20 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="text-center">1</td>
-                                <td class="text-center">Cost</td>
-                                <td class="px-1">Rp.2.455.305.900</td>
-                                <td class="px-1">Rp.2.600.000.000</td>
-                                <td class="text-center text-green-500">Approve</td>
-                                <td class="text-center">Penambahan Pekerjaan..</td>
+                                <td class="px-2 py-2 text-center">1</td>
+                                <td class="px-2 py-2 text-center">Cost</td>
+                                <td class="px-2 py-2">Rp.2.455.305.900</td>
+                                <td class="px-2 py-2">Rp.2.600.000.000</td>
+                                <td class="px-2 py-2 text-center text-green-500">Approve</td>
+                                <td class="px-2 py-2 text-center">Penambahan Pekerjaan..</td>
                             </tr>
                             <tr class="bg-blue-50">
-                                <td class="text-center">2</td>
-                                <td class="text-center">Time</td>
-                                <td class="text-center">15 Juni 2025</td>
-                                <td class="text-center">30 Juni 2025</td>
-                                <td class="text-center text-green-500">Approve</td>
-                                <td class="text-center">Penambahan Pekerjaan..</td>
+                                <td class="px-2 py-2 text-center">2</td>
+                                <td class="px-2 py-2 text-center">Time</td>
+                                <td class="px-2 py-2 text-center">15 Juni 2025</td>
+                                <td class="px-2 py-2 text-center">30 Juni 2025</td>
+                                <td class="px-2 py-2 text-center text-green-500">Approve</td>
+                                <td class="px-2 py-2 text-center">Penambahan Pekerjaan..</td>
                             </tr>
                         </tbody>
                     </table>

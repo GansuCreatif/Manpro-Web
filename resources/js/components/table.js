@@ -1,5 +1,5 @@
 // Table Sorting
-let sortDirection = {};
+const sortDirection = {};
 
 export function initTableSort(tableId) {
     const table = document.getElementById(tableId);
@@ -10,18 +10,21 @@ export function initTableSort(tableId) {
         header.addEventListener("click", () => {
             const columnIndex = parseInt(header.dataset.column);
             const rows = Array.from(table.tBodies[0].rows);
+
             const isAsc = (sortDirection[columnIndex] =
                 !sortDirection[columnIndex]);
 
             rows.sort((a, b) => {
                 const valA = a.cells[columnIndex].innerText.trim();
                 const valB = b.cells[columnIndex].innerText.trim();
-                const parsedA = isNaN(valA)
+
+                const parsedA = isNaN(valA.replace(/[^0-9.-]+/g, ""))
                     ? valA.toLowerCase()
-                    : parseFloat(valA);
-                const parsedB = isNaN(valB)
+                    : parseFloat(valA.replace(/[^0-9.-]+/g, ""));
+                const parsedB = isNaN(valB.replace(/[^0-9.-]+/g, ""))
                     ? valB.toLowerCase()
-                    : parseFloat(valB);
+                    : parseFloat(valB.replace(/[^0-9.-]+/g, ""));
+
                 return isAsc
                     ? parsedA > parsedB
                         ? 1
@@ -32,6 +35,12 @@ export function initTableSort(tableId) {
             });
 
             rows.forEach((row) => table.tBodies[0].appendChild(row));
+
+            // indikator
+            headers.forEach(
+                (h) => (h.innerHTML = h.innerText.replace(/[🔼🔽]/g, ""))
+            );
+            header.innerHTML = header.innerText + (isAsc ? " 🔼" : " 🔽");
         });
     });
 }

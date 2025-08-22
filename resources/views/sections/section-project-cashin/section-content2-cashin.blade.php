@@ -85,6 +85,7 @@
 </div>
 
 
+
 <!-- Wrapper: auto scroll di layar kecil -->
 <div class="grid grid-cols-1 xl:grid-cols-1 gap-6">
     <!-- Scrollable Table Container -->
@@ -93,33 +94,35 @@
             <table class="min-w-full text-xs text-left text-black">
                 <thead class="text-blue-900 uppercase bg-blue-50 text-center">
                     <tr class="border-b-[3px] border-blue-700">
-                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(0)">No
-                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(1)">Code 🔽
+                        <th class="px-2 py-2 text-center cursor-pointer" onclick="sortTable(0)">No</th>
+                        <th class="px-2 py-2 text-center cursor-pointer" onclick="sortTable(1)">Code 🔽
                         </th>
-                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(2)">
-                            Description 🔽
+                        <th class="px-2 py-2 text-center cursor-pointer whitespace-nowrap" onclick="sortTable(2)">
+                            Description🔽</th>
+                        <th class="px-2 py-2 text-center cursor-pointer whitespace-nowrap" onclick="sortTable(3)">
+                            Location🔽</th>
+                        <th class="px-2 py-2 text-center cursor-pointer whitespace-nowrap" onclick="sortTable(4)">
+                            Unit🔽
                         </th>
-                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(3)">Location
-                            🔽</th>
-                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(4)">Unit 🔽
-                        </th>
-                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(5)">Project
+                        <th class="px-2 py-2 text-center cursor-pointer whitespace-nowrap" onclick="sortTable(5)">
+                            Project
                             Manager🔽</th>
-                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(6)">Project
-                            Value 🔽
-                        </th>
-                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(7)">Project
-                            Owner 🔽
-                        </th>
-                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(8)">Start
-                            Date 🔽
-                        </th>
-                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(9)">Finish
-                            Date 🔽
-                        </th>
-                        <th class="py-2 px-4 cursor-pointer whitespace-nowrap" onclick="sortTable(10)">Status
+                        <th class="px-2 py-2 text-center cursor-pointer whitespace-nowrap" onclick="sortTable(6)">
+                            Project
+                            Value🔽</th>
+                        <th class="px-2 py-2 text-center cursor-pointer whitespace-nowrap" onclick="sortTable(7)">
+                            Project
+                            Owner🔽</th>
+                        <th class="px-2 py-2 text-center cursor-pointer whitespace-nowrap" onclick="sortTable(8)">
+                            Start
+                            Date🔽</th>
+                        <th class="px-2 py-2 text-center cursor-pointer whitespace-nowrap" onclick="sortTable(9)">
+                            Finish
+                            Date🔽</th>
+                        <th class="px-2 py-2 text-center cursor-pointer whitespace-nowrap" onclick="sortTable(10)">
+                            Status
                             🔽</th>
-                        <th class="px-4 py-2 text-center">Action</th>
+                        <th class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody id="projectTable">
@@ -127,23 +130,36 @@
                         <tr
                             class="text-center {{ $index % 2 == 0 ? 'bg-white hover:bg-white' : 'bg-blue-50 hover:bg-blue-50' }}">
                             <td>{{ $projects->firstItem() + $index }}</td>
-                            <td class="">{{ $project['project_def'] }}</td>
-                            <td class="whitespace-nowrap">{{ $project['project_desc'] }}</td>
-                            <td>{{ $project['project_location'] }}</td>
-                            <td>{{ $project['project_profile']['unit_desc'] ?? '-' }}</td>
-                            <td>{{ $project['project_responsible']['name'] ?? '-' }}</td>
-                            <td>
-                                Rp.
-                                {{ number_format((int) str_replace(',', '', $project['contract_value']), 0, ',', '.') }}
+                            <td class="px-3 py-2 whitespace-nowrap">{{ $project['project_def'] }}</td>
+                            <td class="px-3 py-2 whitespace-nowrap">{{ $project['project_desc'] }}</td>
+                            <td class="px-3 py-2">{{ $project['project_location'] }}</td>
+                            <td class="px-3 py-2">{{ $project['project_profile']['unit_desc'] ?? '-' }}</td>
+                            <td class="px-3 py-2">{{ $project['project_responsible']['name'] ?? '-' }}</td>
+                            <td class="px-3 py-2 whitespace-nowrap">
+                                Rp
+                                {{ $formatted_value = number_format((int) str_replace(',', '', $project['contract_value']), 0, ',', '.') }}
                             </td>
-                            <td>{{ $project['project_owner'] }}</td>
-                            <td class="whitespace-nowrap">
-                                {{ \Carbon\Carbon::parse($project['start_date'])->translatedFormat('d F Y') }}</td>
-                            <td class="whitespace-nowrap">
-                                {{ \Carbon\Carbon::parse($project['end_date'])->translatedFormat('d F Y') }}</td>
-                            <td class="px-2 py-3 text-blue-600 font-bold">Sync SAP</td>
+                            <td class="px-3 py-2">
+                                {{ $project['project_owner'] }}
+                            </td>
+                            <td class="px-3 py-2 whitespace-nowrap">
+                                {{ \Carbon\Carbon::parse($project['start_date'])->translatedFormat('d F Y') }}
+                            </td>
+                            <td class="px-3 py-2 whitespace-nowrap">
+                                {{ \Carbon\Carbon::parse($project['end_date'])->translatedFormat('d F Y') }}
+                            </td>
+                            <td class="px-3 py-2 font-bold">
+                                @php $statusInfo = projectStatus($project['status']); @endphp
+                                <span class="{{ $statusInfo['text'] }}">
+                                    {{ $statusInfo['label'] }}
+                                </span>
+                            </td>
                             <td class="px-5 py-5 flex justify-center gap-2">
-                                <a href="{{ route('Form-Async', ['code' => $project['project_def']]) }}"
+                                <a href="#"
+                                    class="p-2 bg-green-500 hover:bg-blue-600 text-white rounded whitespace-nowrap">
+                                    Edit
+                                </a>
+                                <a href="{{ route('project-cashin-detail-awal') }}"
                                     class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
                                     Details
                                 </a>
@@ -159,30 +175,26 @@
         </div>
     </div>
 </div>
-<div class="">
-    <!-- Pagination + Show entries -->
-    <div class="flex flex-col md:flex-row items-center justify-between gap-3 mt-4">
-        <!-- Pagination kiri -->
-        <div class="order-2 md:order-1">
-            {{ $projects->appends(['perPage' => request('perPage')])->links('pagination::tailwind') }}
-        </div>
-        <!-- Show entries kanan -->
-        <div class="order-1 md:order-2 flex items-center gap-2 text-sm text-gray-700">
-            <form method="GET" action="" class="flex items-center gap-2" id="perPageForm">
-                <label for="perPage" class="whitespace-nowrap">Show entries</label>
-                <select id="perPage" name="perPage" class="border rounded px-2 py-1 text-sm w-15">
-                    <option value="5" {{ request('perPage') == 5 ? 'selected' : '' }}>5</option>
-                    <option value="10" {{ request('perPage') == 10 ? 'selected' : '' }}>10
-                    </option>
-                    <option value="25" {{ request('perPage') == 25 ? 'selected' : '' }}>25
-                    </option>
-                    <option value="50" {{ request('perPage') == 50 ? 'selected' : '' }}>50
-                    </option>
-                    <option value="100" {{ request('perPage') == 100 ? 'selected' : '' }}>100
-                    </option>
-                </select>
-            </form>
-        </div>
+
+<!-- Pagination + Show entries -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-3 mt-4">
+    <!-- Pagination kiri -->
+    <div class="order-2 md:order-1">
+        {{ $projects->appends(['perPage' => request('perPage')])->links('pagination::tailwind') }}
+    </div>
+
+    <!-- Show entries kanan -->
+    <div class="order-1 md:order-2 flex items-center gap-2 text-sm text-gray-700">
+        <form method="GET" action="" class="flex items-center gap-2" id="perPageForm">
+            <label for="perPage" class="whitespace-nowrap">Show entries</label>
+            <select id="perPage" name="perPage" class="border rounded px-2 py-1 text-sm w-15">
+                <option value="5" {{ request('perPage') == 5 ? 'selected' : '' }}>5</option>
+                <option value="10" {{ request('perPage') == 10 ? 'selected' : '' }}>10</option>
+                <option value="25" {{ request('perPage') == 25 ? 'selected' : '' }}>25</option>
+                <option value="50" {{ request('perPage') == 50 ? 'selected' : '' }}>50</option>
+                <option value="100" {{ request('perPage') == 100 ? 'selected' : '' }}>100</option>
+            </select>
+        </form>
     </div>
 </div>
 
@@ -210,7 +222,7 @@
     }
 </script>
 <script>
-    document.getElementById("extraSmallSearch").addEventListener("input", function() {
+    document.getElementById("tableSearch").addEventListener("input", function() {
         const searchValue = this.value.toLowerCase();
         const rows = document.querySelectorAll("#projectTable tr");
 
@@ -220,6 +232,7 @@
         });
     });
 </script>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

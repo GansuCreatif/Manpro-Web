@@ -15,19 +15,6 @@
     </div>
 
     <div class="flex items-center gap-2">
-        <!-- Button Sinkron Data -->
-        {{-- 
-<button type="button" hidden
-    class="inline-flex items-center px-2.5 py-1.5 text-xs font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
-    <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-        class="mr-1">
-        <path
-            d="M14.3935 5.37371C18.0253 6.70569 19.8979 10.7522 18.5761 14.4118C17.6363 17.0135 15.335 18.7193 12.778 19.0094M12.778 19.0094L13.8253 17.2553M12.778 19.0094L14.4889 20M9.60651 18.6263C5.97465 17.2943 4.10205 13.2478 5.42394 9.58823C6.36371 6.98651 8.66504 5.28075 11.222 4.99059M11.222 4.99059L10.1747 6.74471M11.222 4.99059L9.51114 4"
-            stroke="#F0EFF7FF" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-    Sync SAP PS
-</button>
---}}
         <!-- Export Icon -->
         <div class="flex flex-end items-center">
             Export to :
@@ -124,366 +111,7 @@
             </thead>
 
             <tbody id="projectTable">
-                <tr>
-                    <td class="text-center">1</td>
-                    <td class="text-center">Week 1</td>
-                    <td class="text-center">2 January 2025</td>
-                    <td class="text-center">4 January 2025</td>
-                    <td class="text-center">4</td>
-                    <td class="text-center">2.55</td>
-                    <td class="text-center">2.75</td>
-                    <td class="text-center font-bold text-blue-400">Fast</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">2</td>
-                    <td class="text-center">Week 2</td>
-                    <td class="text-center">5 January 2025</td>
-                    <td class="text-center">11 January 2025</td>
-                    <td class="text-center">3</td>
-                    <td class="text-center">4.24</td>
-                    <td class="text-center">4.24</td>
-                    <td class="text-center text-green-400 font-bold">On Time</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">3</td>
-                    <td class="text-center">Week 3</td>
-                    <td class="text-center">12 January 2025</td>
-                    <td class="text-center">18 January 2025</td>
-                    <td class="text-center">2</td>
-                    <td class="text-center">6.75</td>
-                    <td class="text-center">6.75</td>
-                    <td class="text-center text-green-400 font-bold">On Time</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">4</td>
-                    <td class="text-center">Week 4</td>
-                    <td class="text-center">19 January 2025</td>
-                    <td class="text-center">26 January 2025</td>
-                    <td class="text-center">1</td>
-                    <td class="text-center">9.3</td>
-                    <td class="text-center">9.3</td>
-                    <td class="text-center text-green-400 font-bold">On Time</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">5</td>
-                    <td class="text-center">Week 5</td>
-                    <td class="text-center">26 January 2025</td>
-                    <td class="text-center">1 February 2025</td>
-                    <td class="text-center">3</td>
-                    <td class="text-center">11.2</td>
-                    <td class="text-center">11.2</td>
-                    <td class="text-center text-green-400 font-bold">On Time</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">6</td>
-                    <td class="text-center">Week 6</td>
-                    <td class="text-center">2 February 2025</td>
-                    <td class="text-center">8 February 2025</td>
-                    <td class="text-center">2</td>
-                    <td class="text-center">14</td>
-                    <td class="text-center">14</td>
-                    <td class="text-center text-green-400 font-bold">On Time</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">7</td>
-                    <td class="text-center">Week 7</td>
-                    <td class="text-center">9 February 2025</td>
-                    <td class="text-center">15 February 2025</td>
-                    <td class="text-center">1</td>
-                    <td class="text-center">15.2</td>
-                    <td class="text-center">15.2</td>
-                    <td class="text-center font-bold text-green-400">On Time</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">8</td>
-                    <td class="text-center">Week 8</td>
-                    <td class="text-center">16 February 2025</td>
-                    <td class="text-center">22 February 2025</td>
-                    <td class="text-center">4</td>
-                    <td class="text-center">17.1</td>
-                    <td class="text-center">17.1</td>
-                    <td class="text-center text-green-400 font-bold">On Time</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">9</td>
-                    <td class="text-center">Week 9</td>
-                    <td class="text-center">23 February 2025</td>
-                    <td class="text-center">1 March 2025</td>
-                    <td class="text-center">5</td>
-                    <td class="text-center">18.31</td>
-                    <td class="text-center">18.31</td>
-                    <td class="text-center text-green-400 font-bold">On Time</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">10</td>
-                    <td class="text-center">Week 10</td>
-                    <td class="text-center">2 March 2025</td>
-                    <td class="text-center">8 March 2025</td>
-                    <td class="text-center">3</td>
-                    <td class="text-center">18.98</td>
-                    <td class="text-center">18.98</td>
-                    <td class="text-center text-green-400 font-bold">On Time</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">11</td>
-                    <td class="text-center">Week 11</td>
-                    <td class="text-center">9 March 2025</td>
-                    <td class="text-center">15 March 2025</td>
-                    <td class="text-center">2</td>
-                    <td class="text-center">19.5</td>
-                    <td class="text-center">19.5</td>
-                    <td class="text-center text-green-400 font-bold">On Time</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">12</td>
-                    <td class="text-center">Week 12</td>
-                    <td class="text-center">16 March 2025</td>
-                    <td class="text-center">22 March 2025</td>
-                    <td class="text-center">2</td>
-                    <td class="text-center">20.89</td>
-                    <td class="text-center">20.89</td>
-                    <td class="text-center text-green-400 font-bold">On Time</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">13</td>
-                    <td class="text-center">Week 13</td>
-                    <td class="text-center">23 March 2025</td>
-                    <td class="text-center">29 March 2025</td>
-                    <td class="text-center">3</td>
-                    <td class="text-center">21.76</td>
-                    <td class="text-center">21.76</td>
-                    <td class="text-center text-green-400 font-bold">On Time</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">14</td>
-                    <td class="text-center">Week 14</td>
-                    <td class="text-center">30 March 2025</td>
-                    <td class="text-center">5 April 2025</td>
-                    <td class="text-center">2</td>
-                    <td class="text-center">23.1</td>
-                    <td class="text-center">23.5</td>
-                    <td class="text-center text-blue-400 font-bold">Fast</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">15</td>
-                    <td class="text-center">Week 15</td>
-                    <td class="text-center">6 April 2025</td>
-                    <td class="text-center">12 April 2025</td>
-                    <td class="text-center">3</td>
-                    <td class="text-center">24.8</td>
-                    <td class="text-center">24.8</td>
-                    <td class="text-center text-green-400 font-bold">On Time</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">16</td>
-                    <td class="text-center">Week 16</td>
-                    <td class="text-center">13 April 2025</td>
-                    <td class="text-center">19 April 2025</td>
-                    <td class="text-center">2</td>
-                    <td class="text-center">26.3</td>
-                    <td class="text-center">25.9</td>
-                    <td class="text-center text-red-400 font-bold">Late</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">17</td>
-                    <td class="text-center">Week 17</td>
-                    <td class="text-center">20 April 2025</td>
-                    <td class="text-center">26 April 2025</td>
-                    <td class="text-center">4</td>
-                    <td class="text-center">28.7</td>
-                    <td class="text-center">28.7</td>
-                    <td class="text-center text-green-400 font-bold">On Time</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">18</td>
-                    <td class="text-center">Week 18</td>
-                    <td class="text-center">27 April 2025</td>
-                    <td class="text-center">3 May 2025</td>
-                    <td class="text-center">3</td>
-                    <td class="text-center">30.5</td>
-                    <td class="text-center">30.9</td>
-                    <td class="text-center text-blue-400 font-bold">Fast</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">19</td>
-                    <td class="text-center">Week 19</td>
-                    <td class="text-center">4 May 2025</td>
-                    <td class="text-center">10 May 2025</td>
-                    <td class="text-center">2</td>
-                    <td class="text-center">32.1</td>
-                    <td class="text-center">32.1</td>
-                    <td class="text-center text-green-400 font-bold">On Time</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">20</td>
-                    <td class="text-center">Week 20</td>
-                    <td class="text-center">11 May 2025</td>
-                    <td class="text-center">17 May 2025</td>
-                    <td class="text-center">1</td>
-                    <td class="text-center">33.2</td>
-                    <td class="text-center">33.2</td>
-                    <td class="text-center text-green-400 font-bold">On Time</td>
-                    <td class="px-5 py-5 flex justify-center gap-2">
-                        <a href="#" class="p-2 bg-green-500 hover:bg-green-600 text-white rounded">
-                            Edit
-                        </a>
-                        <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
-                            Details
-                        </a>
-                    </td>
-                </tr>
+
             </tbody>
         </table>
     </div>
@@ -540,12 +168,6 @@
             </select>
         </div>
     </div>
-</div>
-</div>
-
-
-</div>
-</div>
 </div>
 </div>
 
@@ -806,8 +428,15 @@
                         </td>
                         <td class=" px-3 py-2">
                             <div class="flex justify-center gap-2">
-                                <button class="px-3 py-1 bg-green-500 hover:bg-green-600 text-white text-sm rounded">Edit</button>
-                                <button class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white text-sm rounded">Details</button>
+                                <button 
+                                class="px-3 py-1 bg-green-500 hover:bg-green-600 text-white text-sm rounded">
+                                    Edit
+                                </button>
+                                <button class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white text-sm rounded">
+                                    <a href="{{ route('Project-Report-Detail') }}">
+                                    Details
+                                    </a>
+                                </button>
                             </div>
                         </td>
                     </tr>
@@ -897,6 +526,7 @@
     createPageButtons();
     updateNavigationButtons();
 </script>
+
 
 <script>
     let sortDirection = {}; // Simpan arah sort per kolom

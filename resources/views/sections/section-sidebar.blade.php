@@ -34,7 +34,7 @@
         <li>
             <button type="button"
                 class="flex items-center w-full p-2 text-white rounded-lg transition
-        {{ request()->routeIs('Project-List*') || request()->routeIs('project.data.sync') || request()->routeIs('Project-Histori') ? 'bg-gray-700' : 'bg-blue-500' }}"
+        {{ request()->routeIs('Project-List*') || request()->routeIs('Project.Data.Sync') || request()->routeIs('Project-Histori') ? 'bg-gray-700' : 'bg-blue-500' }}"
                 data-collapse-toggle="project-list-submenu">
 
                 <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -49,11 +49,11 @@
             </button>
 
             <ul id="project-list-submenu"
-                class="space-y-1 pl-8 mt-2 {{ request()->routeIs('Project-List*') || request()->routeIs('project.data.sync') || request()->routeIs('Project-Histori') ? '' : 'hidden' }}">
+                class="space-y-1 pl-8 mt-2 {{ request()->routeIs('Project-List*') || request()->routeIs('Project-Data-Sync') || request()->routeIs('Project-Histori') ? '' : 'hidden' }}">
 
                 <!-- Submenu Project Active -->
                 <li>
-                    <a href="{{ route('Project-List', ['id' => 1]) }}"
+                    <a href="{{ route('Project-List') }}"
                         class="submenu block px-4 py-2 rounded transition
                {{ request()->routeIs('Project-List*') ? 'bg-gray-700 text-white' : 'bg-blue-500 hover:bg-gray-700' }}">
                         Project Active
@@ -62,9 +62,9 @@
 
                 <!-- Submenu Project Sync -->
                 <li>
-                    <a href="{{ route('project.data.sync') }}"
+                    <a href="{{ route('Project-Data-Sync') }}"
                         class="submenu block px-4 py-2 rounded transition
-               {{ request()->routeIs('project.data.sync') ? 'bg-gray-700 text-white' : 'bg-blue-500 hover:bg-gray-700' }}">
+               {{ request()->routeIs('Project-Data-Sync') ? 'bg-gray-700 text-white' : 'bg-blue-500 hover:bg-gray-700' }}">
                         Project Sync
                     </a>
                 </li>
@@ -83,9 +83,9 @@
 
         <!-- Project Report -->
         <li>
-            <a href="{{ route('project.report') }}"
+            <a href="{{ route('Project-Report') }}"
                 class="flex items-center w-full p-2 text-white rounded-lg transition
-       {{ request()->routeIs('project.report') ? 'bg-gray-700' : 'bg-blue-500 hover:bg-gray-700' }}">
+       {{ request()->routeIs('Project-Report') ? 'bg-gray-700' : 'bg-blue-500 hover:bg-gray-700' }}">
                 <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M10 3v4a1 1 0 0 1-1 1H5m4 8h6m-6-4h6m4-8v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z" />

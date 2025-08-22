@@ -8,7 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-gray-50">
+<body>
 
     <!-- Navbar -->
     @include('sections.section-navbar')
@@ -19,10 +19,9 @@
     <!-- Main layout -->
     <div class="flex pt-16 min-h-screen">
         <div id="main-wrapper" class="flex-1 flex flex-col transition-all duration-300 ml-64">
-
             <main id="main-content" class="flex-1 p-6">
-                <h1 class="text-blue-900 mb-5 pt-2 text-3xl">Details Cash Out</h1>
-                @include('sections.section-content-cashout')
+                <h1 class="text-blue-900 mb-5 pt-2 text-3xl">Project Report Issue</h1>
+                @include('sections.section-project-issue.section-content-report-issue')
                 <!-- Footer -->
                 @include('sections.section-footer')
             </main>
