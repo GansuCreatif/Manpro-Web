@@ -261,7 +261,11 @@
                         <td class="px-3 py-2">
                             <div class="flex justify-center gap-2">
                                 <button class="px-3 py-1 bg-green-500 hover:bg-green-600 text-white text-sm rounded">Edit</button>
-                                <button class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white text-sm rounded">Details</button>
+                                <button class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white text-sm rounded">
+                                <a href="{{ route('Project-Issue-Detail') }}">
+                                    Details
+                                    </a>
+                                </button>
                             </div>
                         </td>
                     </tr>

@@ -93,6 +93,10 @@ Route::get('/Project-Report-Detail', function () {
     return view('views-pages.page-project-report.project-report-detail');
 })->name('Project-Report-Detail');
 
+Route::get('/Project-Issue-Detail', function () {
+    return view('views-pages.page-project-issue.project-issue-detail');
+})->name('Project-Issue-Detail');
+
 /* Export */
 Route::get('/Project-Report-PDF', [ProjectController::class, 'exportPdf'])->name('project-report-PDF');
 Route::get('/export-csv', [ExportController::class, 'exportCsv'])->name('export.csv');

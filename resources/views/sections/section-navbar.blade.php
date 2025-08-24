@@ -22,12 +22,22 @@
                     'Project-List' => 'Project List / Project Active',
                     'Project-Data-Sync' => 'Project List / Project Sync',
                     'Project-Histori' => 'Project List / Project History',
-                    'project.report' => 'Project Report',
+                    'Project-Report' => 'Project Report',
                     'Project-Issue' => 'Project Issue',
                     'project.finance.cashin' => 'Project Finance / Cash In',
                     'project-finance-cashout' => 'Project Finance / Cash Out',
                     'Project-List-Active' => 'Project List / Project Active',
                     'Project-Details' => 'Project List / Project Active / Details',
+                    'Form-Async' => 'Project List / Project Sync / Form-Async',
+                    'Form-Async-Period' => 'Project List / Project Sync / Form-Async-Period',
+                    'Form-Async-Organization' => 'Project List / Project Sync / Form-Async-Organization',
+                    'Form-Async-Finance' => 'Project List / Project Sync / Form-Async-Finance',
+                    'Form-Async-Report' => 'Project List / Project Sync / Form-Async-Report',
+                    'Project-Report-Detail' => 'Project Report / Details',
+                    'Project-Issue-Detail' => 'Project Issue / Details',
+                    'project-cashin-detail-awal' => 'Project Finance / Cash In / Details',
+                    'Project-Finance-Cashin-Detail' => 'Project Finance / Cashi In / Details',
+                    'project-cashout-detail-awal' => 'Project Finance / Cash Out / Details',
                 ];
                 $pageTitle = $titles[Route::currentRouteName()] ?? 'Dashboard';
             @endphp

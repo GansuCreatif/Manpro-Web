@@ -77,9 +77,9 @@
     <div class="mt-10">
         <h2 class="text-lg font-semibold text-gray-700 mb-4">Komentar Mingguan</h2>
         <div class="bg-white shadow rounded p-4 space-y-2">
-            <p class="text-sm text-gray-600">📌 “Progress minggu ini lebih cepat dari rencana. Tim backend bekerja
+            <p class="text-sm text-gray-600">📌 “Progress minggu ini lebih cepat dari rencana. Tim bekerja
                 efisien.”</p>
-            <p class="text-sm text-gray-600">📌 “Perlu review ulang API untuk validasi data.”</p>
+            <p class="text-sm text-gray-600">📌 “Perlu review ulang perihal pekerjaan tersebut.”</p>
         </div>
     </div>
 
